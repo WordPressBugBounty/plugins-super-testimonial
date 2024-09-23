@@ -1,0 +1,44 @@
+/* 
+  Super Testimonail Admin CSS
+  Author : Themepoints
+  Vesrsion : 3.0.4
+ */
+
+#tp_testimonials_shortcode_title {
+  border-bottom: 1px solid #dddddd;
+  color: #777777;
+  font-weight: normal;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 20px 20px 0;
+}
+#tp_testimonials_shortcode_para {
+  color: #777777;
+  margin: 0 20px 20px 0;
+}
+.testimonials_btn_area a {
+    border: 1px solid #ddd;
+    padding: 10px 10px;
+    background: #0F6FA7;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+    color: #fffdfd;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.testimonials_btn_area {
+    display: block;
+    overflow: hidden;
+}
+td.clientratings.column-clientratings i {
+    color: #ffa900;
+    padding: 0px 3px;
+    font-size: 15px;
+}
+tr.type-ktsprotype.status-pending, 
+tr.type-ktsprotype.status-draft {
+    background: #ffeeee;
+}

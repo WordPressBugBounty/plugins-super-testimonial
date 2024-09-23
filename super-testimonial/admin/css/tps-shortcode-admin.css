@@ -1,0 +1,363 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.tupsetings {
+  margin: 20px 0;
+}
+.tupsetings .option-box {
+  margin: 10px 0;
+  padding: 10px;
+}
+.tupsetings .option-box .option-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.tupsetings .option-box .option-info {
+  color: rgb(153, 153, 153);
+  font-size: 13px;
+  font-weight: normal;
+  margin: 10px 0;
+}
+.tupsetings ul.tab-nav {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+.tupsetings ul.tab-nav li {
+  background: none repeat scroll 0 0 rgb(230, 230, 230);
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 15px 20px;
+}
+.tupsetings ul.tab-nav li.active {
+  background: #0073aa;
+  font-weight: bold;
+  color: #fff;
+}
+.tupsetings ul.box {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+.tupsetings ul.box li.tab-box {
+  background: rgb(255, 255, 255) none repeat scroll 0 0;
+  display: none;
+  margin: 0;
+  width: 100%;
+}
+.tupsetings h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+.tupsetings .option-box table.form-table ul li {
+    display: inline-block !important;
+    overflow: hidden !important;
+    padding: 8px 10px !important;
+    background: #ddd !important;
+    margin-right: 5px !important;
+    line-height: 15px !important;
+    margin-bottom: 5px !important;
+}
+.tupsetings .option-box table.form-table ul li input[type="checkbox"]::before {
+    background: #000;
+    box-shadow: none;
+    border-radius: 0;
+}
+.tupsetings .option-box table.form-table ul li label {
+    font-size: 15px;
+    line-height: 15px;
+    text-transform: capitalize;
+}
+
+@media all and (max-width: 799px) {
+  .tupsetings ul.tab-nav li {
+    display: block;
+    float: none;
+  }
+  .tupsetings ul.tab-nav li.active {
+    font-weight: bold;
+  }
+}
+
+.left_side {
+    display: block;
+    float: left;
+    overflow: hidden;
+    width: 68%;
+}
+.left_side_input {
+    display: block;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+}
+.right_side {
+    display: block;
+    float: right;
+    overflow: hidden;
+    width: 30%;
+}
+.inside > div {
+    display: block;
+    overflow: hidden;
+}
+#meta_inner > div {
+    display: block;
+    overflow: hidden;
+}
+.team_manager_fr {
+  border: 1px solid #ddd;
+  display: block;
+  margin-bottom: 8px;
+  overflow: hidden;
+  padding: 5px;
+}
+.team_manager_fr:hover {
+  border-bottom: 1px solid #32a5dc;
+  cursor: move;
+}
+.single_items {
+  display: block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  width: 50%;
+}
+.single_items_inp {
+  display: block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  width: 31%;
+}
+.left_side div.single_description {
+  margin-bottom: 10px;
+}
+.client_name {
+  padding: 3px;
+  text-align: center;
+}
+.client_thumb {
+    display: block;
+    height: 200px;
+    overflow: hidden;
+    width: 247px;
+}
+.client_thumb > img {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+	transition: all 0.6s ease-in 0s;
+}
+.client_thumb img:hover {
+  opacity: 0.6;
+  transition: all 0.6s ease-in-out 0s;
+}
+
+
+/* Tabs CSS  */
+.tabs-menu {
+  display: block;
+  overflow: hidden;
+}
+.tabs-menu li {
+  background-color: #32a5dc;
+  border-left: 1px solid #d4d4d1;
+  border-right: 1px solid #d4d4d1;
+  border-top: 1px solid #d4d4d1;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+}
+.tabs-menu li.current {
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    z-index: 5;
+}
+.tabs-menu li a {
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none; 
+}
+.tabs-menu .current a {
+    color: #2e7da3;
+}
+.tab {
+  background-color: #fff;
+}
+.tab-content {
+    display: none;
+}
+#tab-1 {
+ display: block;   
+}
+.tabs-menu li a:focus {
+  box-shadow: none;
+  outline: medium none;
+}
+.tabs-menu li a i {
+  margin-right: 7px;
+}
+
+/* Table Design */
+.tab-content table.form-table tr {
+  border-top: 1px solid #ececec;
+}
+.tab-content table.form-table tr:hover {
+  background: #efefef none repeat scroll 0 0;
+  border-bottom: 1px solid #32a5dc;
+  transition: all 0.5s ease 0s;
+}
+.tpstestimonial_manager_hint {
+  display: block;
+  font-size: 14px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+.tpstestimonial_manager_hint.toss {
+    color: #999;
+    font-weight: 400;
+}
+.tpstestimonial_manager_hint a {
+    color: #0073aa;
+}
+
+/* Support & doc page css */
+/*.testimoinal-pro-features {
+    display: block;
+    overflow: hidden;
+}
+.support-items {
+    border: 2px solid #ddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    padding: 15px 10px;
+    text-align: center;
+    width: 300px;
+    height: 135px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.support-items .support-title {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 27px;
+}
+.support-items .support-details {
+    color: #6e6e6e;
+    font-weight: 600;
+}
+.support-link a.button-1 {
+    box-shadow: none;
+    color: red;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 23px;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0 8px;
+    text-decoration: none;
+}
+.support-link a {
+    text-decoration: none;
+    outline: none;
+    color: red;
+}*/
+
+/* CSS for toggle switch */
+.switch-field {
+  display: flex;
+  overflow: hidden;
+}
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+.switch-field label {
+  position: relative;
+  background-color: #e4e4e4;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 20px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.switch-field label span.mark {
+    position: absolute;
+    top: -2px;
+    background: red;
+    color: #fff;
+    padding: 2px;
+    right: -1px;
+    font-size: 10px;
+    border-radius: 0px;
+}
+.switch-field label:hover {
+  cursor: pointer;
+}
+.switch-field input:checked + label {
+  background-color: #0073aa;
+  color: #fff;
+  box-shadow: none;
+}
+.switch-field label:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+.switch-field label:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+td.position {
+  position: relative;
+}
+td.position label {
+  position: absolute;
+  top: 45px;
+}
+td.position input.timezone_string {
+    width: 60px;
+}
+.auto_play .slider {
+  margin-bottom: 8px;
+}
+.auto_play .slider:hover {
+  opacity: 1;
+}
+input#myRange {
+    width: 200px;
+}
+
+.tupsetings.post-grid-metabox ul.box table.form-table ul li {
+    display: inline-block;
+    overflow: hidden;
+    padding: 8px 10px;
+    background: #ddd;
+    margin-right: 5px;
+    line-height: 15px;
+    margin-bottom: 5px;
+}
+.tupsetings.post-grid-metabox ul.box table.form-table ul li label {
+    font-size: 15px;
+    line-height: 15px;
+    text-transform: capitalize;
+}
+.tupsetings.post-grid-metabox ul.box table.form-table ul li input[type="checkbox"]::before {
+    background: #000;
+    box-shadow: none;
+    border-radius: 0;
+}
