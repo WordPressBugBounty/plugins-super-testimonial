@@ -4,12 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// Function to add submenu page under Testimonia
 function tps_super_testimonials_add_submenu_items() {
 	add_submenu_page( 'edit.php?post_type=ktsprotype', __( 'Generate Shortcode', 'ktsttestimonialpro' ), __( 'Generate Shortcode', 'ktsttestimonialpro' ), 'manage_options', 'post-new.php?post_type=tptscode' );
 }
 add_action( 'admin_menu', 'tps_super_testimonials_add_submenu_items' );
 
-
+// Function to register the custom post type 'tptscode' for Shortcode generation
 function ps_super_testimonials_shortcode_generator_type() {
 	// Set UI labels for Custom Post Type
 	$labels = array(
@@ -33,27 +34,29 @@ function ps_super_testimonials_shortcode_generator_type() {
 		'label'               => __( 'Testimonial Shortcode', 'ktsttestimonialpro' ),
 		'description'         => __( 'Shortcode news and reviews', 'ktsttestimonialpro' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title' ),
-		'hierarchical'        => false,
+		'supports'            => array( 'title' ), // Only title is needed
+		'hierarchical'        => false, // This post type doesn't need hierarchy (no parent-child posts)
 		'public'              => true,
 		'show_ui'             => true,
-		'show_in_menu' 		  => 'edit.php?post_type=ktsprotype',
+		'show_in_menu' 		  => 'edit.php?post_type=ktsprotype', // Show under the existing Testimonials menu
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 5, // Position in the admin menu
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'     => 'page', // Uses the same capabilities as pages
 	);
-	// Registering your Custom Post Type
+
+	// Registering the custom post type for the shortcode generator
 	register_post_type( 'tptscode', $args );
 }
 add_action( 'init', 'ps_super_testimonials_shortcode_generator_type' );	
 
-
+// Adding custom columns to display the shortcode in the admin post list
 function tps_super_testimonials_shortcode_clmn( $columns ) {
+	// Merge the existing columns with the new ones for Shortcode and Template Shortcode
 	return array_merge( $columns, 
 	    array( 
 	  		'shortcode' 	=> __( 'Shortcode', 'ktsttestimonialpro' ),
@@ -63,7 +66,7 @@ function tps_super_testimonials_shortcode_clmn( $columns ) {
 }
 add_filter( 'manage_tptscode_posts_columns' , 'tps_super_testimonials_shortcode_clmn' );
 
-
+// Display content for the custom columns in the post list
 function tps_super_testimonials_shortcode_clmn_display( $tpcp_column, $post_id ) {
 	if ( $tpcp_column == 'shortcode' ) { ?>
 	<input style="background:#ddd" type="text" onClick="this.select();" value="[tptpro <?php echo 'id=&quot;'.$post_id.'&quot;';?>]" />
@@ -77,15 +80,17 @@ function tps_super_testimonials_shortcode_clmn_display( $tpcp_column, $post_id )
 add_action( 'manage_tptscode_posts_custom_column' , 'tps_super_testimonials_shortcode_clmn_display', 10, 2 );
 
 
-// Register Testimonial Meta Box
+// Register meta box for the 'tptscode' custom post type
 function tp_testimonial_shortcode_register_meta_boxes() {
-	$attend = array( 'tptscode' );
+	$attend = array( 'tptscode' ); // Define post types where this meta box will appear
+
+	// Add the meta box
     add_meta_box( 
-        'custom_meta_box_id',
-        __( 'Testimonial Settings', 'ktsttestimonialpro' ),
-        'tp_testimonials_display_post_type_func',
-       	$attend,
-        'normal'
+        'custom_meta_box_id', // Meta box ID
+        __( 'Testimonial Settings', 'ktsttestimonialpro' ), // Meta box title
+        'tp_testimonials_display_post_type_func', // Callback function that displays the meta box content
+       	$attend, // The post types for which the meta box is added
+        'normal' // The part of the page where the meta box should be displayed (normal, side, advanced)
     );
 }
 add_action( 'add_meta_boxes', 'tp_testimonial_shortcode_register_meta_boxes' );
@@ -194,7 +199,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 		$getNavValue = "";
 		if ( ! empty( $nav_value ) ) { $getNavValue = $nav_value; } else { $getNavValue = 1; }
 		?>
-		<input type="hidden" name="nav_value" id="nav_value" value="<?php echo $getNavValue; ?>">
+		<input type="hidden" name="nav_value" id="nav_value" value="<?php echo esc_attr( $getNavValue ); ?>">
 
 		<ul class="box">
 			<!-- Tab 1 -->
@@ -282,7 +287,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 										<option value="29" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '29' ); ?>><?php _e( 'Theme 29(List - Pro)', 'ktsttestimonialpro' );?></option>
 										<option value="30" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '30' ); ?>><?php _e( 'Theme 30(List - Pro)', 'ktsttestimonialpro' );?></option>
 									</select>
-									<span class="tpstestimonial_manager_hint">To unlock all Testimonial Themes, <a href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank">Upgrade To Pro!</a></span>
+									<span class="tpstestimonial_manager_hint"><?php _e( 'To unlock all Testimonial Themes,', 'ktsttestimonialpro' ); ?> <a href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank"><?php _e( 'Upgrade To Pro!', 'ktsttestimonialpro' ); ?></a></span>
 								</td>
 							</tr><!-- End Testimonial Themes -->
 
@@ -297,7 +302,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 										<option value="2" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '2' ); ?>><?php _e( 'Normal Grid ( Pro )', 'ktsttestimonialpro' );?></option>
 										<option value="3" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '3' ); ?>><?php _e( 'Filter Grid ( Pro )', 'ktsttestimonialpro' );?></option>
 									</select>
-									<span class="tpstestimonial_manager_hint">To unlock all Testimonial Layouts, <a href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank">Upgrade To Pro!</a>.</span>
+									<span class="tpstestimonial_manager_hint"><?php echo __( 'To unlock all Testimonial Layouts,', 'ktsttestimonialpro' ) . ' '; ?> <a href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank"><?php _e( 'Upgrade To Pro!', 'ktsttestimonialpro' ); ?></a>.</span>
 								</td>
 							</tr>
 
@@ -835,7 +840,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="item_no"><?php _e( 'Loop', 'ktsttestimonialpro' );?></label>
+									<label for="loop"><?php _e( 'Loop', 'ktsttestimonialpro' );?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Choose an option whether you want to loop the sliders.', 'ktsttestimonialpro' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
@@ -1164,352 +1169,421 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 # Data save in custom metabox field
 function tp_testimonial_meta_box_save_func( $post_id ) {
 
-	# Doing autosave then return.
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-		return;
+	// Doing autosave then return.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
 
-	#Checks for input and saves if needed
-	if ( isset( $_POST[ 'testimonial_cat_name' ] ) ) {
-	    update_post_meta( $post_id, 'testimonial_cat_name', $_POST['testimonial_cat_name'] );
-	}
-	else {
-    	delete_post_meta( $post_id, 'testimonial_cat_name' );
-  	}
-	
-	#Checks for input and saves if needed
+    // Check if current user has permission to edit the post
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+
+    // Sanitize and Save 'testimonial_cat_name' (multiple checkbox values)
+    if ( isset( $_POST['testimonial_cat_name'] ) ) {
+        $testimonial_cat_name = array_map( 'sanitize_text_field', $_POST['testimonial_cat_name'] );
+        update_post_meta( $post_id, 'testimonial_cat_name', $testimonial_cat_name );
+    } else {
+        delete_post_meta( $post_id, 'testimonial_cat_name' );
+    }
+
+	// Sanitize and save 'tp_name_color_option' field (hex color or text)
 	if ( isset( $_POST[ 'tp_name_color_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_name_color_option', $_POST['tp_name_color_option'] );
+		$tp_name_color_option = sanitize_hex_color( $_POST['tp_name_color_option'] );
+		update_post_meta( $post_id, 'tp_name_color_option', $tp_name_color_option );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_designation_color_option' field
 	if ( isset( $_POST[ 'tp_designation_color_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_designation_color_option', $_POST['tp_designation_color_option'] );
+		$tp_designation_color_option = sanitize_hex_color( $_POST['tp_designation_color_option'] );
+		update_post_meta( $post_id, 'tp_designation_color_option', $tp_designation_color_option );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_testimonial_themes' field
 	if ( isset( $_POST[ 'tp_testimonial_themes' ] ) ) {
-	    update_post_meta( $post_id, 'tp_testimonial_themes', $_POST['tp_testimonial_themes'] );
+		$tp_testimonial_themes = sanitize_text_field( $_POST['tp_testimonial_themes'] );
+		update_post_meta( $post_id, 'tp_testimonial_themes', $tp_testimonial_themes );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_testimonial_theme_style' field
 	if ( isset( $_POST[ 'tp_testimonial_theme_style' ] ) ) {
-	    update_post_meta( $post_id, 'tp_testimonial_theme_style', $_POST['tp_testimonial_theme_style'] );
+		$tp_testimonial_theme_style = sanitize_text_field( $_POST['tp_testimonial_theme_style'] );
+		update_post_meta( $post_id, 'tp_testimonial_theme_style', $tp_testimonial_theme_style );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_testimonial_textalign' field
 	if ( isset( $_POST[ 'tp_testimonial_textalign' ] ) ) {
-	    update_post_meta( $post_id, 'tp_testimonial_textalign', $_POST['tp_testimonial_textalign'] );
+		$tp_testimonial_textalign = sanitize_text_field( $_POST['tp_testimonial_textalign'] );
+		update_post_meta( $post_id, 'tp_testimonial_textalign', $tp_testimonial_textalign );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_order_by_option' field
 	if ( isset( $_POST[ 'tp_order_by_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_order_by_option', $_POST[ 'tp_order_by_option' ] );
+		$tp_order_by_option = sanitize_text_field( $_POST['tp_order_by_option'] );
+		update_post_meta( $post_id, 'tp_order_by_option', $tp_order_by_option );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_order_option' field
 	if ( isset( $_POST[ 'tp_order_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_order_option', $_POST[ 'tp_order_option' ] );
+		$tp_order_option = sanitize_text_field( $_POST['tp_order_option'] );
+		update_post_meta( $post_id, 'tp_order_option', $tp_order_option );
 	}
 
-
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_image_sizes' field
 	if ( isset( $_POST[ 'tp_image_sizes' ] ) ) {
-	    update_post_meta( $post_id, 'tp_image_sizes', $_POST[ 'tp_image_sizes' ] );
+		$tp_image_sizes = sanitize_text_field( $_POST['tp_image_sizes'] );
+		update_post_meta( $post_id, 'tp_image_sizes', $tp_image_sizes );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'dpstotoal_items' field (assuming it's an integer)
 	if ( isset( $_POST[ 'dpstotoal_items' ] ) ) {
-	    update_post_meta( $post_id, 'dpstotoal_items', $_POST[ 'dpstotoal_items' ] );
+		$dpstotoal_items = intval( $_POST['dpstotoal_items'] );
+		update_post_meta( $post_id, 'dpstotoal_items', $dpstotoal_items );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_img_show_hide' field (assuming it's a boolean or integer flag)
 	if ( isset( $_POST[ 'tp_img_show_hide' ] ) ) {
-	    update_post_meta( $post_id, 'tp_img_show_hide', $_POST[ 'tp_img_show_hide' ] );
+		$tp_img_show_hide = sanitize_text_field( $_POST['tp_img_show_hide'] );
+		update_post_meta( $post_id, 'tp_img_show_hide', $tp_img_show_hide );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_img_border_radius' field (assuming it's a numeric value)
 	if ( isset( $_POST[ 'tp_img_border_radius' ] ) ) {
-	    update_post_meta( $post_id, 'tp_img_border_radius', $_POST[ 'tp_img_border_radius' ] );
+		$tp_img_border_radius = sanitize_text_field( $_POST['tp_img_border_radius'] );
+		update_post_meta( $post_id, 'tp_img_border_radius', $tp_img_border_radius );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_imgborder_width_option' field
 	if ( isset( $_POST[ 'tp_imgborder_width_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_imgborder_width_option', $_POST[ 'tp_imgborder_width_option' ] );
+		$tp_imgborder_width_option = intval( $_POST['tp_imgborder_width_option'] );
+		update_post_meta( $post_id, 'tp_imgborder_width_option', $tp_imgborder_width_option );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_imgborder_color_option' field
 	if ( isset( $_POST[ 'tp_imgborder_color_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_imgborder_color_option', $_POST[ 'tp_imgborder_color_option' ] );
+		$tp_imgborder_color_option = sanitize_hex_color( $_POST['tp_imgborder_color_option'] );
+		update_post_meta( $post_id, 'tp_imgborder_color_option', $tp_imgborder_color_option );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_designation_show_hide' field
 	if ( isset( $_POST[ 'tp_designation_show_hide' ] ) ) {
-	    update_post_meta( $post_id, 'tp_designation_show_hide', $_POST[ 'tp_designation_show_hide' ] );
+		$tp_designation_show_hide = sanitize_text_field( $_POST['tp_designation_show_hide'] );
+		update_post_meta( $post_id, 'tp_designation_show_hide', $tp_designation_show_hide );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_company_show_hide' field
 	if ( isset( $_POST[ 'tp_company_show_hide' ] ) ) {
-	    update_post_meta( $post_id, 'tp_company_show_hide', $_POST[ 'tp_company_show_hide' ] );
+		$tp_company_show_hide = sanitize_text_field( $_POST['tp_company_show_hide'] );
+		update_post_meta( $post_id, 'tp_company_show_hide', $tp_company_show_hide );
 	}
-	
-	#Checks for input and saves if needed
+
+	// Sanitize and save 'tp_company_url_color' field
 	if ( isset( $_POST[ 'tp_company_url_color' ] ) ) {
-	    update_post_meta( $post_id, 'tp_company_url_color', $_POST[ 'tp_company_url_color' ] );
-	}
-	
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_name_fontsize_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_name_fontsize_option', esc_html( $_POST['tp_name_fontsize_option'] ) );
+		$tp_company_url_color = sanitize_hex_color( $_POST['tp_company_url_color'] );
+		update_post_meta( $post_id, 'tp_company_url_color', $tp_company_url_color );
 	}
 
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_name_font_case' ] ) ) {
-	    update_post_meta( $post_id, 'tp_name_font_case', esc_html( $_POST['tp_name_font_case'] ) );
+	// Sanitize and save 'tp_name_fontsize_option' field
+	if ( isset( $_POST['tp_name_fontsize_option'] ) ) {
+	    $tp_name_fontsize_option = intval( $_POST['tp_name_fontsize_option'] );
+	    update_post_meta( $post_id, 'tp_name_fontsize_option', $tp_name_fontsize_option );
 	}
 
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_name_font_style' ] ) ) {
-	    update_post_meta( $post_id, 'tp_name_font_style', esc_html( $_POST['tp_name_font_style'] ) );
+	// Sanitize and save 'tp_name_font_case' field
+	if ( isset( $_POST['tp_name_font_case'] ) ) {
+	    $tp_name_font_case = sanitize_text_field( $_POST['tp_name_font_case'] );
+	    update_post_meta( $post_id, 'tp_name_font_case', $tp_name_font_case );
 	}
 
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_designation_case' ] ) ) {
-	    update_post_meta( $post_id, 'tp_designation_case', esc_html( $_POST['tp_designation_case'] ) );
+	// Sanitize and save 'tp_name_font_style' field
+	if ( isset( $_POST['tp_name_font_style'] ) ) {
+	    $tp_name_font_style = sanitize_text_field( $_POST['tp_name_font_style'] );
+	    update_post_meta( $post_id, 'tp_name_font_style', $tp_name_font_style );
 	}
 
-	#Checks for input and saves
+	// Sanitize and save 'tp_designation_case' field
+	if ( isset( $_POST['tp_designation_case'] ) ) {
+	    $tp_designation_case = sanitize_text_field( $_POST['tp_designation_case'] );
+	    update_post_meta( $post_id, 'tp_designation_case', $tp_designation_case );
+	}
+
+	// Sanitize and save 'tp_designation_font_style' field
 	if ( isset( $_POST[ 'tp_designation_font_style' ] ) ) {
-	    update_post_meta( $post_id, 'tp_designation_font_style', esc_html( $_POST['tp_designation_font_style'] ) );
+	    $tp_designation_font_style = sanitize_text_field( $_POST['tp_designation_font_style'] );
+	    update_post_meta( $post_id, 'tp_designation_font_style', $tp_designation_font_style );
 	}
-	
-	#Checks for input and saves
+
+	// Sanitize and save 'tp_desig_fontsize_option' field
 	if ( isset( $_POST[ 'tp_desig_fontsize_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_desig_fontsize_option', esc_html( $_POST['tp_desig_fontsize_option'] ) );
+	    $tp_desig_fontsize_option = intval( $_POST['tp_desig_fontsize_option'] );
+	    update_post_meta( $post_id, 'tp_desig_fontsize_option', $tp_desig_fontsize_option );
 	}
-	
-	#Checks for input and saves
+
+	// Sanitize and save 'tp_content_fontsize_option' field
 	if ( isset( $_POST[ 'tp_content_fontsize_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_content_fontsize_option', esc_html( $_POST['tp_content_fontsize_option'] ) );
+	    $tp_content_fontsize_option = intval( $_POST['tp_content_fontsize_option'] );
+	    update_post_meta( $post_id, 'tp_content_fontsize_option', $tp_content_fontsize_option );
 	}
-	
-	#Checks for input and saves
+
+	// Sanitize and save 'tp_content_bg_color' field
 	if ( isset( $_POST[ 'tp_content_bg_color' ] ) ) {
-	    update_post_meta( $post_id, 'tp_content_bg_color', esc_html( $_POST['tp_content_bg_color'] ) );
+	    $tp_content_bg_color = sanitize_hex_color( $_POST['tp_content_bg_color'] );
+	    update_post_meta( $post_id, 'tp_content_bg_color', $tp_content_bg_color );
 	}
-	
-	#Checks for input and saves
+
+	// Sanitize and save 'tp_rating_fontsize_option' field
 	if ( isset( $_POST[ 'tp_rating_fontsize_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_rating_fontsize_option', esc_html( $_POST['tp_rating_fontsize_option'] ) );
+	    $tp_rating_fontsize_option = intval( $_POST['tp_rating_fontsize_option'] );
+	    update_post_meta( $post_id, 'tp_rating_fontsize_option', $tp_rating_fontsize_option );
 	}
-	
-	#Checks for input and saves
+
+	// Sanitize and save 'tp_content_color' field
 	if ( isset( $_POST[ 'tp_content_color' ] ) ) {
-	    update_post_meta( $post_id, 'tp_content_color', esc_html( $_POST['tp_content_color'] ) );
+	    $tp_content_color = sanitize_hex_color( $_POST['tp_content_color'] );
+	    update_post_meta( $post_id, 'tp_content_color', $tp_content_color );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_show_rating_option' field
 	if ( isset( $_POST[ 'tp_show_rating_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_show_rating_option', $_POST[ 'tp_show_rating_option' ] );
+		$tp_show_rating_option = intval( $_POST[ 'tp_show_rating_option' ] );
+		update_post_meta( $post_id, 'tp_show_rating_option', $tp_show_rating_option );
 	}
 
-	#Checks for input and saves if needed
+	// Sanitize and save 'tp_show_item_bg_option' field
 	if ( isset( $_POST[ 'tp_show_item_bg_option' ] ) ) {
-	    update_post_meta( $post_id, 'tp_show_item_bg_option', $_POST[ 'tp_show_item_bg_option' ] );
+		$tp_show_item_bg_option = sanitize_text_field( $_POST['tp_show_item_bg_option'] );
+		update_post_meta( $post_id, 'tp_show_item_bg_option', $tp_show_item_bg_option );
 	}
 
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_rating_color' ] ) ) {
-	    update_post_meta( $post_id, 'tp_rating_color', esc_html( $_POST['tp_rating_color'] ) );
+	// Sanitize and save 'tp_rating_color' field
+	if ( isset( $_POST['tp_rating_color'] ) ) {
+	    $tp_rating_color = sanitize_hex_color( $_POST['tp_rating_color'] );
+	    update_post_meta( $post_id, 'tp_rating_color', $tp_rating_color );
 	}
 
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_item_bg_color' ] ) ) {
-	    update_post_meta( $post_id, 'tp_item_bg_color', esc_html( $_POST['tp_item_bg_color'] ) );
+	// Sanitize and save 'tp_item_bg_color' field
+	if ( isset( $_POST['tp_item_bg_color'] ) ) {
+	    $tp_item_bg_color = sanitize_hex_color( $_POST['tp_item_bg_color'] );
+	    update_post_meta( $post_id, 'tp_item_bg_color', $tp_item_bg_color );
 	}
-	#Checks for input and saves
-	if ( isset( $_POST[ 'tp_item_padding' ] ) ) {
-	    update_post_meta( $post_id, 'tp_item_padding', esc_html( $_POST['tp_item_padding'] ) );
+
+	// Sanitize and save 'tp_item_padding' field
+	if ( isset( $_POST['tp_item_padding'] ) ) {
+	    $tp_item_padding = sanitize_text_field( $_POST['tp_item_padding'] );
+	    update_post_meta( $post_id, 'tp_item_padding', $tp_item_padding );
 	}
 
     // Carousal Settings
 
 	#Checks for input and sanitizes/saves if needed
-    if ( isset( $_POST['item_no'] ) && ( $_POST['item_no'] != '' ) ) {
-        update_post_meta( $post_id, 'item_no', esc_html( $_POST['item_no'] ) );
-    }
+	if ( isset( $_POST['item_no'] ) && !empty( $_POST['item_no'] ) ) {
+	    $item_no = sanitize_text_field( $_POST['item_no'] );
+	    update_post_meta( $post_id, 'item_no', $item_no );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['loop'] ) && ( $_POST['loop'] != '' ) ) {
-        update_post_meta( $post_id, 'loop', esc_html( $_POST['loop'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['loop'] ) && !empty( $_POST['loop'] ) ) {
+	    $loop = sanitize_text_field( $_POST['loop'] );
+	    update_post_meta( $post_id, 'loop', $loop );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['margin'] ) ) {
-    	//print_r($_POST['margin']);die();
-    	update_post_meta( $post_id, 'margin', $_POST['margin'] );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['margin'] ) ) {
+	    $margin = sanitize_text_field( $_POST['margin'] ); // Assuming margin is a text field
+	    update_post_meta( $post_id, 'margin', $margin );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['navigation'] ) && ( $_POST['navigation'] != '' ) ) {
-        update_post_meta( $post_id, 'navigation', esc_html( $_POST['navigation'] ) );
-    }
-	
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['navigation_align'] ) && ( $_POST['navigation_align'] != '' ) ) {
-        update_post_meta( $post_id, 'navigation_align', esc_html( $_POST['navigation_align'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['navigation'] ) && !empty( $_POST['navigation'] ) ) {
+	    $navigation = sanitize_text_field( $_POST['navigation'] );
+	    update_post_meta( $post_id, 'navigation', $navigation );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['navigation_style'] ) && ( $_POST['navigation_style'] != '' ) ) {
-        update_post_meta( $post_id, 'navigation_style', esc_html( $_POST['navigation_style'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['navigation_align'] ) && !empty( $_POST['navigation_align'] ) ) {
+	    $navigation_align = sanitize_text_field( $_POST['navigation_align'] );
+	    update_post_meta( $post_id, 'navigation_align', $navigation_align );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['pagination'] ) && ( $_POST['pagination'] != '' ) ) {
-        update_post_meta( $post_id, 'pagination', esc_html( $_POST['pagination'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['navigation_style'] ) && !empty( $_POST['navigation_style'] ) ) {
+	    $navigation_style = sanitize_text_field( $_POST['navigation_style'] );
+	    update_post_meta( $post_id, 'navigation_style', $navigation_style );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['pagination_align'] ) && ( $_POST['pagination_align'] != '' ) ) {
-        update_post_meta( $post_id, 'pagination_align', esc_html( $_POST['pagination_align'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['pagination'] ) && !empty( $_POST['pagination'] ) ) {
+	    $pagination = sanitize_text_field( $_POST['pagination'] );
+	    update_post_meta( $post_id, 'pagination', $pagination );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['pagination_style'] ) && ( $_POST['pagination_style'] != '' ) ) {
-        update_post_meta( $post_id, 'pagination_style', esc_html( $_POST['pagination_style'] ) );
-    }  
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['pagination_align'] ) && !empty( $_POST['pagination_align'] ) ) {
+	    $pagination_align = sanitize_text_field( $_POST['pagination_align'] );
+	    update_post_meta( $post_id, 'pagination_align', $pagination_align );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['grid_normal_column'] ) && ( $_POST['grid_normal_column'] != '' ) ) {
-        update_post_meta( $post_id, 'grid_normal_column', esc_html( $_POST['grid_normal_column'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['pagination_style'] ) && !empty( $_POST['pagination_style'] ) ) {
+	    $pagination_style = sanitize_text_field( $_POST['pagination_style'] );
+	    update_post_meta( $post_id, 'pagination_style', $pagination_style );
+	}  
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_styles'] ) && ( $_POST['filter_menu_styles'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_styles', esc_html( $_POST['filter_menu_styles'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['grid_normal_column'] ) && !empty( $_POST['grid_normal_column'] ) ) {
+	    $grid_normal_column = sanitize_text_field( $_POST['grid_normal_column'] );
+	    update_post_meta( $post_id, 'grid_normal_column', $grid_normal_column );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_alignment'] ) && ( $_POST['filter_menu_alignment'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_alignment', esc_html( $_POST['filter_menu_alignment'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_styles'] ) && !empty( $_POST['filter_menu_styles'] ) ) {
+	    $filter_menu_styles = sanitize_text_field( $_POST['filter_menu_styles'] );
+	    update_post_meta( $post_id, 'filter_menu_styles', $filter_menu_styles );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_bg_color'] ) && ( $_POST['filter_menu_bg_color'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_bg_color', esc_html( $_POST['filter_menu_bg_color'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_alignment'] ) && !empty( $_POST['filter_menu_alignment'] ) ) {
+	    $filter_menu_alignment = sanitize_text_field( $_POST['filter_menu_alignment'] );
+	    update_post_meta( $post_id, 'filter_menu_alignment', $filter_menu_alignment );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_bg_color_hover'] ) && ( $_POST['filter_menu_bg_color_hover'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_bg_color_hover', esc_html( $_POST['filter_menu_bg_color_hover'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_bg_color'] ) && !empty( $_POST['filter_menu_bg_color'] ) ) {
+	    $filter_menu_bg_color = sanitize_hex_color( $_POST['filter_menu_bg_color'] );
+	    update_post_meta( $post_id, 'filter_menu_bg_color', $filter_menu_bg_color );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_bg_color_active'] ) && ( $_POST['filter_menu_bg_color_active'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_bg_color_active', esc_html( $_POST['filter_menu_bg_color_active'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_bg_color_hover'] ) && !empty( $_POST['filter_menu_bg_color_hover'] ) ) {
+	    $filter_menu_bg_color_hover = sanitize_hex_color( $_POST['filter_menu_bg_color_hover'] );
+	    update_post_meta( $post_id, 'filter_menu_bg_color_hover', $filter_menu_bg_color_hover );
+	} 
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_font_color'] ) && ( $_POST['filter_menu_font_color'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_font_color', esc_html( $_POST['filter_menu_font_color'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_bg_color_active'] ) && !empty( $_POST['filter_menu_bg_color_active'] ) ) {
+	    $filter_menu_bg_color_active = sanitize_hex_color( $_POST['filter_menu_bg_color_active'] );
+	    update_post_meta( $post_id, 'filter_menu_bg_color_active', $filter_menu_bg_color_active );
+	} 
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_font_color_hover'] ) && ( $_POST['filter_menu_font_color_hover'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_font_color_hover', esc_html( $_POST['filter_menu_font_color_hover'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_font_color'] ) && !empty( $_POST['filter_menu_font_color'] ) ) {
+	    $filter_menu_font_color = sanitize_hex_color( $_POST['filter_menu_font_color'] );
+	    update_post_meta( $post_id, 'filter_menu_font_color', $filter_menu_font_color );
+	} 
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['filter_menu_font_color_active'] ) && ( $_POST['filter_menu_font_color_active'] != '' ) ) {
-        update_post_meta( $post_id, 'filter_menu_font_color_active', esc_html( $_POST['filter_menu_font_color_active'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_font_color_hover'] ) && !empty( $_POST['filter_menu_font_color_hover'] ) ) {
+	    $filter_menu_font_color_hover = sanitize_hex_color( $_POST['filter_menu_font_color_hover'] );
+	    update_post_meta( $post_id, 'filter_menu_font_color_hover', $filter_menu_font_color_hover );
+	} 
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['pagination_bg_color'] ) && ( $_POST['pagination_bg_color'] != '' ) ) {
-        update_post_meta( $post_id, 'pagination_bg_color', esc_html( $_POST['pagination_bg_color'] ) );
-    } 
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['filter_menu_font_color_active'] ) && !empty( $_POST['filter_menu_font_color_active'] ) ) {
+	    $filter_menu_font_color_active = sanitize_hex_color( $_POST['filter_menu_font_color_active'] );
+	    update_post_meta( $post_id, 'filter_menu_font_color_active', $filter_menu_font_color_active );
+	} 
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['pagination_bg_color_active'] ) && ( $_POST['pagination_bg_color_active'] != '' ) ) {
-        update_post_meta( $post_id, 'pagination_bg_color_active', esc_html( $_POST['pagination_bg_color_active'] ) );
-    }    
-    
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['autoplay'] ) && ( $_POST['autoplay'] != '' ) ) {
-        update_post_meta( $post_id, 'autoplay', esc_html( $_POST['autoplay'] ) );
-    }
-    
- 	#Checks for input and sanitizes/saves if needed    
-    if ( ! empty( $_POST['autoplay_speed'] ) ) {
-    	if (strlen( $_POST['autoplay_speed'] ) > 4 ) {
-    		
-    	} else {
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['pagination_bg_color'] ) && !empty( $_POST['pagination_bg_color'] ) ) {
+	    $pagination_bg_color = sanitize_hex_color( $_POST['pagination_bg_color'] );
+	    update_post_meta( $post_id, 'pagination_bg_color', $pagination_bg_color );
+	} 
 
-    		if ( $_POST['autoplay_speed'] == '' || is_null( $_POST['autoplay_speed'] ) ) {
-    			
-    			update_post_meta( $post_id, 'autoplay_speed', 700 );
-    		}
-    		else{
-	    		if ( is_numeric( $_POST['autoplay_speed'] ) && strlen( $_POST['autoplay_speed'] ) <= 4 ) {
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['pagination_bg_color_active'] ) && !empty( $_POST['pagination_bg_color_active'] ) ) {
+	    $pagination_bg_color_active = sanitize_hex_color( $_POST['pagination_bg_color_active'] );
+	    update_post_meta( $post_id, 'pagination_bg_color_active', $pagination_bg_color_active );
+	}
+	    
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['autoplay'] ) && ( $_POST['autoplay'] != '' ) ) {
+	    $autoplay = sanitize_text_field( $_POST['autoplay'] ); // Sanitize autoplay input
+	    update_post_meta( $post_id, 'autoplay', $autoplay );
+	}
 
-	    			update_post_meta( $post_id, 'autoplay_speed', esc_html( $_POST['autoplay_speed'] ) );
+	#Checks for input and sanitizes/saves if needed    
+	if ( ! empty( $_POST['autoplay_speed'] ) ) {
+	    $autoplay_speed = sanitize_text_field( $_POST['autoplay_speed'] ); // Sanitize autoplay speed input
 
-	    		}
-    		}
-    	}
-    }
+	    if ( strlen( $autoplay_speed ) > 4 ) {
+	        // Handle cases where length is more than 4 if needed
+	        // You may want to log this or handle it differently based on requirements
+	    } else {
+	        if ( $autoplay_speed == '' || is_null( $autoplay_speed ) ) {
+	            // Default value if input is empty or null
+	            update_post_meta( $post_id, 'autoplay_speed', 700 );
+	        } else {
+	            if ( is_numeric( $autoplay_speed ) && strlen( $autoplay_speed ) <= 4 ) {
+	                // Save sanitized autoplay speed
+	                update_post_meta( $post_id, 'autoplay_speed', intval( $autoplay_speed ) ); // Use intval for numeric value
+	            }
+	        }
+	    }
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['stop_hover'] ) && ( $_POST['stop_hover'] != '' ) ) {
-        update_post_meta( $post_id, 'stop_hover', esc_html( $_POST['stop_hover'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['stop_hover'] ) && ( $_POST['stop_hover'] != '' ) ) {
+	    $stop_hover = sanitize_text_field( $_POST['stop_hover'] ); // Sanitize stop hover input
+	    update_post_meta( $post_id, 'stop_hover', $stop_hover );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['itemsdesktop'] ) && ( $_POST['itemsdesktop'] != '' ) ) {
-        update_post_meta( $post_id, 'itemsdesktop', esc_html( $_POST['itemsdesktop'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['itemsdesktop'] ) && ( $_POST['itemsdesktop'] != '' ) ) {
+	    $itemsdesktop = sanitize_text_field( $_POST['itemsdesktop'] ); // Sanitize itemsdesktop input
+	    update_post_meta( $post_id, 'itemsdesktop', $itemsdesktop );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['itemsdesktopsmall'] ) && ( $_POST['itemsdesktopsmall'] != '' ) ) {
-        update_post_meta( $post_id, 'itemsdesktopsmall', esc_html( $_POST['itemsdesktopsmall'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['itemsdesktopsmall'] ) && ( $_POST['itemsdesktopsmall'] != '' ) ) {
+	    $itemsdesktopsmall = sanitize_text_field( $_POST['itemsdesktopsmall'] ); // Sanitize itemsdesktopsmall input
+	    update_post_meta( $post_id, 'itemsdesktopsmall', $itemsdesktopsmall );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['itemsmobile'] ) && ( $_POST['itemsmobile'] != '' ) ) {
-        update_post_meta( $post_id, 'itemsmobile', esc_html( $_POST['itemsmobile'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['itemsmobile'] ) && ( $_POST['itemsmobile'] != '' ) ) {
+	    $itemsmobile = sanitize_text_field( $_POST['itemsmobile'] ); // Sanitize itemsmobile input
+	    update_post_meta( $post_id, 'itemsmobile', $itemsmobile );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['autoplaytimeout'] ) && ( $_POST['autoplaytimeout'] != '' ) ) {
-        update_post_meta( $post_id, 'autoplaytimeout', esc_html( $_POST['autoplaytimeout'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['autoplaytimeout'] ) && ( $_POST['autoplaytimeout'] != '' ) ) {
+	    $autoplaytimeout = sanitize_text_field( $_POST['autoplaytimeout'] ); // Sanitize autoplaytimeout input
+	    update_post_meta( $post_id, 'autoplaytimeout', $autoplaytimeout );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['nav_text_color'] ) && ( $_POST['nav_text_color'] != '' ) ) {
-        update_post_meta( $post_id, 'nav_text_color', esc_html( $_POST['nav_text_color'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['nav_text_color'] ) && ( $_POST['nav_text_color'] != '' ) ) {
+	    $nav_text_color = sanitize_text_field( $_POST['nav_text_color'] ); // Sanitize nav text color input
+	    update_post_meta( $post_id, 'nav_text_color', $nav_text_color );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['nav_text_color_hover'] ) && ( $_POST['nav_text_color_hover'] != '' ) ) {
-        update_post_meta( $post_id, 'nav_text_color_hover', esc_html( $_POST['nav_text_color_hover'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['nav_text_color_hover'] ) && ( $_POST['nav_text_color_hover'] != '' ) ) {
+	    $nav_text_color_hover = sanitize_text_field( $_POST['nav_text_color_hover'] ); // Sanitize nav text color hover input
+	    update_post_meta( $post_id, 'nav_text_color_hover', $nav_text_color_hover );
+	}
 
- 	#Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['nav_bg_color'] ) && ( $_POST['nav_bg_color'] != '' ) ) {
-        update_post_meta( $post_id, 'nav_bg_color', esc_html( $_POST['nav_bg_color'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['nav_bg_color'] ) && ( $_POST['nav_bg_color'] != '' ) ) {
+	    $nav_bg_color = sanitize_text_field( $_POST['nav_bg_color'] ); // Sanitize nav background color input
+	    update_post_meta( $post_id, 'nav_bg_color', $nav_bg_color );
+	}
 
-    #Checks for input and sanitizes/saves if needed    
-    if ( isset( $_POST['nav_bg_color_hover'] ) && ( $_POST['nav_bg_color_hover'] != '' ) ) {
-        update_post_meta( $post_id, 'nav_bg_color_hover', esc_html( $_POST['nav_bg_color_hover'] ) );
-    }
+	#Checks for input and sanitizes/saves if needed    
+	if ( isset( $_POST['nav_bg_color_hover'] ) && ( $_POST['nav_bg_color_hover'] != '' ) ) {
+	    $nav_bg_color_hover = sanitize_text_field( $_POST['nav_bg_color_hover'] ); // Sanitize nav background color hover input
+	    update_post_meta( $post_id, 'nav_bg_color_hover', $nav_bg_color_hover );
+	}
 
-    #Value check and saves if needed
-    if ( isset( $_POST[ 'nav_value' ] ) ) {
-    	update_post_meta( $post_id, 'nav_value', $_POST['nav_value'] );
-    } else {
-    	update_post_meta( $post_id, 'nav_value', 1 );
-    }
+	#Value check and saves if needed
+	if ( isset( $_POST[ 'nav_value' ] ) ) {
+	    $nav_value = sanitize_text_field( $_POST['nav_value'] ); // Sanitize nav_value input
+	    update_post_meta( $post_id, 'nav_value', $nav_value );
+	} else {
+	    update_post_meta( $post_id, 'nav_value', 1 ); // Default value
+	}
+
 }
 add_action( 'save_post', 'tp_testimonial_meta_box_save_func' );
 # Custom metabox field end

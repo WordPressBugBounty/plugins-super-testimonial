@@ -1,7 +1,9 @@
 <?php
-	if ( ! defined( 'ABSPATH' ) ) {
-	    exit;
-	}// if direct access 	
+
+	// Prevent direct access to this file
+	if (!defined('ABSPATH')) {
+	    exit; // Exit if accessed directly
+	}
 
 	function tps_super_testimonials_init() {
 		$labels = array(

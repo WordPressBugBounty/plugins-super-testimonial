@@ -3,7 +3,7 @@
 	Plugin Name: Super Testimonial
 	Plugin URI: https://themepoints.com/testimonials/
 	Description: Super Testimonials is a component ready to use on mobile devices and desktop devices. Super Testimonial are easy to use the plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed testimonials into a Page or Post using the shortcode.
-	Version: 3.0.8
+	Version: 3.0.9
 	Author: Themepoints
 	Author URI: https://themepoints.com
 	TextDomain: ktsttestimonial
@@ -17,12 +17,15 @@
 	/**
 	 * Defining plugin constants
 	 */
+	
 	if ( !defined( 'TPS_TESTIMONIAL_VERSION' ) ) {
-	    define( 'TPS_TESTIMONIAL_VERSION', '3.0.8' );
+	    define( 'TPS_TESTIMONIAL_VERSION', '3.0.9' );
 	}
+
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_DIR' ) ) {
 	    define( 'TPS_TESTIMONIAL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 	}
+
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_URI' ) ) {
 	    define( 'TPS_TESTIMONIAL_PLUGIN_URI', plugins_url( '', __FILE__ ) );
 	}
@@ -50,6 +53,9 @@
 		wp_enqueue_style( 'tps-super-style-css', plugins_url( 'frontend/css/theme-style.css' , __FILE__ ) );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'imagesloaded' );
+	    // Register the JS file
+		wp_register_script( 'testimonial-slider', plugins_url('frontend/js/testimonial-slider.js', __FILE__), array('jquery'), '1.0.0', true);
+	    wp_enqueue_script( 'testimonial-slider' );
 		wp_enqueue_script('tps-super-star-js', plugins_url('frontend/js/jquery.raty-fa.js', __FILE__), array('jquery'), '2.4', true);
 		wp_enqueue_script('tps-super-owl-js', plugins_url('frontend/js/owl.carousel.js', __FILE__), array('jquery'), '2.4', true);
 	}

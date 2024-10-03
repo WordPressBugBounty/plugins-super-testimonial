@@ -3,8 +3,8 @@ Contributors: themepoints
 Donate link: https://themepoints.com/testimonials/
 Tags:  testimonial, testimonial shortcode, testimonial slider, testimonial widget, testimonials, random testimonials, client review
 Requires at least: 4.0
-Tested up to: 6.6.1
-Stable tag: 3.0.8
+Tested up to: 6.6.2
+Stable tag: 3.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,6 +161,12 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 
 
 == Changelog ==
+
+= 3.0.9=
+*Release Date - 03 October 2024*
+ * Fix Cross Site Scripting (XSS) Issue.
+ * Fix Input Field Sanitization Issue.
+ * Update CSS Code.
 
 = 3.0.8 =
 *Release Date - 19 August 2024*

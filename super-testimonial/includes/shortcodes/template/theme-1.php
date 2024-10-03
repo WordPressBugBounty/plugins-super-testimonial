@@ -4,24 +4,26 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
+if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { 
 
+	// Process only if theme style is 2 or 3
+	?>
 <?php }else { ?>
 	
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid ); ?> {
 			text-align: center;
 			<?php if ( $tp_show_item_bg_option == 1 ) { ?>
-				background: <?php echo $tp_item_bg_color; ?>;
-				padding: <?php echo $tp_item_padding; ?>px;
+                background: <?php echo esc_attr( $tp_item_bg_color ); ?>;
+                padding: <?php echo intval( $tp_item_padding ); ?>px;
 			<?php } ?>
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-thumb-<?php echo esc_attr( $postid ); ?> {
 			width: 85px;
 			height: 85px;
-			border-radius: <?php echo $tp_img_border_radius; ?>;
+			border-radius: <?php echo esc_attr( $tp_img_border_radius ); ?>;
 			margin: 0 auto 15px;
-			border: <?php echo $tp_imgborder_width_option; ?>px solid <?php echo $tp_imgborder_color_option; ?>;
+			border: <?php echo intval( $tp_imgborder_width_option ); ?>px solid <?php echo esc_attr( $tp_imgborder_color_option ); ?>;
 			overflow: hidden;
 			display: inline-block;
 		}
@@ -32,8 +34,8 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			width: 100%;
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-desc-<?php echo esc_attr( $postid ); ?> {
-			color:<?php echo $tp_content_color; ?>;
-			font-size:<?php echo $tp_content_fontsize_option; ?>px;
+            color: <?php echo esc_attr( $tp_content_color ); ?>;
+            font-size: <?php echo intval( $tp_content_fontsize_option ); ?>px;
 			font-style: italic;
 			margin-bottom: 15px;
 		}
@@ -44,12 +46,12 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-rating-<?php echo esc_attr( $postid ); ?> i.fa{
 			padding:0px 3px;
-		  	color:<?php echo $tp_rating_color; ?>;
-		  	font-size: <?php echo $tp_rating_fontsize_option; ?>px;
+            color: <?php echo esc_attr( $tp_rating_color ); ?>;
+            font-size: <?php echo intval( $tp_rating_fontsize_option ); ?>px;
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-links-<?php echo esc_attr( $postid ); ?>,
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-links-<?php echo esc_attr( $postid ); ?> a {
-			color: <?php echo $tp_company_url_color; ?>;
+			color: <?php echo esc_attr( $tp_company_url_color ); ?>;
 			display: block;
 			font-size: 14px;
 			outline: medium none;
@@ -77,18 +79,18 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 		    content: none;
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-author-name-<?php echo esc_attr( $postid ); ?>{
-			color:<?php echo $tp_name_color_option; ?>;
-			font-size:<?php echo $tp_name_fontsize_option; ?>px;
-			margin-right: 0px;
-			text-transform: <?php echo $tp_name_font_case; ?>;
-			font-style: <?php echo $tp_name_font_style; ?>;
+            margin-right: 0px;
+            color: <?php echo esc_attr( $tp_name_color_option ); ?>;
+            font-size: <?php echo intval( $tp_name_fontsize_option ); ?>px;
+            text-transform: <?php echo esc_attr( $tp_name_font_case ); ?>;
+            font-style: <?php echo esc_attr( $tp_name_font_style ); ?>;
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-author-desig-<?php echo esc_attr( $postid ); ?> {
 			display: inline-block;
-			font-size:<?php echo $tp_desig_fontsize_option; ?>px;
-			color: <?php echo $tp_designation_color_option; ?>;
-			text-transform: <?php echo $tp_designation_case; ?>;
-			font-style: <?php echo $tp_designation_font_style; ?>;
+            font-size: <?php echo intval( $tp_desig_fontsize_option ); ?>px;
+            color: <?php echo esc_attr( $tp_designation_color_option ); ?>;
+            text-transform: <?php echo esc_attr( $tp_designation_case ); ?>;
+            font-style: <?php echo esc_attr( $tp_designation_font_style ); ?>;
 		}
 		<?php if ( $navigation_align == 'left' || $navigation_align == 'right' ) { ?>
 			#testimonial-slider-<?php echo esc_attr( $postid ); ?> {
@@ -108,7 +110,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 				right: auto;
 				left: 0;
 			<?php } ?>
-			color: <?php echo $nav_text_color; ?>;
+			color: <?php echo esc_attr( $nav_text_color ); ?>;
 			text-align:center;
 			font-size: 15px;
 			margin: 2px;
@@ -116,11 +118,11 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			width: 30px;
 			height: 30px;
 			line-height: 26px;
-			background: <?php echo $nav_bg_color; ?> none repeat scroll 0 0;
+			background: <?php echo esc_attr( $nav_bg_color ); ?>;
 			display: inline-block;
 			cursor: pointer;
 			border-radius: 0;
-			border: 1px solid <?php echo $nav_bg_color; ?>;
+			border: 1px solid <?php echo esc_attr( $nav_bg_color ); ?>;
 		}
 		<?php if ( $navigation_align == 'right' ) { ?>
 			#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-nav .owl-prev {
@@ -146,9 +148,9 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 		#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-nav .owl-prev{}
 		#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-nav .owl-next:hover,
 		#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-nav .owl-prev:hover {
-			color: <?php echo $nav_text_color_hover; ?>;
-			background: <?php echo $nav_bg_color_hover; ?> none repeat scroll 0 0;
-			border: 1px solid <?php echo $nav_bg_color_hover; ?>;
+			color: <?php echo esc_attr( $nav_text_color_hover ); ?>;
+			background: <?php echo esc_attr( $nav_bg_color_hover ); ?>;
+			border: 1px solid <?php echo esc_attr( $nav_bg_color_hover ); ?>;
 		}
 		#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-dots {
 		    display: block;
@@ -164,85 +166,53 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			height: 12px;
 			display: inline-block;
 			position: relative;
-			background: <?php echo $pagination_bg_color; ?>;
+			background: <?php echo esc_attr( $pagination_bg_color ); ?>;
 			margin: 0px 4px;
 			border-radius: 0;
 		}
 		#testimonial-slider-<?php echo esc_attr( $postid ); ?> .owl-dots .owl-dot.active {
-			background: <?php echo $pagination_bg_color_active; ?>;
+			background: <?php echo esc_attr( $pagination_bg_color_active ); ?>;
 		}
 	</style>
 
-	<script type="text/javascript">
-		jQuery( document ).ready( function( $ ) {
-			$( "#testimonial-slider-<?php echo esc_attr( $postid ); ?>" ).owlCarousel( {
-				lazyLoad: true,
-				items:<?php echo $item_no ?>,
-				loop: <?php echo $loop ?>,
-				margin: <?php echo $margin ?>,
-				autoplay: <?php echo $autoplay ?>,
-				autoplaySpeed: <?php echo $autoplay_speed ?>,
-				autoplayTimeout: <?php echo $autoplaytimeout ?>,
-				autoplayHoverPause: <?php echo $stop_hover ?>,
-				nav : true,
-				dots: true,
-				navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-				smartSpeed: 450,
-				clone:true,
-				responsive:{
-					0:{
-					  items:<?php echo $itemsmobile ?>,
-					},
-					678:{
-					  items:<?php echo $itemsdesktopsmall ?>,
-					},
-					980:{
-					  items:<?php echo $itemsdesktop ?>,
-					},
-					1199:{
-					  items:<?php echo $item_no ?>,
-					}
-				}
-			} );
-		} );
-	</script>
-
-	<div id="testimonial-slider-<?php echo esc_attr( $postid ); ?>" class="owl-carousel">
+	<div id="testimonial-slider-<?php echo esc_attr( $postid ); ?>" class="owl-carousel testimonial-slider" data-postid="<?php echo esc_attr( $postid ); ?>" data-items="<?php echo intval( $item_no ); ?>" data-loop="<?php echo esc_attr( $loop ); ?>" data-margin="<?php echo intval( $margin ); ?>" data-autoplay="<?php echo esc_attr( $autoplay ); ?>" data-autoplay-speed="<?php echo intval( $autoplay_speed ); ?>" data-autoplay-timeout="<?php echo intval( $autoplaytimeout ); ?>" data-stop-hover="<?php echo esc_attr( $stop_hover ); ?>" data-itemsmobile="<?php echo intval( $itemsmobile ); ?>" data-itemsdesktopsmall="<?php echo intval( $itemsdesktopsmall ); ?>" data-itemsdesktop="<?php echo intval( $itemsdesktop ); ?>">
+		
 		<?php
 		// Creating a new side loop
 		while ( $query->have_posts() ) : $query->the_post();
-			$client_name_value 			= get_post_meta( get_the_ID(), 'name', true );
-			$link_value 				= get_post_meta( get_the_ID(), 'position', true );
-			$company_value 				= get_post_meta( get_the_ID(), 'company', true );
-			$company_url 				= get_post_meta( get_the_ID(), 'company_website', true );
-			$company_url_target 		= get_post_meta( get_the_ID(), 'company_link_target', true );
-			$testimonial_information 	= get_post_meta( get_the_ID(), 'testimonial_text', true );
-			$company_ratings_target 	= get_post_meta( get_the_ID(), 'company_rating_target', true );
-			$tp_image_sizes   			= get_post_meta( $postid, 'tp_image_sizes', true );
+			$client_name_value       = get_post_meta( get_the_ID(), 'name', true );
+			$link_value              = get_post_meta( get_the_ID(), 'position', true );
+			$company_value           = get_post_meta( get_the_ID(), 'company', true );
+			// $company_url             = get_post_meta( get_the_ID(), 'company_website', true );
+			$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
+			$company_url_target      = get_post_meta( get_the_ID(), 'company_link_target', true );
+			$testimonial_information = get_post_meta( get_the_ID(), 'testimonial_text', true );
+			$company_ratings_target  = get_post_meta( get_the_ID(), 'company_rating_target', true );
+			// $tp_image_sizes       = get_post_meta( $postid, 'tp_image_sizes', true );
+			$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
 			?>
 			<div class="testimonial-<?php echo esc_attr( $postid ); ?>">
-					<?php if( has_post_thumbnail() ){ ?>
-						<div class="testimonial-thumb-<?php echo esc_attr( $postid ); ?>">
-							<?php the_post_thumbnail( $tp_image_sizes); ?>
-						</div>
-					<?php }else{ ?>
-						<div class="testimonial-thumb-<?php echo esc_attr( $postid ); ?>">
-							<img src="<?php echo esc_url( $imgurl = get_avatar_url( -1 ) ); ?>">
-						</div>
-					<?php } ?>
+				<?php if( has_post_thumbnail() ){ ?>
+					<div class="testimonial-thumb-<?php echo esc_attr( $postid ); ?>">
+						<?php the_post_thumbnail( $tp_image_sizes); ?>
+					</div>
+				<?php }else{ ?>
+					<div class="testimonial-thumb-<?php echo esc_attr( $postid ); ?>">
+						<img src="<?php echo esc_url( get_avatar_url( -1 ) ); ?>">
+					</div>
+				<?php } ?>
 				<div class="testimonial-desc-<?php echo esc_attr( $postid ); ?>">
 					<?php echo wp_kses_post( $testimonial_information ); ?>
 				</div>
 				<div class="testimonial-rating-<?php echo esc_attr( $postid ); ?>">
-	                <?php for( $i=0; $i <=4 ; $i++ ) {
-			   			   	if ($i < $company_ratings_target) {
-			   			      	$full = 'fa fa-star';
-			   			    } else {
-			   			      	$full = 'fa fa-star-o';
-			   			    }
-			   			   	echo "<i class=\"$full\"></i>";
-			   			}
-			   		?>
+	                <?php for ( $i = 0; $i <= 4; $i++ ) {
+	                    if ( $i < $company_ratings_target ) {
+	                        $full = 'fa fa-star';
+	                    } else {
+	                        $full = 'fa fa-star-o';
+	                    }
+	                    echo '<i class="' . esc_attr( $full ) . '"></i>';
+	                } ?>
 		   		</div>
 				<?php if ( !empty( $company_value ) || !empty( $company_url ) ) { ?>
 					<div class="testimonial-links-<?php echo esc_attr( $postid ); ?>">
@@ -255,7 +225,6 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 						<?php } ?>
 					</div>
 				<?php } ?>
-
 				<div class="testimonial-info-profile-<?php echo esc_attr( $postid ); ?>">
 					<ul>
 						<li class="testimonial-author-name-<?php echo esc_attr( $postid ); ?>"><?php echo esc_html( $client_name_value ); ?></li>
