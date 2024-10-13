@@ -12,8 +12,8 @@
 			'add_new' 				=> _x('Add New', 'Testimonial Item', 'ktsttestimonial'),
 			'add_new_item' 			=> __('Add New', 'ktsttestimonial'),
 			'edit_item' 			=> __('Edit testimonial', 'ktsttestimonial'),
-			'update_item'           => __( 'Update Testimonial', 'ktsttestimonialpro' ),
-			'view_item'             => __( 'View Testimonial', 'ktsttestimonialpro' ),
+			'update_item'           => __( 'Update Testimonial', 'ktsttestimonial' ),
+			'view_item'             => __( 'View Testimonial', 'ktsttestimonial' ),
 			'new_item' 				=> __('Add New', 'ktsttestimonial'),
 			'all_items' 			=> __('All Testimonials', 'ktsttestimonial'),
 			'search_items' 			=> __('Search Testimonial', 'ktsttestimonial'),
@@ -21,7 +21,7 @@
 			'not_found_in_trash' 	=> __('No Testimonials found.', 'ktsttestimonial'), 
 			'parent_item_colon' 	=> '',
 			'menu_name' 			=> _x( 'Super Testimonial', 'admin menu', 'ktsttestimonial' ),
-			'name_admin_bar'        => __( 'Super Testimonial', 'ktsttestimonialpro' ),
+			'name_admin_bar'        => __( 'Super Testimonial', 'ktsttestimonial' ),
 		);
 		$args = array(
 			'labels' 				=> $labels,
@@ -57,8 +57,9 @@
 			"cb" 				=> "<input type=\"checkbox\" />",
 			"thumbnail" 		=> __('Image', 'ktsttestimonial'),
 			"title" 			=> __('Name', 'ktsttestimonial'),
+			"main_title" 			=> __('Title', 'ktsttestimonial'),
 			"description" 		=> __('Testimonial Description', 'ktsttestimonial'),
-			"clientratings" 	=> __('Rating', 'ktsttestimonialpro'),
+			"clientratings" 	=> __('Rating', 'ktsttestimonial'),
 			"position" 			=> __('Position', 'ktsttestimonial'),
 			"ktstcategories" 	=> __('Categories', 'ktsttestimonial'),
 			"date" 				=> __('Date', 'ktsttestimonial'),
@@ -84,6 +85,9 @@
 		}
 		if ( 'position' == $ktps_columns ) {
 			echo esc_attr( get_post_meta($post_id, 'position', true) );
+		}
+		if ( 'main_title' == $ktps_columns ) {
+			echo esc_attr( get_post_meta($post_id, 'main_title', true) );
 		}
 		if ( 'description' == $ktps_columns ) {
 			echo esc_attr( get_post_meta($post_id, 'testimonial_text', true) );
@@ -145,6 +149,7 @@
 
 	function tps_super_testimonials_inner_custom_box( $post ) {
 
+		$main_title            = get_post_meta($post->ID, 'main_title', true);
 		$post_title            = get_post_meta($post->ID, 'name', true);
 		$position_input        = get_post_meta($post->ID, 'position', true);
 		$company_input         = get_post_meta($post->ID, 'company', true);
@@ -153,6 +158,13 @@
 		$testimonial_text      = get_post_meta($post->ID, 'testimonial_text', true);
 
 		?>
+
+		<!-- Name -->
+		<p><label for="main_title"><strong><?php _e('Title:', 'ktsttestimonial');?></strong></label></p>
+		
+		<input type="text" name="main_title" id="main_title" class="regular-text code" value="<?php echo esc_attr( $main_title ); ?>" />
+		
+		<hr class="horizontalRuler"/>
 		
 		<!-- Name -->
 		<p><label for="title"><strong><?php _e('Full Name:', 'ktsttestimonial');?></strong></label></p>
@@ -206,7 +218,6 @@
 		
 		<textarea type="text" name="testimonial_text_input" id="testimonial_text_input" class="regular-text code" rows="5" cols="100" ><?php echo esc_textarea( $testimonial_text ); ?></textarea>
 
-
 		<?php
 	}
 	
@@ -225,6 +236,13 @@
 	    if ( ! current_user_can( 'edit_post', $post_id ) ) {
 	        return;
 	    }
+
+		/*----------------------------------------------------------------------
+			Name
+		----------------------------------------------------------------------*/
+		if(isset($_POST['main_title'])) {
+			update_post_meta($post_id, 'main_title', sanitize_text_field($_POST['main_title']));
+		}
 
 		/*----------------------------------------------------------------------
 			Name
@@ -293,140 +311,106 @@
 	add_filter( 'post_updated_messages', 'tps_super_testimonials_updated_messages' );
 
 
-	function supertestimonail_review_notice_message() {
-	    // Show only to Admins
-	    if ( ! current_user_can( 'manage_options' ) ) {
-	        return;
+	// Hook to run when the plugin is activated
+	register_activation_hook(__FILE__, 'tps_super_testimonials_review_notification_plugin_activate');
+
+	function tps_super_testimonials_review_notification_plugin_activate() {
+	    // Store the current UTC time as the activation time for new installs
+	    if (!get_option('tps_super_testimonials_plugin_installed_time')) {
+	        update_option('tps_super_testimonials_plugin_installed_time', current_time('timestamp', 1)); // Store in UTC
 	    }
+	}
 
-	    $installed = get_option( 'tps_super_testimonials_activation_time' );
-	    if ( !$installed ) {
-	        update_option( 'tps_super_testimonials_activation_time', time() );
-	        $installed = time(); // Initialize $installed if not set
+	// Check the installed time for both new and existing users
+	add_action('admin_init', 'tps_super_testimonials_check_plugin_installed_time');
+
+	function tps_super_testimonials_check_plugin_installed_time() {
+	    // For existing users, if the time is not already set, set it to the current UTC time
+	    if (!get_option('tps_super_testimonials_plugin_installed_time')) {
+	        update_option('tps_super_testimonials_plugin_installed_time', current_time('timestamp', 1)); // Store in UTC
 	    }
+	}
 
-	    $dismiss_notice  = get_option( 'supertestimonial_review_notice_dismiss', 'no' );
-	    $activation_time = get_option( 'tps_super_testimonials_activation_time' ); // Retrieving activation time
-	    $days_installed = floor((time() - $activation_time) / (60 * 60 * 24)); // Calculating days since installation
+	// Add an admin notice if the plugin has been installed for more than 7 days
+	add_action('admin_notices', 'tps_super_testimonials_ask_for_review');
 
-	    $plugin_url      = 'https://wordpress.org/support/plugin/super-testimonial/reviews/#new-post';
+	function tps_super_testimonials_ask_for_review() {
+	    // Get the installation time and user dismiss choice
+	    $installed_time = get_option('tps_super_testimonials_plugin_installed_time');
+	    $current_time = current_time('timestamp', 1); // Get the current UTC time
+	    $remind_later_time = get_option('tps_super_testimonials_plugin_remind_later_time'); // Time when to remind again
+	    $user_action = get_option('tps_super_testimonials_plugin_review_action'); // 'dismissed' or 'later'
 
-	    // Nonce field
-	    $nonce_field = wp_nonce_field( 'supertestimonial_dismiss_review_notice_nonce', '_nonce', true, false );
+	    // Time difference for 7 days
+	    $time_diff = $current_time - $installed_time;
 
-	    // check if it has already been dismissed
-	    if ( 'yes' === $dismiss_notice ) {
-	        return;
-	    }
-
-	    if ( time() - $activation_time < 604800 ) {
-	        return;
-	    }
-
-	    ?>
-
-	    <div id="supertestimonial-review-notice" class="supertestimonial-review-notice">
-	        <div class="testimonial-review-text">
-	            <h3><?php echo wp_kses_post( 'Enjoying Super Testimonial?', 'ktsttestimonial' ); ?></h3>
-	            <p><?php echo wp_kses_post( 'Awesome, you\'ve been using <strong>Super Testimonial Plugin</strong> for more than 1 week. May we ask you to give it a <strong>5-star rating</strong> on Wordpress? </br>
-	                    This will help to spread its popularity and to make this plugin a better one.
-	                    <br><br>Your help is much appreciated. Thank you very much,<br> Themepoints', 'ktsttestimonial' ); ?></p>
-	            <ul class="testimonial-review-ul">
-	                <li><a href="<?php echo esc_url( $plugin_url ); ?>" target="_blank"><span class="dashicons dashicons-external"></span><?php esc_html_e( 'Sure! I\'d love to!', 'ktsttestimonial' ); ?></a></li>
-	                <li><a href="#" class="notice-dismiss" data-nonce="<?php echo esc_attr(wp_create_nonce('supertestimonial_dismiss_review_notice_nonce')); ?>"><span class="dashicons dashicons-smiley"></span><?php esc_html_e( 'I\'ve already left a review', 'ktsttestimonial' ); ?></a></li>
-	                <li><a href="#" class="notice-dismiss" data-nonce="<?php echo esc_attr(wp_create_nonce('supertestimonial_dismiss_review_notice_nonce')); ?>"><span class="dashicons dashicons-dismiss"></span><?php esc_html_e( 'Never show again', 'ktsttestimonial' ); ?></a></li>
-	            </ul>
+	    // Show the review notice if:
+	    // - Installed time exceeds 7 days
+	    // - User hasn't dismissed
+	    // - Current time is beyond the "remind me later" time or it hasn't been set
+	    if ($installed_time && $time_diff > TPS_REVIEW_REMIND_TIME && $user_action !== 'dismissed' && (!$remind_later_time || $current_time > $remind_later_time)) {
+	        ?>
+	        <div class="notice notice-success is-dismissible" id="tps-super-testimonials-plugin-review-notice">
+	            <p>
+	                <?php
+	                echo __('Hey! You\'ve been using this plugin for more than 7 days. May we ask you to give it a <strong>5-star rating</strong> on WordPress?', 'ktsttestimonial');
+	                ?>
+	                <a href="https://wordpress.org/support/plugin/super-testimonial/reviews/#new-post" target="_blank"><?php echo __('Click here to leave a review', 'ktsttestimonial'); ?></a>. <?php echo __('Thank you!', 'ktsttestimonial'); ?>
+	            </p>
+	            <p>
+	                <button class="button-primary" id="tps-super-testimonials-ok-you-deserved-it"><?php echo __('Ok, you deserved it', 'ktsttestimonial'); ?></button>
+	                <button class="button-secondary" id="tps-super-testimonials-remind-later"><?php echo __('Remind me later', 'ktsttestimonial'); ?></button>
+	                <button class="button-secondary" id="tps-super-testimonials-dismiss-forever"><?php echo __('Dismiss forever', 'ktsttestimonial'); ?></button>
+	            </p>
 	        </div>
-	    </div>
-
-        <style type="text/css">
-            #supertestimonial-review-notice .notice-dismiss{
-                padding: 0 0 0 26px;
-            }
-            #supertestimonial-review-notice .notice-dismiss:before{
-                display: none;
-            }
-            #supertestimonial-review-notice.supertestimonial-review-notice {
-                padding: 15px;
-                background-color: #fff;
-                border-radius: 3px;
-                margin: 30px 20px 0 0;
-                border-left: 4px solid transparent;
-            }
-            #supertestimonial-review-notice .testimonial-review-text {
-                overflow: hidden;
-            }
-            #supertestimonial-review-notice .testimonial-review-text h3 {
-                font-size: 24px;
-                margin: 0 0 5px;
-                font-weight: 400;
-                line-height: 1.3;
-            }
-            #supertestimonial-review-notice .testimonial-review-text p {
-                font-size: 15px;
-                margin: 0 0 10px;
-            }
-            #supertestimonial-review-notice .testimonial-review-ul {
-                margin: 0;
-                padding: 0;
-            }
-            #supertestimonial-review-notice .testimonial-review-ul li {
-                display: inline-block;
-                margin-right: 15px;
-            }
-            #supertestimonial-review-notice .testimonial-review-ul li a {
-                display: inline-block;
-                color: #2271b1;
-                text-decoration: none;
-                padding-left: 26px;
-                position: relative;
-            }
-            #supertestimonial-review-notice .testimonial-review-ul li a span {
-                position: absolute;
-                left: 0;
-                top: -2px;
-            }
-        </style>
-
-	    <script>
+	        <script type="text/javascript">
 	        jQuery(document).ready(function($) {
-	            // Dismiss notice
-	            $('.notice-dismiss').on('click', function(e) {
-	                e.preventDefault();
+	            $('#tps-super-testimonials-dismiss-forever').on('click', function() {
+	                $.post(ajaxurl, { 
+	                    action: 'tps_super_testimonials_plugin_review_dismiss', 
+	                    option: 'dismissed' 
+	                }, function() {
+	                    $('#tps-super-testimonials-plugin-review-notice').remove(); // Remove the notice
+	                });
+	            });
+	            
+	            $('#tps-super-testimonials-remind-later').on('click', function() {
+	                $.post(ajaxurl, { 
+	                    action: 'tps_super_testimonials_plugin_review_dismiss', 
+	                    option: 'later' 
+	                }, function() {
+	                    $('#tps-super-testimonials-plugin-review-notice').remove(); // Remove the notice
+	                });
+	            });
 
-	                var nonce = $(this).data('nonce');
-	                var data = {
-	                    action: 'supertestimonial_dismiss_review_notice',
-	                    _nonce: nonce,
-	                    dismissed: true // Indicate that the notice is being dismissed
-	                };
-
-	                $.post(ajaxurl, data, function(response) {
-	                    $('#supertestimonial-review-notice').remove();
+	            $('#tps-super-testimonials-ok-you-deserved-it').on('click', function() {
+	                $.post(ajaxurl, { 
+	                    action: 'tps_super_testimonials_plugin_review_dismiss', 
+	                    option: 'dismissed' 
+	                }, function() {
+	                    window.open('https://wordpress.org/support/plugin/super-testimonial/reviews/#new-post', '_blank');
+	                    $('#tps-super-testimonials-plugin-review-notice').remove(); // Remove the notice
 	                });
 	            });
 	        });
-	    </script>
-	    <?php
-	}
-	add_action( 'admin_notices', 'supertestimonail_review_notice_message' );
-
-	function super_testimonial_dismiss_review_notice() {
-	    check_ajax_referer( 'supertestimonial_dismiss_review_notice_nonce', '_nonce' ); // Verifying nonce
-
-	    if ( ! current_user_can( 'manage_options' ) ) {
-	        wp_send_json_error( __( 'Unauthorized operation', 'ktsttestimonial' ) );
-	    }
-
-	    if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['_nonce'] ), 'supertestimonial_dismiss_review_notice_nonce' ) ) {
-	        wp_send_json_error( __( 'Unauthorized operation', 'ktsttestimonial' ) );
-	    }
-
-	    if ( isset( $_POST['dismissed'] ) ) {
-	        update_option( 'supertestimonial_review_notice_dismiss', 'yes' );
-	        wp_send_json_success( __( 'Notice dismissed successfully', 'ktsttestimonial' ) );
-	    } else {
-	        wp_send_json_error( __( 'Dismissal data missing', 'ktsttestimonial' ) );
+	        </script>
+	        <?php
 	    }
 	}
-	add_action( 'wp_ajax_supertestimonial_dismiss_review_notice', 'super_testimonial_dismiss_review_notice' );
+
+	// Handle AJAX request for dismissing or reminding later
+	add_action('wp_ajax_tps_super_testimonials_plugin_review_dismiss', 'tps_super_testimonials_plugin_review_dismiss');
+
+	function tps_super_testimonials_plugin_review_dismiss() {
+	    if (isset($_POST['option'])) {
+	        if ($_POST['option'] === 'dismissed') {
+	            update_option('tps_super_testimonials_plugin_review_action', 'dismissed');
+	        } elseif ($_POST['option'] === 'later') {
+	            // Set "remind me later" for 7 more days
+	            $remind_time = current_time('timestamp', 1) + TPS_REVIEW_REMIND_TIME; // Set to 7 days from now
+	            update_option('tps_super_testimonials_plugin_remind_later_time', $remind_time);
+	            update_option('tps_super_testimonials_plugin_review_action', 'later');
+	        }
+	    }
+	    wp_die();
+	}

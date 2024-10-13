@@ -49,6 +49,12 @@
 			display: block;
 			overflow: hidden;
 		}
+		.testimonial-list-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+            color: <?php echo esc_attr( $tp_title_color_option ); ?>;
+            font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
+			font-style: normal;
+			margin: 10px 0px 10px;
+		}
 		.testimonial-list-<?php echo esc_attr( $postid ); ?> .testimonial-desc:after {
 		    content: "\f10e";
 		    font-family: 'FontAwesome';
@@ -97,7 +103,7 @@
 		<?php	
 		// Creating a new side loop
 		while ( $query->have_posts() ) : $query->the_post();
-
+		$client_main_title       = get_post_meta( get_the_ID(), 'main_title', true );
 		$client_name_value       = get_post_meta(get_the_ID(), 'name', true);
 		$link_value              = get_post_meta(get_the_ID(), 'position', true);
 		$company_value           = get_post_meta(get_the_ID(), 'company', true);
@@ -122,7 +128,13 @@
 					</div>
 				<?php } ?>
 				<div class="testimonial-theme20-info-profile">
+					<?php if( !empty( $client_main_title ) ){ ?>
+						<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+							<h3><?php echo esc_html( $client_main_title ); ?></h3>
+						</div>
+					<?php } ?>
 					<div class="testimonial-desc"><?php echo wp_kses_post( $testimonial_information ); ?></div>
+
 					<div class="testimonial-rating">
 		                <?php for ( $i = 0; $i <= 4; $i++ ) {
 		                    if ( $i < $company_ratings_target ) {

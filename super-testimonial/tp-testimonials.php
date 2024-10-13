@@ -3,7 +3,7 @@
 	Plugin Name: Super Testimonial
 	Plugin URI: https://themepoints.com/testimonials/
 	Description: Super Testimonials is a component ready to use on mobile devices and desktop devices. Super Testimonial are easy to use the plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed testimonials into a Page or Post using the shortcode.
-	Version: 3.0.9
+	Version: 4.0.0
 	Author: Themepoints
 	Author URI: https://themepoints.com
 	TextDomain: ktsttestimonial
@@ -19,7 +19,7 @@
 	 */
 	
 	if ( !defined( 'TPS_TESTIMONIAL_VERSION' ) ) {
-	    define( 'TPS_TESTIMONIAL_VERSION', '3.0.9' );
+	    define( 'TPS_TESTIMONIAL_VERSION', '4.0.0' );
 	}
 
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_DIR' ) ) {
@@ -28,6 +28,10 @@
 
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_URI' ) ) {
 	    define( 'TPS_TESTIMONIAL_PLUGIN_URI', plugins_url( '', __FILE__ ) );
+	}
+
+	if ( !defined( 'TPS_REVIEW_REMIND_TIME' ) ) {
+		define( 'TPS_REVIEW_REMIND_TIME', 604800); // 7 days in seconds
 	}
 
 	// Enable shortcodes in widget_text
@@ -121,14 +125,7 @@
 
 	// Activation hook actions for the frontend
 	function tp_activation_actions_for_frontend(){
-	    do_action( 'tp_create_options' );
-
-        $installed = get_option( 'tps_super_testimonials_activation_time' );
-	    // Check if this is the first activation
-	    if (! $installed ) {
-	        // If so, set the installation time
-	        update_option('tps_super_testimonials_activation_time', time() );
-	    }
+		do_action( 'tp_create_options' );
 	}
 	register_activation_hook( __FILE__, 'tp_activation_actions_for_frontend' );
 

@@ -33,6 +33,12 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) {
 			height: 100%;
 			width: 100%;
 		}
+		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+            color: <?php echo esc_attr( $tp_title_color_option ); ?>;
+            font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
+			font-style: normal;
+			margin: 0px 0px 10px;
+		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-desc-<?php echo esc_attr( $postid ); ?> {
             color: <?php echo esc_attr( $tp_content_color ); ?>;
             font-size: <?php echo intval( $tp_content_fontsize_option ); ?>px;
@@ -180,6 +186,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) {
 		<?php
 		// Creating a new side loop
 		while ( $query->have_posts() ) : $query->the_post();
+			$client_main_title       = get_post_meta( get_the_ID(), 'main_title', true );
 			$client_name_value       = get_post_meta( get_the_ID(), 'name', true );
 			$link_value              = get_post_meta( get_the_ID(), 'position', true );
 			$company_value           = get_post_meta( get_the_ID(), 'company', true );
@@ -199,6 +206,11 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) {
 				<?php }else{ ?>
 					<div class="testimonial-thumb-<?php echo esc_attr( $postid ); ?>">
 						<img src="<?php echo esc_url( get_avatar_url( -1 ) ); ?>">
+					</div>
+				<?php } ?>
+				<?php if( !empty( $client_main_title ) ){ ?>
+					<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+						<h3><?php echo esc_html( $client_main_title ); ?></h3>
 					</div>
 				<?php } ?>
 				<div class="testimonial-desc-<?php echo esc_attr( $postid ); ?>">

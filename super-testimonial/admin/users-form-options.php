@@ -129,12 +129,12 @@ function themepoints_testimonial_user_options_page_layouts() {
     </style>
 
     <div class="wrap">
-        <h1><?php _e('Testimonial Submission Form :', 'ktsttestimonialpro'); ?></h1>
-        <p><?php _e('From the list below select and give the name of the field you want to show as input fields to the front end users to submit testimonials.', 'ktsttestimonialpro'); ?></p>
-        <p><?php _e('To display a form with fields selected here, just copy and paste this ', 'ktsttestimonialpro'); ?></p>
+        <h1><?php _e('Testimonial Submission Form :', 'ktsttestimonial'); ?></h1>
+        <p><?php _e('From the list below select and give the name of the field you want to show as input fields to the front end users to submit testimonials.', 'ktsttestimonial'); ?></p>
+        <p><?php _e('To display a form with fields selected here, just copy and paste this ', 'ktsttestimonial'); ?></p>
         <input onClick="copyShortcode();" type="text" id="shortcodeInput" name="" readonly value="[frontend_form]">
         <div id="toastNotification" style="display:none; background-color: #4CAF50; color: #fff; padding: 10px; position: fixed; bottom: 20px; right: 20px; border-radius: 5px;"></div>
-        <p><?php _e('shortcode in a page or post. User will then see a form in frontend to submit their testimonial in that page or post.', 'ktsttestimonialpro'); ?></p>
+        <p><?php _e('shortcode in a page or post. User will then see a form in frontend to submit their testimonial in that page or post.', 'ktsttestimonial'); ?></p>
 
         <script>
             function copyShortcode() {
@@ -160,7 +160,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input type="checkbox" id="st_user_title" name="options[]" value="Title" <?php isOptionChecked( 'Title' ); ?>> 
-                        <label for="st_user_title"><?php _e('Title', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_title"><?php _e('Title', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_title" value="<?php st_user_fields_name( 'st_user_title', 'We love to hear from our customers' ); ?>">
@@ -169,7 +169,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input type="checkbox" id="st_user_name" name="options[]" value="Name" <?php isOptionChecked( 'Name' ); ?>> 
-                        <label for="st_user_name"><?php _e('Name', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_name"><?php _e('Name', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_name" value="<?php st_user_fields_name( 'st_user_name', 'Name' ); ?>">
@@ -178,7 +178,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_designation" type="checkbox" name="options[]" value="Designation" <?php isOptionChecked( 'Designation' ); ?>>
-                        <label for="st_user_designation"><?php _e('Designation', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_designation"><?php _e('Designation', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_designation" value="<?php st_user_fields_name( 'st_user_designation', 'Designation' ); ?>">
@@ -187,7 +187,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_company_name" type="checkbox" name="options[]" value="Company Name" <?php isOptionChecked( 'Company Name' ); ?>>
-                        <label for="st_user_company_name"><?php _e('Company Name', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_company_name"><?php _e('Company Name', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_company_name" value="<?php st_user_fields_name( 'st_user_company_name', 'Company Name' ); ?>">
@@ -196,7 +196,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_company_url" type="checkbox" name="options[]" value="Company URL" <?php isOptionChecked( 'Company URL' ); ?>>
-                        <label for="st_user_company_url"><?php _e('Company URL', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_company_url"><?php _e('Company URL', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_company_url" value="<?php st_user_fields_name( 'st_user_company_url', 'Company URL' ); ?>">
@@ -205,7 +205,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_rating" type="checkbox" name="options[]" value="Rating" <?php isOptionChecked( 'Rating' ); ?>>
-                        <label for="st_user_rating"><?php _e('Rating', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_rating"><?php _e('Rating', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_rating" value="<?php st_user_fields_name( 'st_user_rating', 'Rating' ); ?>">
@@ -214,7 +214,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_testi_text" type="checkbox" name="options[]" value="Testimonial Message" <?php isOptionChecked( 'Testimonial Message' ); ?>>
-                        <label for="st_user_testi_text"><?php _e('Testimonial Message', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_testi_text"><?php _e('Testimonial Message', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_testi_text" value="<?php st_user_fields_name( 'st_user_testi_text', 'Testimonial Message' ); ?>">
@@ -223,7 +223,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_categories" type="checkbox" name="options[]" value="Categories" <?php isOptionChecked( 'Categories' ); ?>>
-                        <label for="st_user_categories"><?php _e('Categories', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_categories"><?php _e('Categories', 'ktsttestimonial'); ?></label>
                     </td>
                     <td><input type="text" name="st_user_categories" value="<?php st_user_fields_name( 'st_user_categories', 'Categories' ); ?>">
                     </td>
@@ -231,7 +231,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_logo_img" type="checkbox" name="options[]" value="User's Image/Logo" <?php isOptionChecked( "User's Image/Logo" ); ?>>
-                        <label for="st_user_logo_img"><?php _e('User\'s Image/Logo', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_logo_img"><?php _e('User\'s Image/Logo', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_logo_img" value="<?php st_user_fields_name( 'st_user_logo_img', "User's Image/Logo" ); ?>">
@@ -240,7 +240,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 <tr>
                     <td>
                         <input id="st_user_calculate" type="checkbox" name="options[]" value="Calculate" <?php isOptionChecked( "Calculate" ); ?>>
-                        <label for="st_user_calculate"><?php _e('User\'s Captcha', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_calculate"><?php _e('User\'s Captcha', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="st_user_calculate" value="<?php st_user_fields_name( 'st_user_calculate', "Calculate" ); ?>">
@@ -248,30 +248,30 @@ function themepoints_testimonial_user_options_page_layouts() {
                 </tr>
                 <tr>
                     <td>
-                        <label for="post_status"><?php _e('Select post status', 'ktsttestimonialpro');?></label>
+                        <label for="post_status"><?php _e('Select post status', 'ktsttestimonial');?></label>
                     </td>
                     <td>
                         <select id="post_status" name="post_status">
-                            <option value="draft" <?php if ( isset( $post_status ) && $post_status == 'draft' ) echo 'selected'; ?>>Draft</option>
-                            <option value="pending" <?php if ( isset( $post_status ) && $post_status == 'pending' ) echo 'selected'; ?>>Pending</option>
-                            <option value="publish" <?php if ( isset( $post_status ) && $post_status == 'publish' ) echo 'selected'; ?>>Publish</option>
+                            <option value="draft" <?php if ( isset( $post_status ) && $post_status == 'draft' ) echo 'selected'; ?>><?php _e('Draft', 'ktsttestimonial'); ?></option>
+                            <option value="pending" <?php if ( isset( $post_status ) && $post_status == 'pending' ) echo 'selected'; ?>><?php _e('Pending', 'ktsttestimonial'); ?></option>
+                            <option value="publish" <?php if ( isset( $post_status ) && $post_status == 'publish' ) echo 'selected'; ?>><?php _e('Publish', 'ktsttestimonial'); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="st_user_submit_btn_text"><?php _e('Submit button text', 'ktsttestimonialpro'); ?></label>
+                        <label for="st_user_submit_btn_text"><?php _e('Submit button text', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <input id="st_user_submit_btn_text" type="text" name="st_user_submit_btn_text" value="<?php st_user_fields_name( 'st_user_submit_btn_text', "Submit Testimonial" ); ?>">
                     </td>
                 </tr>
             </table>
-            <h3> <?php _e('Testimonial Error and success messages for frontend users', 'ktsttestimonialpro'); ?></h3>
+            <h3> <?php _e('Testimonial Error and success messages for frontend users', 'ktsttestimonial'); ?></h3>
             <table>
                 <tr>
                     <td>
-                        <label for="save_success_text"><?php _e('Data saved success message', 'ktsttestimonialpro'); ?></label>
+                        <label for="save_success_text"><?php _e('Data saved success message', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <textarea id="save_success_text" rows="1" cols="50" name="save_success_text"><?php echo st_user_retrive_messages( 'save_success_text', 'Thank you for your valuable comments. Stay with us.' ); ?></textarea>
@@ -279,7 +279,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 </tr>
                 <tr>
                     <td>
-                        <label for="save_error_text"><?php _e('Data saved error message', 'ktsttestimonialpro'); ?></label>
+                        <label for="save_error_text"><?php _e('Data saved error message', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <textarea id="save_error_text" rows="1" cols="50" name="save_error_text"><?php echo st_user_retrive_messages( 'save_error_text', 'Please fill-up all the info again.' ); ?></textarea>
@@ -287,7 +287,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 </tr>
                 <tr>
                     <td>
-                        <label for="file_mishmatch_text"><?php _e('File type mismatch message', 'ktsttestimonialpro'); ?></label>
+                        <label for="file_mishmatch_text"><?php _e('File type mismatch message', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <textarea id="file_mishmatch_text" rows="1" cols="50" name="file_mishmatch_text"><?php echo st_user_retrive_messages( 'file_mishmatch_text', 'Only jpg, png and jpeg is accepted. Please try again.' ); ?></textarea>
@@ -295,7 +295,7 @@ function themepoints_testimonial_user_options_page_layouts() {
                 </tr>
                 <tr>
                     <td>
-                        <label for="calc_error_text"><?php _e('Calculation error message', 'ktsttestimonialpro'); ?></label>
+                        <label for="calc_error_text"><?php _e('Calculation error message', 'ktsttestimonial'); ?></label>
                     </td>
                     <td>
                         <textarea id="calc_error_text" rows="1" cols="50" name="calc_error_text"><?php echo st_user_retrive_messages( 'calc_error_text', 'Calculation is incorrect. Please try again.' ); ?></textarea>
