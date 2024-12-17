@@ -2,8 +2,8 @@
 	/*
 	Plugin Name: Super Testimonial
 	Plugin URI: https://themepoints.com/testimonials/
-	Description: Super Testimonials is a component ready to use on mobile devices and desktop devices. Super Testimonial are easy to use the plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed testimonials into a Page or Post using the shortcode.
-	Version: 4.0.0
+	Description: Super Testimonials is a responsive plugin designed for both mobile and desktop devices. It allows users to easily add testimonials as widgets, in the sidebar, or directly within pages and posts using shortcodes.
+	Version: 4.0.1
 	Author: Themepoints
 	Author URI: https://themepoints.com
 	TextDomain: ktsttestimonial
@@ -19,7 +19,7 @@
 	 */
 	
 	if ( !defined( 'TPS_TESTIMONIAL_VERSION' ) ) {
-	    define( 'TPS_TESTIMONIAL_VERSION', '4.0.0' );
+	    define( 'TPS_TESTIMONIAL_VERSION', '4.0.1' );
 	}
 
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_DIR' ) ) {
@@ -67,7 +67,7 @@
 
 	// Add a link to upgrade to the Pro version in the plugin's action links
 	function tps_super_testimonialspro_version_link( $links ) {
-	   $links[] = '<a style="color:red;font-weight:bold;" href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank">Upgrade to Pro!</a>';
+	   $links[] = '<a href="https://www.themepoints.com/shop/super-testimonial-pro/" target="_blank" style="color:red;font-weight:bold;">' . esc_html__('Upgrade to Pro!', 'ktsttestimonial') . '</a>';
 	   return $links;
 	}
 	add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'tps_super_testimonialspro_version_link' );
@@ -87,13 +87,11 @@
 	// Enqueue scripts and styles for the admin shortcode page
 	function tps_super_testimonials_pro_color_scripts() {
 		global $typenow;
-		if ( is_admin() ) {
-			if ( ( $typenow == 'tptscode' ) ) {
-				wp_enqueue_style( 'tps-super-admin-shortcode-style', plugins_url( 'admin/css/tps-shortcode-admin.css' , __FILE__ ) );
-				wp_enqueue_style( 'wp-color-picker' );
-				wp_enqueue_script( 'testimonial_pro_color_picker', plugins_url( '/admin/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
-				wp_enqueue_script( 'tps-super-pro-admin-scripts-js', plugins_url( 'admin/js/tp-testimonial-admin.js', __FILE__ ), array( 'jquery' ), '1.0', true );
-			}
+		if ( is_admin() && $typenow === 'tptscode' ) {
+			wp_enqueue_style( 'tps-super-admin-shortcode-style', plugins_url( 'admin/css/tps-shortcode-admin.css' , __FILE__ ) );
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_script( 'testimonial_pro_color_picker', plugins_url( '/admin/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+			wp_enqueue_script( 'tps-super-pro-admin-scripts-js', plugins_url( 'admin/js/tp-testimonial-admin.js', __FILE__ ), array( 'jquery' ), '1.0', true );
 		}
 	}
 	add_action( 'admin_enqueue_scripts', 'tps_super_testimonials_pro_color_scripts' );
@@ -107,8 +105,8 @@
 		if (current_user_can('manage_options')) {
 			add_submenu_page(
 			    'edit.php?post_type=ktsprotype',     // Parent menu slug
-			    __('Help & Usage', 'ktsttestimonial'), // Page title
-			    __('Help & Usage', 'ktsttestimonial'), // Menu title
+			    esc_html__('Help & Usage', 'ktsttestimonial'), // Page title
+			    esc_html__('Help & Usage', 'ktsttestimonial'), // Menu title
 			    'manage_options',                     // Capability required to access
 			    'testimonial_pro_shortcode',          // Menu slug
 			    'tps_super_testimonials_custom_shortcode_callback' // Callback function

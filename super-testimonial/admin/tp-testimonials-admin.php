@@ -48,75 +48,86 @@
 	/*----------------------------------------------------------------------
 		Columns Declaration Function
 	----------------------------------------------------------------------*/
-	function ktps_columns($ktps_columns){
-		$order='asc';
-		if( isset( $_GET['order'] ) && $_GET['order'] =='asc' ) {
-			$order='desc';
+	function ktps_columns($columns) {
+		// Ensure sanitization of order query parameter if needed in the future.
+		$order = 'asc';
+		if (isset($_GET['order']) && sanitize_text_field($_GET['order']) === 'asc') {
+			$order = 'desc';
 		}
-		$ktps_columns = array(
-			"cb" 				=> "<input type=\"checkbox\" />",
-			"thumbnail" 		=> __('Image', 'ktsttestimonial'),
-			"title" 			=> __('Name', 'ktsttestimonial'),
-			"main_title" 			=> __('Title', 'ktsttestimonial'),
-			"description" 		=> __('Testimonial Description', 'ktsttestimonial'),
-			"clientratings" 	=> __('Rating', 'ktsttestimonial'),
-			"position" 			=> __('Position', 'ktsttestimonial'),
-			"ktstcategories" 	=> __('Categories', 'ktsttestimonial'),
-			"date" 				=> __('Date', 'ktsttestimonial'),
+
+		// Define custom columns
+		$custom_columns = array(
+			"cb"              => "<input type=\"checkbox\" />",
+			"thumbnail"       => __('Image', 'ktsttestimonial'),
+			"title"           => __('Name', 'ktsttestimonial'),
+			"main_title"      => __('Title', 'ktsttestimonial'),
+			"description"     => __('Testimonial Description', 'ktsttestimonial'),
+			"clientratings"   => __('Rating', 'ktsttestimonial'),
+			"position"        => __('Position', 'ktsttestimonial'),
+			"ktstcategories"  => __('Categories', 'ktsttestimonial'),
+			"date"            => __('Date', 'ktsttestimonial'),
 		);
-		return $ktps_columns;
+
+		/**
+		 * Filter the columns for the custom post type.
+		 * Allows developers to add/remove columns dynamically.
+		 */
+		return apply_filters('ktps_columns', $custom_columns);
 	}
+
 
 	/*----------------------------------------------------------------------
 		testimonial Value Function
 	----------------------------------------------------------------------*/
-	function ktps_columns_display($ktps_columns, $post_id){
-		global $post;
-		$width = (int) 80;
-		$height = (int) 80;
-		if ( 'thumbnail' == $ktps_columns ) {
-			if ( has_post_thumbnail($post_id)) {
-				$thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
-				$thumb = wp_get_attachment_image( $thumbnail_id, array($width, $height), true );
-				echo $thumb;
-			}else{
-				echo __('None');
-			}
-		}
-		if ( 'position' == $ktps_columns ) {
-			echo esc_attr( get_post_meta($post_id, 'position', true) );
-		}
-		if ( 'main_title' == $ktps_columns ) {
-			echo esc_attr( get_post_meta($post_id, 'main_title', true) );
-		}
-		if ( 'description' == $ktps_columns ) {
-			echo esc_attr( get_post_meta($post_id, 'testimonial_text', true) );
-		}
-		if ( 'clientratings' == $ktps_columns ) {
-			$column_rating = esc_attr( get_post_meta( $post_id, 'company_rating_target', true ) );
-			for( $i=0; $i <=4 ; $i++ ) {
-			   	if ($i < $column_rating) {
-			      	$full = 'fa fa-star';
-			    } else {
-			      	$full = 'fa fa-star-o';
-			    }
-			   	echo "<i class=\"$full\"></i>";
-			}
-		}
-		if ( 'ktstcategories' == $ktps_columns ) {
-			$terms = get_the_terms( $post_id , 'ktspcategory');
-			$count = count( array( $terms ) );
-			if ( $terms ) {
-				$i = 0;
-				foreach ( $terms as $term ) {
-					if ( $i+1 != $count ) {
-						echo ", ";
-					}
-					echo '<a href="'.admin_url( 'edit.php?post_type=ktsprotype&ktspcategory='.$term->slug ).'">'.$term->name.'</a>';
-					$i++;
-				}
-			}
-		}
+	function ktps_columns_display($ktps_columns, $post_id) {
+	    $width = 80; // Image width
+	    $height = 80; // Image height
+
+	    switch ($ktps_columns) {
+	        case 'thumbnail':
+	            if (has_post_thumbnail($post_id)) {
+	                echo get_the_post_thumbnail($post_id, array($width, $height));
+	            } else {
+	                esc_html_e('None', 'ktsttestimonial');
+	            }
+	            break;
+
+	        case 'position':
+	            echo esc_html(get_post_meta($post_id, 'position', true));
+	            break;
+
+	        case 'main_title':
+	            echo esc_html(get_post_meta($post_id, 'main_title', true));
+	            break;
+
+	        case 'description':
+	            echo esc_html(get_post_meta($post_id, 'testimonial_text', true));
+	            break;
+
+	        case 'clientratings':
+	            $column_rating = (float) get_post_meta($post_id, 'company_rating_target', true);
+	            for ($i = 0; $i < 5; $i++) {
+	                $icon_class = ($i < $column_rating) ? 'fa fa-star' : 'fa fa-star-o';
+	                echo "<i class=\"$icon_class\"></i>";
+	            }
+	            break;
+
+	        case 'ktstcategories':
+	            $terms = get_the_terms($post_id, 'ktspcategory');
+	            if (!empty($terms) && !is_wp_error($terms)) {
+	                $term_links = array_map(function ($term) {
+	                    return '<a href="' . esc_url(admin_url('edit.php?post_type=ktsprotype&ktspcategory=' . $term->slug)) . '">' . esc_html($term->name) . '</a>';
+	                }, $terms);
+	                echo implode(', ', $term_links);
+	            } else {
+	                esc_html_e('No Categories', 'ktsttestimonial');
+	            }
+	            break;
+
+	        default:
+	            // No action for other columns.
+	            break;
+	    }
 	}
 
 	/*----------------------------------------------------------------------
@@ -160,61 +171,61 @@
 		?>
 
 		<!-- Name -->
-		<p><label for="main_title"><strong><?php _e('Title:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="main_title"><strong><?php esc_html_e('Title:', 'ktsttestimonial');?></strong></label></p>
 		
 		<input type="text" name="main_title" id="main_title" class="regular-text code" value="<?php echo esc_attr( $main_title ); ?>" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Name -->
-		<p><label for="title"><strong><?php _e('Full Name:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="title"><strong><?php esc_html_e('Full Name:', 'ktsttestimonial');?></strong></label></p>
 		
 		<input type="text" name="post_title" id="title" class="regular-text code" value="<?php echo esc_attr( $post_title ); ?>" />
 		
 		<hr class="horizontalRuler"/>
 
 		<!-- Position -->
-		<p><label for="position_input"><strong><?php _e('Position:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="position_input"><strong><?php esc_html_e('Position:', 'ktsttestimonial');?></strong></label></p>
 		
 		<input type="text" name="position_input" id="position_input" class="regular-text code" value="<?php echo esc_attr( $position_input ); ?>" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Company Name -->
-		<p><label for="company_input"><strong><?php _e('Company Name:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_input"><strong><?php esc_html_e('Company Name:', 'ktsttestimonial');?></strong></label></p>
 		
 		<input type="text" name="company_input" id="company_input" class="regular-text code" value="<?php echo esc_attr( $company_input ); ?>" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Company Website -->
-		<p><label for="company_website_input"><strong><?php _e('Company URL:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_website_input"><strong><?php esc_html_e('Company URL:', 'ktsttestimonial');?></strong></label></p>
 		
 		<input type="text" name="company_website_input" id="company_website_input" class="regular-text code" value="<?php echo esc_url( $company_website ); ?>" />
 							
-		<p><span class="description"><?php _e('Example: (www.example.com)', 'ktsttestimonial');?></span></p>
+		<p><span class="description"><?php esc_html_e('Example: (www.example.com)', 'ktsttestimonial');?></span></p>
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Rating -->
 		
-		<p><label for="company_rating_target_list"><strong><?php _e('Rating:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_rating_target_list"><strong><?php esc_html_e('Rating:', 'ktsttestimonial');?></strong></label></p>
 
         <select id="company_rating_target_list" name="company_rating_target_list">
-            <option value="5" <?php selected($company_rating_target, '5'); ?>><?php _e('5 Star', 'ktsttestimonial');?></option>
-            <option value="4.5" <?php selected($company_rating_target, '4.5'); ?>><?php _e('4.5 Star', 'ktsttestimonial');?></option>
-            <option value="4" <?php selected($company_rating_target, '4'); ?>><?php _e('4 Star', 'ktsttestimonial');?></option>
-            <option value="3.5" <?php selected($company_rating_target, '3.5'); ?>><?php _e('3.5 Star', 'ktsttestimonial');?></option>
-            <option value="3" <?php selected($company_rating_target, '3'); ?>><?php _e('3 Star', 'ktsttestimonial');?></option>
-            <option value="2" <?php selected($company_rating_target, '2'); ?>><?php _e('2 Star', 'ktsttestimonial');?></option>
-            <option value="1" <?php selected($company_rating_target, '1'); ?>><?php _e('1 Star', 'ktsttestimonial');?></option>
+            <option value="5" <?php selected($company_rating_target, '5'); ?>><?php esc_html_e('5 Star', 'ktsttestimonial');?></option>
+            <option value="4.5" <?php selected($company_rating_target, '4.5'); ?>><?php esc_html_e('4.5 Star', 'ktsttestimonial');?></option>
+            <option value="4" <?php selected($company_rating_target, '4'); ?>><?php esc_html_e('4 Star', 'ktsttestimonial');?></option>
+            <option value="3.5" <?php selected($company_rating_target, '3.5'); ?>><?php esc_html_e('3.5 Star', 'ktsttestimonial');?></option>
+            <option value="3" <?php selected($company_rating_target, '3'); ?>><?php esc_html_e('3 Star', 'ktsttestimonial');?></option>
+            <option value="2" <?php selected($company_rating_target, '2'); ?>><?php esc_html_e('2 Star', 'ktsttestimonial');?></option>
+            <option value="1" <?php selected($company_rating_target, '1'); ?>><?php esc_html_e('1 Star', 'ktsttestimonial');?></option>
         </select>
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Testimonial Text -->
 							
-		<p><label for="testimonial_text_input"><strong><?php _e('Testimonial Text:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="testimonial_text_input"><strong><?php esc_html_e('Testimonial Text:', 'ktsttestimonial');?></strong></label></p>
 		
 		<textarea type="text" name="testimonial_text_input" id="testimonial_text_input" class="regular-text code" rows="5" cols="100" ><?php echo esc_textarea( $testimonial_text ); ?></textarea>
 
@@ -352,15 +363,21 @@
 	        ?>
 	        <div class="notice notice-success is-dismissible" id="tps-super-testimonials-plugin-review-notice">
 	            <p>
-	                <?php
-	                echo __('Hey! You\'ve been using this plugin for more than 7 days. May we ask you to give it a <strong>5-star rating</strong> on WordPress?', 'ktsttestimonial');
-	                ?>
-	                <a href="https://wordpress.org/support/plugin/super-testimonial/reviews/#new-post" target="_blank"><?php echo __('Click here to leave a review', 'ktsttestimonial'); ?></a>. <?php echo __('Thank you!', 'ktsttestimonial'); ?>
+			        <?php
+				        printf(
+				            esc_html__(
+				                'Hey! You\'ve been using this plugin for more than 7 days. May we ask you to give it a %s on WordPress?', 
+				                'ktsttestimonial'
+				            ),
+				            '<strong>' . esc_html__('5-star rating', 'ktsttestimonial') . '</strong>'
+				        );
+			        ?>
+	                <a href="https://wordpress.org/support/plugin/super-testimonial/reviews/#new-post" target="_blank"><?php echo esc_html__('Click here to leave a review', 'ktsttestimonial'); ?></a>. <?php echo esc_html__('Thank you!', 'ktsttestimonial'); ?>
 	            </p>
 	            <p>
-	                <button class="button-primary" id="tps-super-testimonials-ok-you-deserved-it"><?php echo __('Ok, you deserved it', 'ktsttestimonial'); ?></button>
-	                <button class="button-secondary" id="tps-super-testimonials-remind-later"><?php echo __('Remind me later', 'ktsttestimonial'); ?></button>
-	                <button class="button-secondary" id="tps-super-testimonials-dismiss-forever"><?php echo __('Dismiss forever', 'ktsttestimonial'); ?></button>
+	                <button class="button-primary" id="tps-super-testimonials-ok-you-deserved-it"><?php echo esc_html__('Ok, you deserved it', 'ktsttestimonial'); ?></button>
+	                <button class="button-secondary" id="tps-super-testimonials-remind-later"><?php echo esc_html__('Remind me later', 'ktsttestimonial'); ?></button>
+	                <button class="button-secondary" id="tps-super-testimonials-dismiss-forever"><?php echo esc_html__('Dismiss forever', 'ktsttestimonial'); ?></button>
 	            </p>
 	        </div>
 	        <script type="text/javascript">

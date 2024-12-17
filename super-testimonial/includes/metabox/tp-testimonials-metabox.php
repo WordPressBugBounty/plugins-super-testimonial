@@ -4,9 +4,18 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Function to add submenu page under Testimonia
+// Function to add submenu page under Testimonial
 function tps_super_testimonials_add_submenu_items() {
-	add_submenu_page( 'edit.php?post_type=ktsprotype', __( 'Generate Shortcode', 'ktsttestimonial' ), __( 'Generate Shortcode', 'ktsttestimonial' ), 'manage_options', 'post-new.php?post_type=tptscode' );
+    // Check if the custom post type 'tptscode' exists to avoid errors
+    if ( post_type_exists( 'tptscode' ) ) {
+        add_submenu_page(
+            'edit.php?post_type=ktsprotype',                    // Parent slug
+            __( 'Generate Shortcode', 'ktsttestimonial' ),       // Page title
+            __( 'Generate Shortcode', 'ktsttestimonial' ),       // Menu title
+            'manage_options',                                   // Capability
+            'post-new.php?post_type=tptscode'                   // Submenu URL
+        );
+    }
 }
 add_action( 'admin_menu', 'tps_super_testimonials_add_submenu_items' );
 

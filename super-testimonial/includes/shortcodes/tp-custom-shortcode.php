@@ -19,6 +19,18 @@
 			'text_color'     => '#000000',
 		), $atts));
 
+	    // Sanitize the attributes after extraction
+	    $category       = isset($atts['category']) ? intval($atts['category']) : -1;
+	    $themes         = sanitize_text_field($atts['themes']);
+	    $columns_number = intval($atts['columns_number']);
+	    $order_by       = sanitize_text_field($atts['order_by']);
+	    $order          = sanitize_text_field($atts['order']);
+	    $number         = intval($atts['number']);
+	    $auto_play      = filter_var($atts['auto_play'], FILTER_VALIDATE_BOOLEAN);
+	    $navigation     = filter_var($atts['navigation'], FILTER_VALIDATE_BOOLEAN);
+	    $stars_color    = sanitize_hex_color($atts['stars_color']);
+	    $text_color     = sanitize_hex_color($atts['text_color']);
+
 		// 	query posts
 		$args =	array ( 
 			'post_type' => 'ktsprotype',
@@ -27,9 +39,16 @@
 			'order' => $order 
 		);
 
-		if($category > -1) {
-			$args['tax_query'] = array(array('taxonomy' => 'ktspcategory','field' => 'id','terms' => $category ));
-		}
+	    // If category is provided, filter by the given category ID
+	    if ($category > -1) {
+	        $args['tax_query'] = array(
+	            array(
+	                'taxonomy' => 'ktspcategory',
+	                'field'    => 'id',
+	                'terms'    => $category,
+	            ),
+	        );
+	    }
 		
 		$output = '';
 		
