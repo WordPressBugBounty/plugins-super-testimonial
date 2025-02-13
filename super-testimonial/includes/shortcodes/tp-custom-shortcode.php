@@ -58,7 +58,7 @@
 
 		if( esc_attr($themes) == "theme1" ){
 			$output .= '<style type="text/css">
- 			div#testimonial-slider-'.esc_attr( $themes ).' {
+ 			div#testimonial-slider-'.esc_attr( $themes ).'{
 				display: block;
 				overflow: hidden;
 				padding-top: 10px;
@@ -108,11 +108,11 @@
 				font-size: 17px;
 				text-transform: capitalize;
 			}
-			.testimonial-'.esc_attr( $themes ).' .testimonial-description-profiles-'.esc_attr( $themes ).' small a, a:hover {
+			.testimonial-'.esc_attr( $themes ).' .testimonial-description-profiles-'.esc_attr( $themes ).' small a, a:hover{
 			  text-decoration: none;
 			  box-shadow: none;
 			}
-			.testimonial-'.esc_attr( $themes ).' .super-testimonial-'.esc_attr( $themes ).' {
+			.testimonial-'.esc_attr( $themes ).' .super-testimonial-'.esc_attr( $themes ).'{
 			  display: block;
 			  overflow: hidden;
 			  text-align: center;
@@ -164,7 +164,7 @@
 						autoplay:"'.esc_attr( $auto_play ).'",
 						smartSpeed: 450,
 						clone:true,
-					});				
+					});
 				});
 			</script>';
 
@@ -206,7 +206,7 @@
 						$output .= '</div>';
 					$output .= '</div>';
 				endwhile;wp_reset_postdata();
-			$output .= '</div>';			
+			$output .= '</div>';
 
 		} elseif( esc_attr($themes) =="theme2" ){
 			$output .= '
@@ -235,7 +235,6 @@
 				$imgurl 					= wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 				if ( empty( $imgurl ) ) $imgurl = get_avatar_url( -1 );
 
-
 				$output .= '<div id="ktsttestimonial_list_style">';
 					$output .= '<div class="client_names"> '. esc_html( $client_name_value ) .' </div>';
 					$output .= '<div class="client_names_photo">';
@@ -263,7 +262,7 @@
 		}elseif( esc_attr($themes) =="theme3" ){
 			$output .= '
 			<style type="text/css">
-			div#testimonial-slider-'.esc_attr( $themes ).' {
+			div#testimonial-slider-'.esc_attr( $themes ).'{
 				display: block;
 				overflow: hidden;
 				padding-top: 10px;
@@ -374,7 +373,7 @@
 						autoplay:"'.esc_attr( $auto_play ).'",
 						smartSpeed: 450,
 						clone:true,
-					});				
+					});
 				});
 			</script>';
 
@@ -393,7 +392,6 @@
 				$imgurl 					= wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
 				if ( empty( $imgurl ) ) $imgurl = get_avatar_url( -1 );
 
-				
 				$output .= '<div class="testimonial-theme3-'.esc_attr( $themes ).'">';
 					if( !empty( $testimonial_information ) ){
 						$output .= '<p class="testimonial-theme3-description-'.esc_attr( $themes ).'">'.wp_kses_post( $testimonial_information ).'</p>';
@@ -474,7 +472,7 @@
 				margin: 10px auto;
 				border: 1px solid #d3d3d3;
 			}
-			.testimonial-theme4-'.esc_attr( $themes ).' .super-testimonial-'.esc_attr( $themes ).' {
+			.testimonial-theme4-'.esc_attr( $themes ).' .super-testimonial-'.esc_attr( $themes ).'{
 			  display: block;
 			  overflow: hidden;
 			  text-align: center;
@@ -501,7 +499,7 @@
 						autoplay:"'.esc_attr( $auto_play ).'",
 						smartSpeed: 450,
 						clone:true,
-					});				
+					});
 				});
 			</script>';
 
@@ -542,7 +540,6 @@
 				$output .= '</div>';
 				endwhile; wp_reset_postdata();
 				$output .= '</div> ';
-
 		}
 		// Return output
 		return $output;

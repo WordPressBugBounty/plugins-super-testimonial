@@ -3,8 +3,8 @@ Contributors: themepoints
 Donate link: https://themepoints.com/testimonials/
 Tags:  testimonial, testimonial shortcode, testimonial slider, testimonial widget, testimonials, random testimonials, client review
 Requires at least: 4.0
-Tested up to: 6.7.1
-Stable tag: 4.0.1
+Tested up to: 6.7.2
+Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,22 +16,24 @@ Testimonials are easy to use the plugin that allows users to add Testimonials to
 
 
 <ul>
-	<li><a href="https://themepoints.com/shop/super-testimonial-pro/">Upgrade to Pro</a></li>
+	<li><a href="https://themepoints.com/testimonials">Upgrade to Pro</a></li>
 	<li><a href="https://themepoints.com/testimonials">Live Preview</a></li>
-	<li><a href="https://themepoints.com/testimonials/documentation/">Documentation</a></li>
+	<li><a href="https://themepoints.com/testimonials/docs/super-testimonial/overview/">Documentation</a></li>
 </ul>
 
 
 <strong> AVAILABLE FIELDS </strong>
 
+* Testimonial Title
 * Name
 * Position
+* Email Address
 * Company Name
-* Company Website URL 
-* Link Target
+* Company Website URL
 * Testimonial Rating
-* Testimonial Picture
 * Testimonial Content
+* Testimonial Categories
+* Testimonial Picture
 
 <strong> FEATURES OF PLUGIN </strong>
 
@@ -117,7 +119,7 @@ If you want to collect user feedback directly via your website, Super Testimonia
 
 
 <ul>
-	<li><a href="https://www.themepoints.com/shop/super-testimonial-pro/">Upgrade to Pro</a></li>
+	<li><a href="https://themepoints.com/testimonials">Upgrade to Pro</a></li>
 </ul>
 
 
@@ -161,6 +163,25 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 
 
 == Changelog ==
+
+= 4.0.2=
+*Release Date - 13 February 2025*
+ * Fix Stored Cross-Site Scripting Issue.
+ * Added Testimonial Form Builder.
+ * Added Testimonial Form Manage Option.
+ * Added Testimonial Admin Notification Option.
+ * Added Testimonial Form reCAPTCHA Option.
+ * Added Testimonial Form Post Status Option.
+ * Show/Hide Testimonial Form Fields.
+ * Manage Testimonial Form Notification Option.
+ * Manage Testimonial Form Notification Color Option.
+ * Added Testimonial Rating Style Option.
+ * Added Testimonial Word Limit Option.
+ * Added Testimonial Word Limit Read More Text Option.
+ * Added Testimonial Content show on popup Option.
+ * Fix Input Field Sanitization Issue.
+ * Update CSS File.
+ * Added New Options.
 
 = 4.0.1=
 *Release Date - 17 December 2024*

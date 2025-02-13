@@ -74,6 +74,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			border: <?php echo intval( $tp_imgborder_width_option ); ?>px solid <?php echo esc_attr( $tp_imgborder_color_option ); ?>;
 			width: 100%;
 			height: 100%;
+			object-fit: cover;
 		}
 		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-theme3-info-profile {
 		    margin-top: 15px;
@@ -129,6 +130,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			display: inline-block;
 			cursor: pointer;
 			border-radius: 0;
+			outline: none;
 			border: 1px solid <?php echo esc_attr( $nav_bg_color ); ?>;
 		}
 		<?php if ( $navigation_align == 'right' ) { ?>
@@ -195,7 +197,6 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			$company_url_target      = get_post_meta(get_the_ID(), 'company_link_target', true);
 			$testimonial_information = get_post_meta(get_the_ID(), 'testimonial_text', true);
 			$company_ratings_target  = get_post_meta(get_the_ID(), 'company_rating_target', true);
-			// $tp_image_sizes          = get_post_meta( $postid, 'tp_image_sizes', true );
 			$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
 			?>
 			<div class="testimonial-<?php echo esc_attr( $postid ); ?>">
@@ -242,7 +243,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 				   		</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		<?php endwhile; wp_reset_postdata(); ?>
 	</div>
 	<?php

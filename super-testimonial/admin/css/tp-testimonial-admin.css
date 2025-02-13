@@ -1,7 +1,6 @@
 /* 
   Super Testimonail Admin CSS
   Author : Themepoints
-  Vesrsion : 3.0.4
  */
 
 #tp_testimonials_shortcode_title {
@@ -17,28 +16,53 @@
   margin: 0 20px 20px 0;
 }
 .testimonials_btn_area a {
-    border: 1px solid #ddd;
-    padding: 10px 10px;
-    background: #0F6FA7;
-    display: inline-block;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: none;
-    outline: none;
-    color: #fffdfd;
-    font-weight: bold;
-    text-transform: capitalize;
+  border: 1px solid #ddd;
+  padding: 10px 10px;
+  background: #0F6FA7;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  color: #fffdfd;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 .testimonials_btn_area {
-    display: block;
-    overflow: hidden;
+  display: block;
+  overflow: hidden;
 }
 td.clientratings.column-clientratings i {
-    color: #ffa900;
-    padding: 0px 3px;
-    font-size: 15px;
+  color: #ffa900;
+  padding: 0px 3px;
+  font-size: 15px;
 }
 tr.type-ktsprotype.status-pending, 
 tr.type-ktsprotype.status-draft {
-    background: #ffeeee;
+  background: #ffeeee;
+}
+.tp-star-rating {
+  display: flex;
+  justify-content: end;
+  direction: rtl; /* Align stars from right-to-left */
+  gap: 5px;
+}
+.tp-star-rating input {
+  display: none; /* Hide the radio buttons */
+}
+.tp-star-rating label {
+  font-size: 30px; /* Size of the stars */
+  color: #ccc; /* Default color for stars */
+  cursor: pointer; /* Pointer cursor for clickable stars */
+  transition: color 0.3s ease; /* Smooth transition for color */
+}
+/* Hover effect: All stars to the left are highlighted */
+.tp-star-rating label:hover,
+.tp-star-rating label:hover ~ label {
+  color: #f5c518; /* Gold color on hover */
+}
+/* Selected stars remain gold */
+.tp-star-rating input:checked + label,
+.tp-star-rating input:checked + label ~ label {
+  color: #f5c518; /* Gold color when selected */
 }

@@ -112,7 +112,6 @@
 		$company_url_target      = get_post_meta(get_the_ID(), 'company_link_target', true);
 		$testimonial_information = get_post_meta(get_the_ID(), 'testimonial_text', true);
 		$company_ratings_target  = get_post_meta(get_the_ID(), 'company_rating_target', true);
-		// $tp_image_sizes          = get_post_meta( $postid, 'tp_image_sizes', true );
 		$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
 		?>
 		<div class="testimonial-list-<?php echo esc_attr( $postid ); ?>">
@@ -134,7 +133,6 @@
 						</div>
 					<?php } ?>
 					<div class="testimonial-desc"><?php echo wp_kses_post( $testimonial_information ); ?></div>
-
 					<div class="testimonial-rating">
 		                <?php for ( $i = 0; $i <= 4; $i++ ) {
 		                    if ( $i < $company_ratings_target ) {

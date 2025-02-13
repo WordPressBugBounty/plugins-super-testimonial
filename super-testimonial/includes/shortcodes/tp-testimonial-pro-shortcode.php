@@ -13,7 +13,8 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 		$atts
 	);
 
-	global $post, $paged, $query;	
+	global $post, $paged, $query;
+
 	$postid = $atts['id'];
 
 	$testimonial_cat_name          = get_post_meta( $postid, 'testimonial_cat_name', true );
@@ -45,6 +46,9 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	$tp_content_color              = get_post_meta( $postid, 'tp_content_color', true );
 	$tp_content_fontsize_option    = get_post_meta( $postid, 'tp_content_fontsize_option', true );
 	$tp_content_bg_color           = get_post_meta( $postid, 'tp_content_bg_color', true );
+	$testimonial_word_limit        = get_post_meta( $postid, 'testimonial_word_limit', true );
+	$testimonial_read_more_text    = get_post_meta( $postid, 'testimonial_read_more_text', true );
+	$testimonial_read_more_color   = get_post_meta( $postid, 'testimonial_read_more_color', true );
 	$tp_show_rating_option         = get_post_meta( $postid, 'tp_show_rating_option', true );
 	$tp_rating_color               = get_post_meta( $postid, 'tp_rating_color', true );
 	$tp_rating_fontsize_option     = get_post_meta( $postid, 'tp_rating_fontsize_option', true );
@@ -68,7 +72,6 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	$itemsdesktop                  = get_post_meta( $postid, 'itemsdesktop', true );
 	$itemsdesktopsmall             = get_post_meta( $postid, 'itemsdesktopsmall', true );
 	$itemsmobile                   = get_post_meta( $postid, 'itemsmobile', true );
-	
 	$filter_menu_styles            = get_post_meta( $postid, 'filter_menu_styles', true );
 	$testimonial_filter_menu_text  = get_post_meta( $postid, 'testimonial_filter_menu_text', true );
 	$filter_menu_alignment         = get_post_meta( $postid, 'filter_menu_alignment', true );
@@ -95,6 +98,7 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
     );
     
 	$cats = get_categories($args);
+	
 	if ( ! empty( $testimonial_cat_name ) && ! empty( $cats ) ) {
 		$tpprocat =  array();
 		$num = count( $testimonial_cat_name );

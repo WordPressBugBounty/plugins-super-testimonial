@@ -72,7 +72,6 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
             color: <?php echo esc_attr( $tp_rating_color ); ?>;
             font-size: <?php echo intval( $tp_rating_fontsize_option ); ?>px;
 		}
-
 		<?php if ( $navigation_align == 'left' || $navigation_align == 'right' ) { ?>
 			#testimonial-slider-<?php echo esc_attr( $postid ); ?> {
 				padding-top: 50px;
@@ -103,6 +102,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			display: inline-block;
 			cursor: pointer;
 			border-radius: 0;
+			outline: none;
 			border: 1px solid <?php echo esc_attr( $nav_bg_color ); ?>;
 		}
 		<?php if ( $navigation_align == 'right' ) { ?>
@@ -157,22 +157,21 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 	</style>
 
 	<div id="testimonial-slider-<?php echo esc_attr( $postid ); ?>" class="owl-carousel testimonial-slider" data-postid="<?php echo esc_attr( $postid ); ?>" data-items="<?php echo intval( $item_no ); ?>" data-loop="<?php echo esc_attr( $loop ); ?>" data-margin="<?php echo intval( $margin ); ?>" data-autoplay="<?php echo esc_attr( $autoplay ); ?>" data-autoplay-speed="<?php echo intval( $autoplay_speed ); ?>" data-autoplay-timeout="<?php echo intval( $autoplaytimeout ); ?>" data-stop-hover="<?php echo esc_attr( $stop_hover ); ?>" data-itemsmobile="<?php echo intval( $itemsmobile ); ?>" data-itemsdesktopsmall="<?php echo intval( $itemsdesktopsmall ); ?>" data-itemsdesktop="<?php echo intval( $itemsdesktop ); ?>">
-	<?php 
-	// Creating a new side loop
-	while ( $query->have_posts() ) : $query->the_post();
-		$client_main_title       = get_post_meta( get_the_ID(), 'main_title', true );
-		$client_name_value       = get_post_meta( get_the_ID(), 'name', true );
-		$link_value              = get_post_meta( get_the_ID(), 'position', true );
-		$company_value           = get_post_meta( get_the_ID(), 'company', true );
-		// $company_url             = get_post_meta( get_the_ID(), 'company_website', true );
-		$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
-		$company_url_target      = get_post_meta( get_the_ID(), 'company_link_target', true );
-		$testimonial_information = get_post_meta( get_the_ID(), 'testimonial_text', true );
-		$company_ratings_target  = get_post_meta( get_the_ID(), 'company_rating_target', true );
-		// $tp_image_sizes          = get_post_meta( $postid, 'tp_image_sizes', true );
-		$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
+		<?php
+		// Creating a new side loop
+		while ( $query->have_posts() ) : $query->the_post();
+			$client_main_title       = get_post_meta( get_the_ID(), 'main_title', true );
+			$client_name_value       = get_post_meta( get_the_ID(), 'name', true );
+			$link_value              = get_post_meta( get_the_ID(), 'position', true );
+			$company_value           = get_post_meta( get_the_ID(), 'company', true );
+			// $company_url             = get_post_meta( get_the_ID(), 'company_website', true );
+			$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
+			$company_url_target      = get_post_meta( get_the_ID(), 'company_link_target', true );
+			$testimonial_information = get_post_meta( get_the_ID(), 'testimonial_text', true );
+			$company_ratings_target  = get_post_meta( get_the_ID(), 'company_rating_target', true );
+			$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
 
-		?>
+			?>
 			<div class="testimonial-<?php echo esc_attr( $postid ); ?>">
 				<?php if( has_post_thumbnail() ){ ?>
 					<div class="testimonial-theme4-thumb">
@@ -212,7 +211,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 	                } ?>
 		   		</div>
 			</div>
-			<?php endwhile; ?>
+			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
-	<?php wp_reset_postdata();
+	<?php
 }
