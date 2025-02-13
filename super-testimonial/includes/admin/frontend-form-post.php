@@ -788,7 +788,7 @@ function tps_render_testimonial_form_metabox($post) {
 							        </span>
 							    </th>
 							    <td style="vertical-align: middle;">
-							        <input type="text" name="tp_success_message" id="tp_success_message" disabled value="<?php echo esc_attr(!empty($tp_success_message) ? $tp_success_message : 'Thank you! Your testimonial is currently waiting to be approved.'); ?>">
+							        <input type="text" name="tp_success_message" id="tp_success_message" value="<?php echo esc_attr(!empty($tp_success_message) ? $tp_success_message : 'Thank you! Your testimonial is currently waiting to be approved.'); ?>">
 							    </td>
 							</tr><!-- End Required Notice Show/Hide -->
 
@@ -811,7 +811,7 @@ function tps_render_testimonial_form_metabox($post) {
 							        </span>
 							    </th>
 							    <td style="vertical-align: middle;">
-							        <input type="text" name="tp_error_message" id="tp_error_message" disabled value="<?php echo esc_attr(!empty($tp_error_message) ? $tp_error_message : 'There was an error while processing your testimonial. Please try again.'); ?>">
+							        <input type="text" name="tp_error_message" id="tp_error_message" value="<?php echo esc_attr(!empty($tp_error_message) ? $tp_error_message : 'There was an error while processing your testimonial. Please try again.'); ?>">
 							    </td>
 							</tr><!-- End Required Notice Show/Hide -->
 

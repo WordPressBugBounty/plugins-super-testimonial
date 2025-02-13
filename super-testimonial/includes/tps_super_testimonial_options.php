@@ -6,7 +6,7 @@
 
 <div class="wraper doc-suport">
     <div class="doc-support-header">
-        <h1><?php esc_html_e( 'Super Testimonial V-4.0.2', 'ktsttestimonial' ); ?> </h1>
+        <h1><?php esc_html_e( 'Super Testimonial V-4.0.3', 'ktsttestimonial' ); ?> </h1>
         <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'ktsttestimonial' ); ?> </p>
     </div>
 
