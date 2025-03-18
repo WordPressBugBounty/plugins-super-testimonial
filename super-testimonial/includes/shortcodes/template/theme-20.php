@@ -49,7 +49,7 @@
 			display: block;
 			overflow: hidden;
 		}
-		.testimonial-list-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+		.testimonial-list-<?php echo esc_attr( $postid ); ?> .testimonial-title h3{
             color: <?php echo esc_attr( $tp_title_color_option ); ?>;
             font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
 			font-style: normal;
@@ -128,7 +128,7 @@
 				<?php } ?>
 				<div class="testimonial-theme20-info-profile">
 					<?php if( !empty( $client_main_title ) ){ ?>
-						<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+						<div class="testimonial-title">
 							<h3><?php echo esc_html( $client_main_title ); ?></h3>
 						</div>
 					<?php } ?>

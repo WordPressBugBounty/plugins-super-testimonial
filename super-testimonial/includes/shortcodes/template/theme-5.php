@@ -42,7 +42,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			height: 100%;
 			width: 100%;
 		}
-		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title h3{
             color: <?php echo esc_attr( $tp_title_color_option ); ?>;
             font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
 			font-style: normal;
@@ -188,7 +188,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 					</div>
 				<?php } ?>
 				<?php if( !empty( $client_main_title ) ){ ?>
-					<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+					<div class="testimonial-title">
 						<h3><?php echo esc_html( $client_main_title ); ?></h3>
 					</div>
 				<?php } ?>

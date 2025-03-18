@@ -6,7 +6,7 @@
 
 <div class="wraper doc-suport">
     <div class="doc-support-header">
-        <h1><?php esc_html_e( 'Super Testimonial V-4.0.3', 'ktsttestimonial' ); ?> </h1>
+        <h1><?php esc_html_e( 'Super Testimonial V-4.0.4', 'ktsttestimonial' ); ?> </h1>
         <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'ktsttestimonial' ); ?> </p>
     </div>
 
@@ -31,6 +31,8 @@
                 <li># <?php esc_html_e('Performance Improvements', 'ktsttestimonial'); ?></li>
                 <li># <?php esc_html_e('Bug Fixes and UI Enhancements', 'ktsttestimonial'); ?></li>
                 <li># <?php esc_html_e('Fix Stored Cross-Site Scripting Issue', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Fix spelling mistakes.', 'ktsttestimonial'); ?></li>
             </ul>
         </div>
 

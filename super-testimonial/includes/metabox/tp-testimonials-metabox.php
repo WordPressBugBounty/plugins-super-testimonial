@@ -128,10 +128,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$tp_company_show_hide          = get_post_meta( $post->ID, 'tp_company_show_hide', true );
 	$tp_company_url_color          = get_post_meta( $post->ID, 'tp_company_url_color', true );
 	$tp_show_rating_option         = get_post_meta( $post->ID, 'tp_show_rating_option', true );
-	$tp_rating_style         	   = get_post_meta( $post->ID, 'tp_rating_style', true );
-    if (!$tp_rating_style) {
-        $tp_rating_style = 'star'; // Default style
-    }
+	$tp_rating_style               = get_post_meta( $post->ID, 'tp_rating_style', true );
+	if (!$tp_rating_style) {
+	$tp_rating_style               = 'star'; // Default style
+	}
 	$tp_show_item_bg_option        = get_post_meta( $post->ID, 'tp_show_item_bg_option', true );
 	$tp_rating_color               = get_post_meta( $post->ID, 'tp_rating_color', true );
 	$tp_item_bg_color              = get_post_meta( $post->ID, 'tp_item_bg_color', true );
@@ -139,7 +139,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$tp_rating_fontsize_option     = get_post_meta( $post->ID, 'tp_rating_fontsize_option', true );
 	
 	#Call get post meta for slider settings.
-	$item_no                       = get_post_meta( $post->ID, 'item_no', true );
+	$item_no                       = get_post_meta( $post->ID, 'item_no', true) ?: '3';
+	$itemsdesktop                  = get_post_meta( $post->ID, 'itemsdesktop', true) ?: '3';
+	$itemsdesktopsmall             = get_post_meta( $post->ID, 'itemsdesktopsmall', true) ?: '2';
+	$itemsmobile                   = get_post_meta( $post->ID, 'itemsmobile', true) ?: '1';
 	$loop                          = get_post_meta( $post->ID, 'loop', true );
 	$margin                        = get_post_meta( $post->ID, 'margin', true );
 	$navigation                    = get_post_meta( $post->ID, 'navigation', true );
@@ -147,9 +150,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$autoplay                      = get_post_meta( $post->ID, 'autoplay', true );
 	$autoplay_speed                = get_post_meta( $post->ID, 'autoplay_speed', true );
 	$stop_hover                    = get_post_meta( $post->ID, 'stop_hover', true );
-	$itemsdesktop                  = get_post_meta( $post->ID, 'itemsdesktop', true );
-	$itemsdesktopsmall             = get_post_meta( $post->ID, 'itemsdesktopsmall', true );
-	$itemsmobile                   = get_post_meta( $post->ID, 'itemsmobile', true );
 	$autoplaytimeout               = get_post_meta( $post->ID, 'autoplaytimeout', true );
 	$nav_text_color                = get_post_meta( $post->ID, 'nav_text_color', true );
 	$nav_text_color_hover          = get_post_meta( $post->ID, 'nav_text_color_hover', true );
@@ -159,7 +159,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$navigation_style              = get_post_meta( $post->ID, 'navigation_style', true );
 	$pagination_bg_color           = get_post_meta( $post->ID, 'pagination_bg_color', true );
 	$pagination_bg_color_active    = get_post_meta( $post->ID, 'pagination_bg_color_active', true );
-	$grid_normal_column            = get_post_meta( $post->ID, 'grid_normal_column', true );
+	$grid_normal_column            = get_post_meta( $post->ID, 'grid_normal_column', true) ?: '4';
+	$grid_laptop_columns           = get_post_meta( $post->ID, 'grid_laptop_columns', true) ?: '3';
+	$grid_tablet_columns           = get_post_meta( $post->ID, 'grid_tablet_columns', true) ?: '2';
+	$grid_mobile_columns           = get_post_meta( $post->ID, 'grid_mobile_columns', true) ?: '1';	
 	$filter_menu_styles            = get_post_meta( $post->ID, 'filter_menu_styles', true );
 	$testimonial_filter_menu_text  = get_post_meta( $post->ID, 'testimonial_filter_menu_text', true );
 	$filter_menu_alignment         = get_post_meta( $post->ID, 'filter_menu_alignment', true );
@@ -174,7 +177,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$nav_value                     = get_post_meta( $post->ID, 'nav_value', true );
 	
 	$tp_testimonial_theme_style    = ($tp_testimonial_theme_style) ? $tp_testimonial_theme_style : 1;
-	$grid_normal_column            = ($grid_normal_column) ? $grid_normal_column : 3;
 	$filter_menu_styles            = ($filter_menu_styles) ? $filter_menu_styles : 1;
 	$filter_menu_alignment         = ($filter_menu_alignment) ? $filter_menu_alignment : 'center';
 	$filter_menu_bg_color          = ($filter_menu_bg_color) ? $filter_menu_bg_color : '#f8f8f8';
@@ -195,11 +197,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	<div class="tupsetings post-grid-metabox">
 		<!-- <div class="wrap"> -->
 		<ul class="tab-nav">
-			<li nav="1" class="nav1 <?php if ( $nav_value == 1 ) { echo "active"; } ?>"><?php _e( 'Shortcodes','ktsttestimonial' ); ?></li>
-			<li nav="2" class="nav2 <?php if ( $nav_value == 2 ) { echo "active"; } ?>"><?php _e( 'Testimonial Query ','ktsttestimonial' ); ?></li>
-			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php _e( 'General Settings ','ktsttestimonial' ); ?></li>
-			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php _e( 'Slider Settings','ktsttestimonial' ); ?></li>
-			<li nav="5" class="nav5 <?php if ( $nav_value == 5 ) { echo "active"; } ?>"><?php _e( 'Grid Settings','ktsttestimonial' ); ?></li>
+			<li nav="1" class="nav1 <?php if ( $nav_value == 1 ) { echo "active"; } ?>"><?php _e( 'Testimonial Query ','ktsttestimonial' ); ?></li>
+			<li nav="2" class="nav2 <?php if ( $nav_value == 2 ) { echo "active"; } ?>"><?php _e( 'General Settings ','ktsttestimonial' ); ?></li>
+			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php _e( 'Slider Settings','ktsttestimonial' ); ?></li>
+			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php _e( 'Grid Settings','ktsttestimonial' ); ?></li>
 		</ul> <!-- tab-nav end -->
 
 		<?php 
@@ -210,19 +211,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 		<ul class="box">
 			<!-- Tab 1 -->
-			<li style="<?php if ( $nav_value == 1 ) { echo "display: block;"; } else { echo "display: none;"; } ?>" class="box1 tab-box <?php if ( $nav_value == 1 ) { echo "active"; } ?>">
-				<div class="option-box">
-					<p class="option-title"><?php _e( 'Shortcode','ktsttestimonial' ); ?></p>
-					<p class="option-info"><?php _e( 'Copy this shortcode and paste on post, page or text widgets where you want to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
-					<textarea cols="50" rows="1" onClick="this.select();" >[tptpro <?php echo 'id="'.$post->ID.'"';?>]</textarea>
-					<br /><br />
-					<p class="option-info"><?php _e( 'PHP Code:','ktsttestimonial' ); ?></p>
-					<p class="option-info"><?php _e( 'Use PHP code to your themes file to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
-					<textarea cols="50" rows="2" onClick="this.select();" ><?php echo '<?php echo do_shortcode("[tptpro id='; echo "'".$post->ID."']"; echo '"); ?>'; ?></textarea>  
-				</div>
-			</li>
-			<!-- Tab 2 -->
-			<li style="<?php if($nav_value == 2){echo "display: block;";} else{ echo "display: none;"; }?>" class="box2 tab-box <?php if($nav_value == 2){echo "active";}?>">
+			<li style="<?php if($nav_value == 1){echo "display: block;";} else{ echo "display: none;"; }?>" class="box1 tab-box <?php if($nav_value == 1){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php _e( 'Testimonial Query','ktsttestimonial' ); ?></p>
@@ -376,8 +365,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 				</div>
 			</li>
 
-			<!-- Tab 3 -->
-			<li style="<?php if($nav_value == 3){echo "display: block;";} else{ echo "display: none;"; }?>" class="box3 tab-box <?php if($nav_value == 3){echo "active";}?>">
+			<!-- Tab 2 -->
+			<li style="<?php if($nav_value == 2){echo "display: block;";} else{ echo "display: none;"; }?>" class="box2 tab-box <?php if($nav_value == 2){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php _e( 'General Settings','ktsttestimonial' ); ?></p>
@@ -815,8 +804,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 				</div>
 			</li>
 			
-			<!-- Tab 4 -->
-			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
+			<!-- Tab 3 -->
+			<li style="<?php if($nav_value == 3){echo "display: block;";} else{ echo "display: none;"; }?>" class="box3 tab-box <?php if($nav_value == 3){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php _e( 'Slider Settings','ktsttestimonial' ); ?></p>
@@ -885,90 +874,51 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 							</tr> <!-- End Autoplay Time Out -->
 
 							<tr valign="top">
-								<th scope="row">
-									<label for="item_no"><?php _e( 'Items No', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Select number of items you want to show.', 'ktsttestimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="item_no" id="item_no" class="timezone_string">
-										<option value="3" <?php if ( isset ( $item_no ) )  selected( $item_no, '3' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="1" <?php if ( isset ( $item_no ) )  selected( $item_no, '1' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $item_no ) )  selected( $item_no, '2' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $item_no ) )  selected( $item_no, '4' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $item_no ) )  selected( $item_no, '5' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $item_no ) )  selected( $item_no, '6' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-										<option value="7" <?php if ( isset ( $item_no ) )  selected( $item_no, '7' ); ?>><?php _e( '7', 'ktsttestimonial' );?></option>
-										<option value="8" <?php if ( isset ( $item_no ) )  selected( $item_no, '8' ); ?>><?php _e( '8', 'ktsttestimonial' );?></option>
-										<option value="9" <?php if ( isset ( $item_no ) )  selected( $item_no, '9' ); ?>><?php _e( '9', 'ktsttestimonial' );?></option>
-										<option value="10" <?php if ( isset ( $item_no ) ) selected( $item_no, '10' ); ?>><?php _e( '10', 'ktsttestimonial' );?></option>
-									</select>
-								</td> 
-							</tr> <!-- End Items No -->
+							    <th scope="row">
+							        <label for="item_no"><?php echo __('Testimonial Per Slide', 'ktsttestimonial'); ?></label>
+							        <span class="tpstestimonial_manager_hint toss"><?php echo __('Set testimonial per slide at a time.', 'ktsttestimonial'); ?></span>
+							    </th>
+							    <td style="vertical-align:middle;">
+									<div class="pic-device-columns">
+									    <!-- Desktop Columns -->
+									    <label for="item_no" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-desktop"></span>
+									            <span><?php echo __('Desktop', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="item_no" id="item_no" value="<?php echo esc_attr($item_no); ?>" min="1" max="10">
+									    </label>
 
-							<tr valign="top">
-								<th scope="row">
-									<label for="itemsdesktop"><?php _e( 'Items Desktop', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Number of items you want to show for large desktop monitor.', 'ktsttestimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="itemsdesktop" id="itemsdesktop" class="timezone_string">
-										<option value="3" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '3' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="1" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '1' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '2' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '4' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '5' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '6' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-										<option value="7" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '7' ); ?>><?php _e( '7', 'ktsttestimonial' );?></option>
-										<option value="8" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '8' ); ?>><?php _e( '8', 'ktsttestimonial' );?></option>
-										<option value="9" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '9' ); ?>><?php _e( '9', 'ktsttestimonial' );?></option>
-										<option value="10" <?php if ( isset ( $itemsdesktop ) ) selected( $itemsdesktop, '10' ); ?>><?php _e( '10', 'ktsttestimonial' );?></option>
-									</select>
-								</td>
-							</tr> <!-- End Items Desktop -->
+									    <!-- Laptop Columns -->
+									    <label for="itemsdesktop" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-laptop"></span>
+									            <span><?php echo __('Laptop', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="itemsdesktop" id="itemsdesktop" value="<?php echo esc_attr($itemsdesktop); ?>" min="1" max="10">
+									    </label>
 
-							<tr valign="top">
-								<th scope="row">
-									<label for="itemsdesktopsmall"><?php _e( 'Items Desktop Small', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Number of items you want to show for small desktop monitor.', 'ktsttestimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="itemsdesktopsmall" id="itemsdesktopsmall" class="timezone_string">
-										<option value="1" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '1' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '2' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="3" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '3' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '4' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '5' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '6' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-										<option value="7" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '7' ); ?>><?php _e( '7', 'ktsttestimonial' );?></option>
-										<option value="8" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '8' ); ?>><?php _e( '8', 'ktsttestimonial' );?></option>
-										<option value="9" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '9' ); ?>><?php _e( '9', 'ktsttestimonial' );?></option>
-										<option value="10" <?php if ( isset ( $itemsdesktopsmall ) ) selected( $itemsdesktopsmall, '10' ); ?>><?php _e( '10', 'ktsttestimonial' );?></option>
-									</select>
-								</td>
+									    <!-- Tablet Columns -->
+									    <label for="itemsdesktopsmall" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-tablet"></span>
+									            <span><?php echo __('Tablet', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="itemsdesktopsmall" id="itemsdesktopsmall" value="<?php echo esc_attr($itemsdesktopsmall); ?>" min="1" max="10">
+									    </label>
+
+									    <!-- Mobile Columns -->
+									    <label for="itemsmobile" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-smartphone"></span>
+									            <span><?php echo __('Mobile', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="itemsmobile" id="itemsmobile" value="<?php echo esc_attr($itemsmobile); ?>" min="1" max="10">
+									    </label>
+									</div>
+							    </td>
 							</tr>
-							<!-- End Items Desktop Small -->
-
-							<tr valign="top">
-								<th scope="row">
-									<label for="itemsmobile"><?php _e( 'Items Mobile', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Number of items you want to show for mobile device.', 'ktsttestimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="itemsmobile" id="itemsmobile" class="timezone_string">
-										<option value="1" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '1' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '2' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="3" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '3' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '4' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '5' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '6' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-										<option value="7" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '7' ); ?>><?php _e( '7', 'ktsttestimonial' );?></option>
-										<option value="8" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '8' ); ?>><?php _e( '8', 'ktsttestimonial' );?></option>
-										<option value="9" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '9' ); ?>><?php _e( '9', 'ktsttestimonial' );?></option>
-										<option value="10" <?php if ( isset ( $itemsmobile ) ) selected( $itemsmobile, '10' ); ?>><?php _e( '10', 'ktsttestimonial' );?></option>
-									</select>
-								</td>
-							</tr>
-							<!-- End Items Mobile -->
+							<!-- End Choose Testimonial Column -->
 
 							<tr valign="top">
 								<th scope="row">
@@ -1165,28 +1115,58 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 					</div>
 				</div>
 			</li>
-			<!-- Tab 5 -->
-			<li style="<?php if($nav_value == 5){echo "display: block;";} else{ echo "display: none;"; }?>" class="box5 tab-box <?php if($nav_value == 5){echo "active";}?>">
+			<!-- Tab 4 -->
+			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php _e( 'Grid Normal Settings','ktsttestimonial' ); ?>  - <a href="https://themepoints.com/testimonials" target="_blank"><?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
 						<table class="form-table">
 							<tr valign="top">
-								<th scope="row">
-									<label for="grid_normal_column"><?php _e( 'Number of columns', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Choose an option for posts column.', 'ktsttestimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="grid_normal_column" id="grid_normal_column" class="timezone_string">
-										<option value="3" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '3' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="1" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '1' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '2' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '4' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '5' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $grid_normal_column ) ) selected( $grid_normal_column, '6' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-									</select>
-								</td>
+							    <th scope="row">
+							        <label for="grid_normal_column"><?php echo __('Testimonial Column', 'ktsttestimonial'); ?></label>
+							        <span class="tpstestimonial_manager_hint toss"><?php echo __('Set number of columns in different responsive devices.', 'ktsttestimonial'); ?></span>
+							    </th>
+							    <td style="vertical-align:middle;">
+									<div class="pic-device-columns">
+									    <!-- Desktop Columns -->
+									    <label for="grid_normal_column" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-desktop"></span>
+									            <span><?php echo __('Desktop', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="grid_normal_column" id="grid_normal_column" value="<?php echo esc_attr($grid_normal_column); ?>" min="1" max="6">
+									    </label>
+
+									    <!-- Laptop Columns -->
+									    <label for="grid_laptop_columns" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-laptop"></span>
+									            <span><?php echo __('Laptop', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" min="1" max="6" name="grid_laptop_columns" id="grid_laptop_columns" value="<?php echo esc_attr($grid_laptop_columns); ?>">
+									    </label>
+
+									    <!-- Tablet Columns -->
+									    <label for="grid_tablet_columns" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-tablet"></span>
+									            <span><?php echo __('Tablet', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="grid_tablet_columns" id="grid_tablet_columns" value="<?php echo esc_attr($grid_tablet_columns); ?>" min="1" max="6">
+									    </label>
+
+									    <!-- Mobile Columns -->
+									    <label for="grid_mobile_columns" class="tp-device-label">
+									        <div class="tp-device-header">
+									            <span class="dashicons dashicons-smartphone"></span>
+									            <span><?php echo __('Mobile', 'ktsttestimonial'); ?></span>
+									        </div>
+									        <input type="number" name="grid_mobile_columns" id="grid_mobile_columns" value="<?php echo esc_attr($grid_mobile_columns); ?>" min="1" max="6">
+									    </label>
+									</div>
+							    </td>
 							</tr>
+							<!-- End Choose Testimonial Column -->
 
 							<tr valign="top">
 								<th scope="row">
@@ -1571,12 +1551,6 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 
     // Carousal Settings
 
-	#Checks for input and sanitizes/saves if needed
-	if ( isset( $_POST['item_no'] ) && !empty( $_POST['item_no'] ) ) {
-	    $item_no = sanitize_text_field( $_POST['item_no'] );
-	    update_post_meta( $post_id, 'item_no', $item_no );
-	}
-
 	#Checks for input and sanitizes/saves if needed    
 	if ( isset( $_POST['loop'] ) && !empty( $_POST['loop'] ) ) {
 	    $loop = sanitize_text_field( $_POST['loop'] );
@@ -1623,12 +1597,30 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	if ( isset( $_POST['pagination_style'] ) && !empty( $_POST['pagination_style'] ) ) {
 	    $pagination_style = sanitize_text_field( $_POST['pagination_style'] );
 	    update_post_meta( $post_id, 'pagination_style', $pagination_style );
-	}  
+	}
 
-	#Checks for input and sanitizes/saves if needed    
-	if ( isset( $_POST['grid_normal_column'] ) && !empty( $_POST['grid_normal_column'] ) ) {
-	    $grid_normal_column = sanitize_text_field( $_POST['grid_normal_column'] );
-	    update_post_meta( $post_id, 'grid_normal_column', $grid_normal_column );
+	// Sanitize and save 'grid_normal_column' field
+	if ( isset( $_POST[ 'grid_normal_column' ] ) ) {
+		$grid_normal_column = sanitize_text_field( $_POST['grid_normal_column'] );
+		update_post_meta( $post_id, 'grid_normal_column', $grid_normal_column );
+	}
+
+	// Sanitize and save 'grid_laptop_columns' field
+	if ( isset( $_POST[ 'grid_laptop_columns' ] ) ) {
+		$grid_laptop_columns = sanitize_text_field( $_POST['grid_laptop_columns'] );
+		update_post_meta( $post_id, 'grid_laptop_columns', $grid_laptop_columns );
+	}
+
+	// Sanitize and save 'grid_tablet_columns' field
+	if ( isset( $_POST[ 'grid_tablet_columns' ] ) ) {
+		$grid_tablet_columns = sanitize_text_field( $_POST['grid_tablet_columns'] );
+		update_post_meta( $post_id, 'grid_tablet_columns', $grid_tablet_columns );
+	}
+
+	// Sanitize and save 'grid_mobile_columns' field
+	if ( isset( $_POST[ 'grid_mobile_columns' ] ) ) {
+		$grid_mobile_columns = sanitize_text_field( $_POST['grid_mobile_columns'] );
+		update_post_meta( $post_id, 'grid_mobile_columns', $grid_mobile_columns );
 	}
 
 	#Checks for input and sanitizes/saves if needed    
@@ -1729,22 +1721,28 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	    update_post_meta( $post_id, 'stop_hover', $stop_hover );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
-	if ( isset( $_POST['itemsdesktop'] ) && ( $_POST['itemsdesktop'] != '' ) ) {
-	    $itemsdesktop = sanitize_text_field( $_POST['itemsdesktop'] ); // Sanitize itemsdesktop input
-	    update_post_meta( $post_id, 'itemsdesktop', $itemsdesktop );
+	// Sanitize and save 'item_no' field
+	if ( isset( $_POST[ 'item_no' ] ) ) {
+		$item_no = sanitize_text_field( $_POST['item_no'] );
+		update_post_meta( $post_id, 'item_no', $item_no );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
-	if ( isset( $_POST['itemsdesktopsmall'] ) && ( $_POST['itemsdesktopsmall'] != '' ) ) {
-	    $itemsdesktopsmall = sanitize_text_field( $_POST['itemsdesktopsmall'] ); // Sanitize itemsdesktopsmall input
-	    update_post_meta( $post_id, 'itemsdesktopsmall', $itemsdesktopsmall );
+	// Sanitize and save 'itemsdesktop' field
+	if ( isset( $_POST[ 'itemsdesktop' ] ) ) {
+		$itemsdesktop = sanitize_text_field( $_POST['itemsdesktop'] );
+		update_post_meta( $post_id, 'itemsdesktop', $itemsdesktop );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
-	if ( isset( $_POST['itemsmobile'] ) && ( $_POST['itemsmobile'] != '' ) ) {
-	    $itemsmobile = sanitize_text_field( $_POST['itemsmobile'] ); // Sanitize itemsmobile input
-	    update_post_meta( $post_id, 'itemsmobile', $itemsmobile );
+	// Sanitize and save 'itemsdesktopsmall' field
+	if ( isset( $_POST[ 'itemsdesktopsmall' ] ) ) {
+		$itemsdesktopsmall = sanitize_text_field( $_POST['itemsdesktopsmall'] );
+		update_post_meta( $post_id, 'itemsdesktopsmall', $itemsdesktopsmall );
+	}
+
+	// Sanitize and save 'itemsmobile' field
+	if ( isset( $_POST[ 'itemsmobile' ] ) ) {
+		$itemsmobile = sanitize_text_field( $_POST['itemsmobile'] );
+		update_post_meta( $post_id, 'itemsmobile', $itemsmobile );
 	}
 
 	#Checks for input and sanitizes/saves if needed    
@@ -1788,3 +1786,57 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 }
 add_action( 'save_post', 'tp_testimonial_meta_box_save_func' );
 # Custom metabox field end
+
+function tp_testimonial_shortcode_section($post) {
+    // Show only for 'tptscode' post type
+    if ($post->post_type !== 'tptscode') {
+        return;
+    }
+
+    // Generate the dynamic shortcode
+    $shortcode = "[tptpro id='" . $post->ID . "']";
+    $php_code = '<?php echo do_shortcode("[tptpro id=' . $post->ID . ']"); ?>';
+
+    ?>
+    <div style="padding: 15px 15px 25px 15px; border: 1px solid #ddd; background: #f9f9f9; margin-top: 15px;">
+	    <div style="display: flex; gap: 20px;">
+
+		    <div style="width: 50%;">
+		        <p>
+		            <strong><?php _e( 'Shortcode','ktsttestimonial' ); ?>:</strong>
+		            <span id="shortcode-notice" style="color: green; display: none; margin-left: 10px;"><?php _e( 'Shortcode copied!','ktsttestimonial' ); ?></span>
+		        </p>
+		        <p class="option-info"><?php _e('Click to copy the shortcode and paste it into a page or post to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
+		        <input type="text" id="shortcode-text" style="width:100%; cursor:pointer; box-shadow: none; border:none;outline:none;border-radius: 0" value="<?php echo esc_attr($shortcode); ?>" readonly onclick="copyToClipboard(this, 'shortcode-notice')">
+		    </div>
+
+		    <div style="width: 50%;">
+		        <p>
+		            <strong><?php _e( 'PHP Code for Theme Files','ktsttestimonial' ); ?>:</strong>
+		            <span id="php-notice" style="color: green; display: none; margin-left: 10px;"><?php _e( 'PHP code copied!','ktsttestimonial' ); ?></span>
+		        </p>
+		        <p class="option-info"><?php _e('Click to copy the PHP code and use it in your theme files to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
+		        <input type="text" id="php-code-text" style="width:100%; cursor:pointer; box-shadow: none; border:none;outline:none;border-radius: 0" value="<?php echo esc_attr($php_code); ?>" readonly onclick="copyToClipboard(this, 'php-notice')">
+		    </div>
+
+	    </div>
+    </div>
+
+    <script>
+        function copyToClipboard(inputField, noticeId) {
+            inputField.select();
+            navigator.clipboard.writeText(inputField.value);
+
+            // Show copied message beside the label
+            var notice = document.getElementById(noticeId);
+            notice.style.display = "inline";
+
+            // Hide the message after 2 seconds
+            setTimeout(function() {
+                notice.style.display = "none";
+            }, 2000);
+        }
+    </script>
+    <?php
+}
+add_action('edit_form_after_title', 'tp_testimonial_shortcode_section');

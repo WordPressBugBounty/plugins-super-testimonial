@@ -390,3 +390,24 @@ input#myRange {
 .tp-rating-option input:checked + i.fa {
   fill: #0073aa;
 }
+
+.pic-device-columns {
+    display: flex;
+    gap: 15px;
+}
+.tp-device-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tp-device-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.tp-device-header .dashicons {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #0073aa;
+}

@@ -33,25 +33,19 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
             font-size: <?php echo intval( $tp_content_fontsize_option ); ?>px;
 			text-align: center;
 		}
-		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-theme3-desc:before {
-		    content: '';
-		    border: 12px solid transparent;
+		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-theme3-desc span {
 		    position: absolute;
-		    border-top-color: #d3d3d3;
-		    height: 20px;
-		    bottom: -24px;
-		    left:30px;
+		    display: block;
+		    border-right: 1px solid #d3d3d3;
+		    border-bottom: 1px solid #d3d3d3;
+		    background: <?php echo esc_attr( $tp_content_bg_color ); ?>;
+		    width: 15px;
+		    height: 15px;
+		    bottom: -8px;
+		    left: 32px;
+		    transform: rotate(45deg);
 		}
-		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-theme3-desc:after {
-			content: '';
-		    border: 12px solid transparent;
-		    position: absolute;
-		    border-top-color: <?php echo esc_attr( $tp_content_bg_color ); ?>;
-		    height: 20px;
-		    bottom: -23px;
-		    left:30px;
-		}
-		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title h3{
             color: <?php echo esc_attr( $tp_title_color_option ); ?>;
             font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
             text-align: center;
@@ -201,8 +195,9 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			?>
 			<div class="testimonial-<?php echo esc_attr( $postid ); ?>">
 				<div class="testimonial-theme3-desc">
+					<span></span>
 					<?php if( !empty( $client_main_title ) ){ ?>
-						<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+						<div class="testimonial-title">
 							<h3><?php echo esc_html( $client_main_title ); ?></h3>
 						</div>
 					<?php } ?>

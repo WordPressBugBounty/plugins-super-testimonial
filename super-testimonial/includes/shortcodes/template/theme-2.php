@@ -11,8 +11,8 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid); ?> {
 			<?php if ( $tp_show_item_bg_option == 1 ) { ?>
-                background: <?php echo esc_attr( $tp_item_bg_color ); ?>;
-                padding: <?php echo intval( $tp_item_padding ); ?>px;
+	            background: <?php echo esc_attr( $tp_item_bg_color ); ?>;
+	            padding: <?php echo intval( $tp_item_padding ); ?>px;
 			<?php } ?>
 		}
 		.testimonial-<?php echo esc_attr( $postid); ?> .testimonial-theme2-info-profile{
@@ -40,7 +40,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			margin-right: 5px;
 			font-size:16px;
 		}
-		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title-<?php echo esc_attr( $postid ); ?> h3{
+		.testimonial-<?php echo esc_attr( $postid ); ?> .testimonial-title h3{
             color: <?php echo esc_attr( $tp_title_color_option ); ?>;
             font-size: <?php echo intval( $tp_title_fontsize_option ); ?>px;
 			font-style: normal;
@@ -184,7 +184,7 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 				<div class="testimonial-theme2-desc">
 					<?php echo wp_kses_post( $testimonial_information ); ?>
 					<?php if( !empty( $client_main_title ) ){ ?>
-						<div class="testimonial-title-<?php echo esc_attr( $postid ); ?>">
+						<div class="testimonial-title">
 							<h3><?php echo esc_html( $client_main_title ); ?></h3>
 						</div>
 					<?php } ?>
