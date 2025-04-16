@@ -63,10 +63,10 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	$pagination_align              = get_post_meta( $postid, 'pagination_align', true );
 	$dpstotoal_items               = get_post_meta( $postid, 'dpstotoal_items', true );
 	
-	$item_no                       = get_post_meta( $post_id, 'item_no', true) ?: '3';
-	$itemsdesktop                  = get_post_meta( $post_id, 'itemsdesktop', true) ?: '3';
-	$itemsdesktopsmall             = get_post_meta( $post_id, 'itemsdesktopsmall', true) ?: '2';
-	$itemsmobile                   = get_post_meta( $post_id, 'itemsmobile', true) ?: '1';
+	$item_no                       = get_post_meta( $postid, 'item_no', true) ?: '3';
+	$itemsdesktop                  = get_post_meta( $postid, 'itemsdesktop', true) ?: '3';
+	$itemsdesktopsmall             = get_post_meta( $postid, 'itemsdesktopsmall', true) ?: '2';
+	$itemsmobile                   = get_post_meta( $postid, 'itemsmobile', true) ?: '1';
 	$loop                          = get_post_meta( $postid, 'loop', true );
 	$margin                        = get_post_meta( $postid, 'margin', true );
 	$navigation                    = get_post_meta( $postid, 'navigation', true );

@@ -6,7 +6,7 @@
 
 <div class="wraper doc-suport">
     <div class="doc-support-header">
-        <h1><?php esc_html_e( 'Super Testimonial V-4.0.4', 'ktsttestimonial' ); ?> </h1>
+        <h1><?php esc_html_e( 'Super Testimonial V-4.0.5', 'ktsttestimonial' ); ?> </h1>
         <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'ktsttestimonial' ); ?> </p>
     </div>
 
@@ -20,7 +20,14 @@
     <div class="tps-tab-content">
         <!-- What's New Section -->
         <div class="tps-tab-panel active" id="whats-new">
-            <h2><?php esc_html_e('Latest Updates - 13 February 2025', 'ktsttestimonial'); ?></h2>
+            <h2><?php esc_html_e('Latest Updates - 16 April 2025', 'ktsttestimonial'); ?></h2>
+            <ul>
+                <li># <?php esc_html_e('Performance Improvements.', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Bug Fixes and UI Enhancements.', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Fix Metabox value Warning Issue.', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue.', 'ktsttestimonial'); ?></li>
+            </ul>
+            <h2><?php esc_html_e('Updates - 13 February 2025', 'ktsttestimonial'); ?></h2>
             <p><?php esc_html_e('Here are the latest features and improvements we have added.', 'ktsttestimonial'); ?></p>
             <h2><?php esc_html_e('Front-End Testimonial Submission Form :', 'ktsttestimonial'); ?></h2>
             <ul>
