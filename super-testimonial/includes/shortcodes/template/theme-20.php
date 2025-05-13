@@ -1,10 +1,8 @@
 <?php
-
     if( !defined( 'ABSPATH' ) ){
         exit;
     }
-
-	?>
+?>
 
 	<style type="text/css">
 		.testimonial-list-area-<?php echo esc_attr( $postid ); ?>{

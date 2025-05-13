@@ -139,7 +139,6 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			background: <?php echo esc_attr( $nav_bg_color_hover ); ?>;
 			border: 1px solid <?php echo esc_attr( $nav_bg_color_hover ); ?>;
 		}
-
 		#testimonial-slider-<?php echo esc_attr( $postid); ?> .owl-dots {
 		    display: block;
 		  	text-align: center;

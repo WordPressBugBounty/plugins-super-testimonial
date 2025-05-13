@@ -138,6 +138,7 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	ob_start();
 	
 	switch ( $tp_testimonial_themes ) {
+
 	    case '1':
 
 	    		include __DIR__ . '/template/theme-1.php';
@@ -289,6 +290,7 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 
 	  //       break;
 	}
+	
 	return ob_get_clean();
 }
 add_shortcode( 'tptpro', 'tp_testimonial_pro_post_query' );

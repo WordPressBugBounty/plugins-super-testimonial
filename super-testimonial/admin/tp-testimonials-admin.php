@@ -2,7 +2,7 @@
 
 	// Prevent direct access to this file
 	if (!defined('ABSPATH')) {
-	    exit; // Exit if accessed directly
+	    exit;
 	}
 
 	function tps_super_testimonials_init() {
@@ -139,7 +139,7 @@
 	/*----------------------------------------------------------------------
 		Add manage_tmls_posts_custom_column Action
 	----------------------------------------------------------------------*/
-	add_action("manage_ktsprotype_posts_custom_column",  "ktps_columns_display", 10, 2 );	
+	add_action("manage_ktsprotype_posts_custom_column",  "ktps_columns_display", 10, 2 );
 
 	/*----------------------------------------------------------------------
 		Add Meta Box 

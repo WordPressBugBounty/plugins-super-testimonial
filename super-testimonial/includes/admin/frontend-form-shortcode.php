@@ -4,7 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-
 function tps_testimonial_form_shortcode($atts) {
 
     $atts = shortcode_atts(
@@ -62,7 +61,6 @@ function tps_testimonial_form_shortcode($atts) {
     $site_key                   = get_post_meta($post_id, 'custom_recaptcha_site_key', true) ?: '';
     $secret_key                 = get_post_meta($post_id, 'custom_recaptcha_secret_key', true) ?: '';
 
-
     // Check if the post exists and is published
     if (!$post_id || get_post_status($post_id) !== 'publish') {
         return '<p class="error-message">No testimonial form is available. Please create and publish a Testimonial Form first.</p>';
@@ -75,7 +73,6 @@ function tps_testimonial_form_shortcode($atts) {
     $success_message = '';
     $error_message = '';
     $submitted_data = $_POST; // Store form data
-
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_testimonial'])) {
         
@@ -108,7 +105,6 @@ function tps_testimonial_form_shortcode($atts) {
                 $error_message = 'Image size must be under 5MB.';
             }
         }
-
 
         // Check if all fields are empty
         if (empty($submitted_data['testimonial_text_input'])) {
@@ -207,8 +203,7 @@ function tps_testimonial_form_shortcode($atts) {
                                 <span class="required-field-icon" style="color: red;">*</span>
                             <?php endif; ?>
                         </label>
-                        <?php
-                        if ($field['type'] === 'text' || $field['type'] === 'email') {
+                        <?php if ($field['type'] === 'text' || $field['type'] === 'email') {
                             echo '<input type="' . esc_attr($field['type']) . '" id="' . esc_attr($unique_field_id) . '" name="' . esc_attr($key) . '" value="' . esc_attr($submitted_data[$key] ?? '') . '" ' . $placeholder_attr . ' ' . $required_attr . '>';
                         } elseif ($field['type'] === 'textarea') {
                             echo '<textarea id="' . esc_attr($unique_field_id) . '" name="' . esc_attr($key) . '" ' . $placeholder_attr . ' ' . $required_attr . '>' . esc_textarea($submitted_data[$key] ?? '') . '</textarea>';
@@ -223,9 +218,7 @@ function tps_testimonial_form_shortcode($atts) {
                                     <label for="rating-<?php echo esc_attr($unique_field_id . '_' . $i); ?>" title="<?php echo esc_attr($i . ' Star'); ?>"><i class="fa fa-star"></i></label>
                                 <?php endfor; ?>
                             </div>
-                        <?php
-                        }
-                        ?>
+                        <?php } ?>
                     </div>
                     <?php
                 }
@@ -285,7 +278,6 @@ function tps_testimonial_form_shortcode($atts) {
                 <p class="error-message"><?php echo esc_html($error_message); ?></p>
             <?php endif; ?>
         </form>
-
     </div>
 
     <style>
@@ -330,7 +322,6 @@ function tps_testimonial_form_shortcode($atts) {
             box-shadow: none;
             margin-bottom: 0;
         }
-
         .tps-testimonial-form-wrapper .tps-testimonial-form input::placeholder, 
         .tps-testimonial-form-wrapper .tps-testimonial-form textarea::placeholder {
             color: <?php echo esc_attr( $tp_form_placeholder_color ); ?>;
@@ -406,7 +397,6 @@ function tps_testimonial_form_shortcode($atts) {
     </style>
     <?php
     return ob_get_clean();
-
 }
 
 add_shortcode('frontend_form', 'tps_testimonial_form_shortcode');

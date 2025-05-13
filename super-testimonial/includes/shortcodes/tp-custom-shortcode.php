@@ -207,7 +207,6 @@
 					$output .= '</div>';
 				endwhile;wp_reset_postdata();
 			$output .= '</div>';
-
 		} elseif( esc_attr($themes) =="theme2" ){
 			$output .= '
 			<style type="text/css">
@@ -258,7 +257,6 @@
 				$output .= '</div>';
 				endwhile; wp_reset_postdata();
 			$output .= '</div>';
-
 		}elseif( esc_attr($themes) =="theme3" ){
 			$output .= '
 			<style type="text/css">
@@ -416,7 +414,6 @@
 				$output .= '</div>';
 				endwhile;wp_reset_postdata();
 			$output .= '</div>';
-
 		}elseif( esc_attr($themes) == "theme4" ){
 			$output .= '
 			<style type="text/css">

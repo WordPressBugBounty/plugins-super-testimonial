@@ -6,7 +6,7 @@
 
 <div class="wraper doc-suport">
     <div class="doc-support-header">
-        <h1><?php esc_html_e( 'Super Testimonial V-4.0.5', 'ktsttestimonial' ); ?> </h1>
+        <h1><?php echo esc_html__( 'Super Testimonial V-', 'ktsttestimonial' ) . TPS_TESTIMONIAL_VERSION; ?></h1>
         <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'ktsttestimonial' ); ?> </p>
     </div>
 

@@ -1,10 +1,10 @@
-=== Super Testimonials ===
+=== Super Testimonial – Best Testimonial & Customer Review Slider Plugin for WordPress ===
 Contributors: themepoints
 Donate link: https://themepoints.com/testimonials/
-Tags:  testimonial, testimonial shortcode, testimonial slider, testimonial widget, testimonials, random testimonials, client review
+Tags: testimonial, testimonial slider, customer review, reviews, WordPress testimonials, feedback, client testimonial, testimonial plugin
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 4.0.5
+Tested up to: 6.8.1
+Stable tag: 4.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,22 +22,33 @@ Testimonials are easy to use the plugin that allows users to add Testimonials to
 </ul>
 
 
-<strong> AVAILABLE FIELDS </strong>
+🎯 **Why Use Super Testimonial?**
 
-* Testimonial Title
-* Name
-* Position
-* Email Address
-* Company Name
-* Company Website URL
-* Testimonial Rating
-* Testimonial Content
-* Testimonial Categories
-* Testimonial Picture
+- Increase trust and conversions with real customer feedback.
+- Super Easy testimonial creation.
+- Multiple display styles: Slider, Grid, Isotope Filter, List.
+- Fully responsive & mobile-friendly design.
+- Compatible with all popular WordPress themes.
 
-<strong> FEATURES OF PLUGIN </strong>
 
-* Fully Responsive and Mobile friendly.
+== Available Testimonial Fields ==
+
+The plugin allows you to collect and display the following testimonial fields:
+
+- 📝 **Testimonial Title**
+- 👤 **Name**
+- 💼 **Position**
+- ✉️ **Email Address**
+- 🏢 **Company Name**
+- 🌐 **Company Website URL**
+- ⭐ **Testimonial Rating (Stars)**
+- 🗨️ **Testimonial Content**
+- 🏷️ **Testimonial Categories**
+- 📷 **Testimonial Picture (Author Image)**
+
+
+<strong> Features </strong>
+
 * Clean Design & Code.
 * No Coding Skill Required.
 * Easy Shortcode Generator.
@@ -107,20 +118,28 @@ Testimonials are easy to use the plugin that allows users to add Testimonials to
 * Testimonial Filter Menu Active Font Color.
 * Widget Ready.
 * Easy Documentation.
-* Compatible with any theme.
 * Support all modern browsers.
 * 24/7 Customer support.
 * And much more options.
 
 
+== Super Testimonial Pro ==
+
+Want even more power? Upgrade to the Pro version and unlock:
+
+⭐ 30+ unique layout styles.
+⭐ Popup and expandable “Read More” testimonial support.
+⭐ Frontend testimonial submission form.
+⭐ Advanced styling options.
+⭐ Different star rating Style. 
+⭐ Priority support
+
+🛒 [Get Super Testimonial Pro »](https://themepoints.com/testimonials)
+
+
 <strong> TESTIMONIAL SUBMISSION FORM </strong>
 
 If you want to collect user feedback directly via your website, Super Testimonial Plugin will serve your request. You can give your users an option to set the testimonial draft, pending or publish, and provide users an option to upload images and other information with their testimonial. You can easily manage all the options via the options page.
-
-
-<ul>
-	<li><a href="https://themepoints.com/testimonials">Upgrade to Pro</a></li>
-</ul>
 
 
 == Installation ==
@@ -143,7 +162,40 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 
 <br /><br />
 
+== Frequently Asked Questions ==
 
+= Is the plugin responsive and mobile-ready? =  
+Absolutely. All testimonial layouts are fully responsive and look great on all devices.
+
+= Can I show testimonials in a slider? =  
+Yes! You can choose between Slider, Grid, Isotope Filter, or List layouts.
+
+= Can I add star ratings and client photos? =  
+Absolutely. You can enable or disable star ratings, author images, and company details easily.
+
+= Is there a limit to the number of testimonials I can add? =  
+Nope! You can add unlimited testimonials and display them across your site.
+
+= Can I customize the design to match my theme? =  
+Yes, you can customize colors, fonts, layout spacing, and more directly from the plugin settings. The Pro version also offers 30+ layout styles.
+
+= Is it compatible with Elementor or WPBakery? =  
+Yes, Super Testimonial supports both Elementor and WPBakery Page Builder.
+
+= Can users submit testimonials from the frontend? =  
+Yes, this feature is available with a customizable submission form.
+
+= Will this plugin slow down my site? =  
+Not at all! Super Testimonial is lightweight, optimized, and built for performance.
+
+= Does it work with any WordPress theme? =  
+Yes, Super Testimonial is compatible with all modern WordPress themes and page builders.
+
+= Do I need coding knowledge to use this plugin? =  
+Not at all! Super Testimonial is built to be user-friendly with zero coding required.
+
+= How do I upgrade to the Pro version? =  
+You can upgrade anytime by visiting the [official website](https://themepoints.com/testimonials) and following the upgrade instructions.
 
 
 == Screenshots ==
@@ -163,6 +215,14 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 
 
 == Changelog ==
+
+= 4.0.6 =
+*Release Date - 12 May 2025*
+ * Update CSS File.
+ * Update Options Page.
+ * Fix Security Issue.
+ * Added translation.
+ * Fix CSS Issue.
 
 = 4.0.5 =
 *Release Date - 16 April 2025*
@@ -373,7 +433,6 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 * Fix Testimonial order issues.
 * Update Options page.
 
-
 = 1.3 =
 *Release Date - 24 May, 2017*
 
@@ -388,7 +447,6 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 * Fix Responsive CSS Issues.
 * Update Option Page.
 
-
 = 1.1 =
 * Added New Options.
 * Added Client Rating Options.
@@ -396,7 +454,6 @@ When active the plugin please Generate a shortcode and used this shortcode in yo
 * Update New Shortcode.
 * Fix Css Issues.
 * Fix Responsive Issues.
-
 
 = 1.0 =
 * Initial release

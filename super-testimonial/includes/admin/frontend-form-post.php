@@ -108,10 +108,10 @@ add_action( 'admin_init', 'tps_super_testimonials_redirect_add_new' );
 // Customize columns for tp_testimonial_form
 function tps_super_testimonials_shortcode_form( $columns ) {
     return array(
-        'cb'         => '<input type="checkbox" />',
-        'title'      => __( 'Form Title', 'ktsttestimonial' ),
-        'formshortcode'  => __( 'Shortcode', 'ktsttestimonial' ),
-        'date'       => __( 'Date', 'ktsttestimonial' ),
+        'cb'            => '<input type="checkbox" />',
+        'title'         => __( 'Form Title', 'ktsttestimonial' ),
+        'formshortcode' => __( 'Shortcode', 'ktsttestimonial' ),
+        'date'          => __( 'Date', 'ktsttestimonial' ),
     );
 }
 add_filter( 'manage_tp_testimonial_form_posts_columns', 'tps_super_testimonials_shortcode_form' );
@@ -655,7 +655,7 @@ function tps_render_testimonial_form_metabox($post) {
 					                <label for="custom_header_status"><?php esc_html_e('reCAPTCHA', 'ktsttestimonial'); ?></label>
 					            </th>
 					            <td>
-					            	<p><?php esc_html_e('reCAPTCHA is a free aniti-spam service provided by Google designed to protect websites from spam and abuse.', 'ktsttestimonial'); ?></p>
+					               <p><?php esc_html_e('reCAPTCHA is a free aniti-spam service provided by Google designed to protect websites from spam and abuse.', 'ktsttestimonial'); ?></p>
 					            </td>
 					        </tr>
 
@@ -907,15 +907,12 @@ function tps_render_testimonial_form_metabox($post) {
                                 </td>
                             </tr>
                             <!-- End Form Message Body -->
-
                         </table>
                     </div>
                 </div>
             </li>
-
 		</ul>
 	</div>
-
 
 	<script type="text/javascript">
 		jQuery( document ).ready( function( jQuery ) {
@@ -926,7 +923,6 @@ function tps_render_testimonial_form_metabox($post) {
     <?php
     wp_nonce_field('tps_testimonial_form_save', 'tps_testimonial_form_nonce');
 }
-
 
 function tps_save_testimonial_form_metabox($post_id) {
     if (!isset($_POST['tps_testimonial_form_nonce']) || !wp_verify_nonce($_POST['tps_testimonial_form_nonce'], 'tps_testimonial_form_save')) {
@@ -970,67 +966,67 @@ function tps_save_testimonial_form_metabox($post_id) {
     }
     update_post_meta($post_id, 'tp_testimonial_form_settings', $settings);
 
-	// Sanitize and save 'tp_form_submitbtn' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_submitbtn' ] ) ) {
 		$tp_form_submitbtn = sanitize_text_field( $_POST['tp_form_submitbtn'] );
 		update_post_meta( $post_id, 'tp_form_submitbtn', $tp_form_submitbtn );
 	}
 
-	// Sanitize and save 'tp_form_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_width' ] ) ) {
 		$tp_form_width = sanitize_text_field( $_POST['tp_form_width'] );
 		update_post_meta( $post_id, 'tp_form_width', $tp_form_width );
 	}
 
-	// Sanitize and save 'tp_form_bgcolor' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_bgcolor' ] ) ) {
 		$tp_form_bgcolor = sanitize_hex_color( $_POST['tp_form_bgcolor'] );
 		update_post_meta( $post_id, 'tp_form_bgcolor', $tp_form_bgcolor );
 	}
 
-	// Sanitize and save 'tp_required_show_hide' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_required_show_hide' ] ) ) {
 		$tp_required_show_hide = sanitize_text_field( $_POST['tp_required_show_hide'] );
 		update_post_meta( $post_id, 'tp_required_show_hide', $tp_required_show_hide );
 	}
 
-	// Sanitize and save 'tp_required_notice_text' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_required_notice_text' ] ) ) {
 		$tp_required_notice_text = sanitize_text_field( $_POST['tp_required_notice_text'] );
 		update_post_meta( $post_id, 'tp_required_notice_text', $tp_required_notice_text );
 	}
 
-	// Sanitize and save 'tp_success_message' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_success_message' ] ) ) {
 		$tp_success_message = sanitize_text_field( $_POST['tp_success_message'] );
 		update_post_meta( $post_id, 'tp_success_message', $tp_success_message );
 	}
 
-	// Sanitize and save 'tp_error_message' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_error_message' ] ) ) {
 		$tp_error_message = sanitize_text_field( $_POST['tp_error_message'] );
 		update_post_meta( $post_id, 'tp_error_message', $tp_error_message );
 	}
 
-	// Sanitize and save 'tp_border_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_border_width' ] ) ) {
 		$tp_border_width = sanitize_text_field( $_POST['tp_border_width'] );
 		update_post_meta( $post_id, 'tp_border_width', $tp_border_width );
 	}
 
-	// Sanitize and save 'tp_border_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_border_style' ] ) ) {
 		$tp_border_style = sanitize_text_field( $_POST['tp_border_style'] );
 		update_post_meta( $post_id, 'tp_border_style', $tp_border_style );
 	}
 
-	// Sanitize and save 'tp_border_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_border_color' ] ) ) {
 		$tp_border_color = sanitize_text_field( $_POST['tp_border_color'] );
 		update_post_meta( $post_id, 'tp_border_color', $tp_border_color );
 	}
 
-	// Sanitize and save 'tp_border_radius' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_border_radius' ] ) ) {
 		$tp_border_radius = sanitize_text_field( $_POST['tp_border_radius'] );
 		update_post_meta( $post_id, 'tp_border_radius', $tp_border_radius );
@@ -1042,181 +1038,186 @@ function tps_save_testimonial_form_metabox($post_id) {
 		update_post_meta( $post_id, 'tp_form_placeholder_color', $tp_form_placeholder_color );
 	}
 
-	// Sanitize and save 'tp_form_label_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_label_color' ] ) ) {
 		$tp_form_label_color = sanitize_hex_color( $_POST['tp_form_label_color'] );
 		update_post_meta( $post_id, 'tp_form_label_color', $tp_form_label_color );
 	}
 
-	// Sanitize and save 'tp_label_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_label_width' ] ) ) {
 		$tp_label_width = sanitize_text_field( $_POST['tp_label_width'] );
 		update_post_meta( $post_id, 'tp_label_width', $tp_label_width );
 	}
 
-	// Sanitize and save 'tp_label_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_label_style' ] ) ) {
 		$tp_label_style = sanitize_text_field( $_POST['tp_label_style'] );
 		update_post_meta( $post_id, 'tp_label_style', $tp_label_style );
 	}
 
-	// Sanitize and save 'tp_lable_border_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_lable_border_color' ] ) ) {
 		$tp_lable_border_color = sanitize_text_field( $_POST['tp_lable_border_color'] );
 		update_post_meta( $post_id, 'tp_lable_border_color', $tp_lable_border_color );
 	}
 
-	// Sanitize and save 'tp_lable_bg_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_lable_bg_color' ] ) ) {
 		$tp_lable_bg_color = sanitize_text_field( $_POST['tp_lable_bg_color'] );
 		update_post_meta( $post_id, 'tp_lable_bg_color', $tp_lable_bg_color );
 	}
 
-	// Sanitize and save 'tp_label_border_radius' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_label_border_radius' ] ) ) {
 		$tp_label_border_radius = sanitize_text_field( $_POST['tp_label_border_radius'] );
 		update_post_meta( $post_id, 'tp_label_border_radius', $tp_label_border_radius );
 	}
 
-	// Sanitize and save 'tp_form_rating_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_rating_color' ] ) ) {
 		$tp_form_rating_color = sanitize_hex_color( $_POST['tp_form_rating_color'] );
 		update_post_meta( $post_id, 'tp_form_rating_color', $tp_form_rating_color );
 	}
 
-    // Sanitize and save 'tp_form_rating_hover_color' field
+    #Checks for input and sanitizes/saves if needed
     if ( isset( $_POST[ 'tp_form_rating_hover_color' ] ) ) {
         $tp_form_rating_hover_color = sanitize_hex_color( $_POST['tp_form_rating_hover_color'] );
         update_post_meta( $post_id, 'tp_form_rating_hover_color', $tp_form_rating_hover_color );
     }
 
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['tp_rating_style'])) {
         update_post_meta($post_id, 'tp_rating_style', sanitize_text_field($_POST['tp_rating_style']));
     }
 
-	// Sanitize and save 'tp_form_btn_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_btn_color' ] ) ) {
 		$tp_form_btn_color = sanitize_hex_color( $_POST['tp_form_btn_color'] );
 		update_post_meta( $post_id, 'tp_form_btn_color', $tp_form_btn_color );
 	}
 
-	// Sanitize and save 'tp_form_btn_hover_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_btn_hover_color' ] ) ) {
 		$tp_form_btn_hover_color = sanitize_hex_color( $_POST['tp_form_btn_hover_color'] );
 		update_post_meta( $post_id, 'tp_form_btn_hover_color', $tp_form_btn_hover_color );
 	}
 
-	// Sanitize and save 'tp_form_btn_bg_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_btn_bg_color' ] ) ) {
 		$tp_form_btn_bg_color = sanitize_hex_color( $_POST['tp_form_btn_bg_color'] );
 		update_post_meta( $post_id, 'tp_form_btn_bg_color', $tp_form_btn_bg_color );
 	}
 
-	// Sanitize and save 'tp_form_btn_bg_hover_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_btn_bg_hover_color' ] ) ) {
 		$tp_form_btn_bg_hover_color = sanitize_hex_color( $_POST['tp_form_btn_bg_hover_color'] );
 		update_post_meta( $post_id, 'tp_form_btn_bg_hover_color', $tp_form_btn_bg_hover_color );
 	}
 
-	// Sanitize and save 'tp_form_asterisk_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_asterisk_color' ] ) ) {
 		$tp_form_asterisk_color = sanitize_hex_color( $_POST['tp_form_asterisk_color'] );
 		update_post_meta( $post_id, 'tp_form_asterisk_color', $tp_form_asterisk_color );
 	}
 
-	// Sanitize and save 'tp_form_success_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_success_color' ] ) ) {
 		$tp_form_success_color = sanitize_hex_color( $_POST['tp_form_success_color'] );
 		update_post_meta( $post_id, 'tp_form_success_color', $tp_form_success_color );
 	}
 
-	// Sanitize and save 'tp_form_error_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_form_error_color' ] ) ) {
 		$tp_form_error_color = sanitize_hex_color( $_POST['tp_form_error_color'] );
 		update_post_meta( $post_id, 'tp_form_error_color', $tp_form_error_color );
 	}
 
-	// Sanitize and save 'tp_fptop_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_fptop_width' ] ) ) {
 		$tp_fptop_width = sanitize_text_field( $_POST['tp_fptop_width'] );
 		update_post_meta( $post_id, 'tp_fptop_width', $tp_fptop_width );
 	}
 
-	// Sanitize and save 'tp_fpright_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_fpright_width' ] ) ) {
 		$tp_fpright_width = sanitize_text_field( $_POST['tp_fpright_width'] );
 		update_post_meta( $post_id, 'tp_fpright_width', $tp_fpright_width );
 	}
 
-	// Sanitize and save 'tp_fpbottom_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_fpbottom_width' ] ) ) {
 		$tp_fpbottom_width = sanitize_text_field( $_POST['tp_fpbottom_width'] );
 		update_post_meta( $post_id, 'tp_fpbottom_width', $tp_fpbottom_width );
 	}
 
-	// Sanitize and save 'tp_fpleft_width' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_fpleft_width' ] ) ) {
 		$tp_fpleft_width = sanitize_text_field( $_POST['tp_fpleft_width'] );
 		update_post_meta( $post_id, 'tp_fpleft_width', $tp_fpleft_width );
 	}
 
-	// Sanitize and save 'custom_post_status' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'custom_post_status' ] ) ) {
 		$custom_post_status = sanitize_text_field( $_POST['custom_post_status'] );
 		update_post_meta( $post_id, 'custom_post_status', $custom_post_status );
 	}
 
-	// Sanitize and save 'custom_recaptcha_type' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'custom_recaptcha_type' ] ) ) {
 		$custom_recaptcha_type = sanitize_text_field( $_POST['custom_recaptcha_type'] );
 		update_post_meta( $post_id, 'custom_recaptcha_type', $custom_recaptcha_type );
 	}
 
-	// Sanitize and save 'custom_recaptcha_version' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'custom_recaptcha_version' ] ) ) {
 		$custom_recaptcha_version = sanitize_text_field( $_POST['custom_recaptcha_version'] );
 		update_post_meta( $post_id, 'custom_recaptcha_version', $custom_recaptcha_version );
 	}
 
-	// Sanitize and save 'custom_recaptcha_site_key' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'custom_recaptcha_site_key' ] ) ) {
 		$custom_recaptcha_site_key = sanitize_text_field( $_POST['custom_recaptcha_site_key'] );
 		update_post_meta( $post_id, 'custom_recaptcha_site_key', $custom_recaptcha_site_key );
 	}
 
-	// Sanitize and save 'custom_recaptcha_secret_key' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'custom_recaptcha_secret_key' ] ) ) {
 		$custom_recaptcha_secret_key = sanitize_text_field( $_POST['custom_recaptcha_secret_key'] );
 		update_post_meta( $post_id, 'custom_recaptcha_secret_key', $custom_recaptcha_secret_key );
 	}
 
+    #Checks for input and sanitizes/saves if needed
 	update_post_meta($post_id, 'enable_recaptcha', isset($_POST['enable_recaptcha']) ? '1' : '0');
 
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['notification_enabled'])) {
         update_post_meta($post_id, '_notification_enabled', '1');
     } else {
         delete_post_meta($post_id, '_notification_enabled');
     }
 
-    // Check if the notification_to field is present
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['notification_to'])) {
         update_post_meta($post_id, 'notification_to', sanitize_email($_POST['notification_to']));
     }
 
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['notification_from'])) {
         update_post_meta($post_id, 'notification_from', sanitize_text_field($_POST['notification_from']));
     }
 
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['notification_subject'])) {
         update_post_meta($post_id, 'notification_subject', sanitize_text_field($_POST['notification_subject']));
     }
 
-    // Save the notification_body field
+    #Checks for input and sanitizes/saves if needed
     if (isset($_POST['notification_body'])) {
         update_post_meta($post_id, 'notification_body', wp_kses_post($_POST['notification_body']));
     }
 
-	#Value check and saves if needed
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'nav_value' ] ) ) {
 	    $nav_value = sanitize_text_field( $_POST['nav_value'] ); // Sanitize nav_value input
 	    update_post_meta( $post_id, 'nav_value', $nav_value );
@@ -1272,7 +1273,6 @@ function tps_sidebar_render_shortcode_metabox($post) {
     <?php
 }
 
-
 // Retrieve and Apply Settings in Frontend Form
 function tp_testimonial_get_frontend_form_settings() {
     $default_settings = tp_testimonial_form_settings();
@@ -1285,6 +1285,5 @@ function tp_testimonial_get_frontend_form_settings() {
             }
         }
     }
-    
     return $default_settings;
 }

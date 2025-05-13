@@ -222,7 +222,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									<span class="tpstestimonial_manager_hint toss"><?php echo __('The category names will only be visible when testimonials are published within specific categories.', 'ktsttestimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
-									<ul>			
+									<ul>
 										<?php
 											$args = array( 
 												'taxonomy'     => 'ktspcategory',
@@ -387,7 +387,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									</div>
 								</td>
 							</tr><!-- End Text Align -->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_img_show_hide"><?php _e( 'Image', 'ktsttestimonial' ); ?></label>
@@ -422,7 +422,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									<input type="text" id="tp_imgborder_color_option" name="tp_imgborder_color_option" value="<?php if ( $tp_imgborder_color_option !='' ) {echo $tp_imgborder_color_option; }else{echo "#f5f5f5"; } ?>" class="timezone_string">
 								</td>
 							</tr><!-- End Name Color -->
-							
+
 							<tr valign="top" id="imgRadius_controller" style="<?php if ( $tp_img_show_hide == 2 ) {	echo "display:none;"; } ?>">
 								<th scope="row">
 									<label for="tp_testimonial_textalign"><?php _e( 'Image Border Radius', 'ktsttestimonial' );?></label>
@@ -466,7 +466,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									<input type="text" id="tp_title_color_option" name="tp_title_color_option" value="<?php if ( $tp_title_color_option !='' ) {echo $tp_title_color_option; }else{echo "#000000"; } ?>" class="timezone_string">
 								</td>
 							</tr><!-- End Title Color -->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_title_fontsize_option"><?php _e( 'Title Font Size', 'ktsttestimonial' ); ?></label>
@@ -514,7 +514,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									<input type="text" id="tp_name_color_option" name="tp_name_color_option" value="<?php if ( $tp_name_color_option !='' ) {echo $tp_name_color_option; }else{echo "#020202"; } ?>" class="timezone_string">
 								</td>
 							</tr><!-- End Name Color -->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_name_fontsize_option"><?php _e( 'Name Font Size', 'ktsttestimonial' ); ?></label>
@@ -577,7 +577,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									<input type="number" name="tp_desig_fontsize_option" id="tp_desig_fontsize_option" min="10" max="45" class="timezone_string" required value="<?php  if($tp_desig_fontsize_option !=''){echo $tp_desig_fontsize_option; }else{ echo '15';} ?>"> <br />
 								</td>
 							</tr><!-- End Designation Font Size-->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_designation_color_option"><?php _e( 'Designation Font Color', 'ktsttestimonial' ); ?></label>
@@ -1301,7 +1301,7 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
         return;
     }
 
-    // Sanitize and Save 'testimonial_cat_name' (multiple checkbox values)
+    #Checks for input and sanitizes/saves if needed
     if ( isset( $_POST['testimonial_cat_name'] ) ) {
         $testimonial_cat_name = array_map( 'sanitize_text_field', $_POST['testimonial_cat_name'] );
         update_post_meta( $post_id, 'testimonial_cat_name', $testimonial_cat_name );
@@ -1309,241 +1309,241 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
         delete_post_meta( $post_id, 'testimonial_cat_name' );
     }
 
-	// Sanitize and save 'tp_name_color_option' field (hex color or text)
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_name_color_option' ] ) ) {
 		$tp_name_color_option = sanitize_hex_color( $_POST['tp_name_color_option'] );
 		update_post_meta( $post_id, 'tp_name_color_option', $tp_name_color_option );
 	}
 
-	// Sanitize and save 'tp_designation_color_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_designation_color_option' ] ) ) {
 		$tp_designation_color_option = sanitize_hex_color( $_POST['tp_designation_color_option'] );
 		update_post_meta( $post_id, 'tp_designation_color_option', $tp_designation_color_option );
 	}
 
-	// Sanitize and save 'tp_testimonial_themes' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_testimonial_themes' ] ) ) {
 		$tp_testimonial_themes = sanitize_text_field( $_POST['tp_testimonial_themes'] );
 		update_post_meta( $post_id, 'tp_testimonial_themes', $tp_testimonial_themes );
 	}
 
-	// Sanitize and save 'tp_testimonial_theme_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_testimonial_theme_style' ] ) ) {
 		$tp_testimonial_theme_style = sanitize_text_field( $_POST['tp_testimonial_theme_style'] );
 		update_post_meta( $post_id, 'tp_testimonial_theme_style', $tp_testimonial_theme_style );
 	}
 
-	// Sanitize and save 'tp_testimonial_textalign' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_testimonial_textalign' ] ) ) {
 		$tp_testimonial_textalign = sanitize_text_field( $_POST['tp_testimonial_textalign'] );
 		update_post_meta( $post_id, 'tp_testimonial_textalign', $tp_testimonial_textalign );
 	}
 
-	// Sanitize and save 'tp_order_by_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_order_by_option' ] ) ) {
 		$tp_order_by_option = sanitize_text_field( $_POST['tp_order_by_option'] );
 		update_post_meta( $post_id, 'tp_order_by_option', $tp_order_by_option );
 	}
 
-	// Sanitize and save 'tp_order_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_order_option' ] ) ) {
 		$tp_order_option = sanitize_text_field( $_POST['tp_order_option'] );
 		update_post_meta( $post_id, 'tp_order_option', $tp_order_option );
 	}
 
-	// Sanitize and save 'tp_image_sizes' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_image_sizes' ] ) ) {
 		$tp_image_sizes = sanitize_text_field( $_POST['tp_image_sizes'] );
 		update_post_meta( $post_id, 'tp_image_sizes', $tp_image_sizes );
 	}
 
-	// Sanitize and save 'dpstotoal_items' field (assuming it's an integer)
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'dpstotoal_items' ] ) ) {
 		$dpstotoal_items = intval( $_POST['dpstotoal_items'] );
 		update_post_meta( $post_id, 'dpstotoal_items', $dpstotoal_items );
 	}
 
-	// Sanitize and save 'tp_img_show_hide' field (assuming it's a boolean or integer flag)
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_img_show_hide' ] ) ) {
 		$tp_img_show_hide = sanitize_text_field( $_POST['tp_img_show_hide'] );
 		update_post_meta( $post_id, 'tp_img_show_hide', $tp_img_show_hide );
 	}
 
-	// Sanitize and save 'tp_img_border_radius' field (assuming it's a numeric value)
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_img_border_radius' ] ) ) {
 		$tp_img_border_radius = sanitize_text_field( $_POST['tp_img_border_radius'] );
 		update_post_meta( $post_id, 'tp_img_border_radius', $tp_img_border_radius );
 	}
 
-	// Sanitize and save 'tp_imgborder_width_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_imgborder_width_option' ] ) ) {
 		$tp_imgborder_width_option = intval( $_POST['tp_imgborder_width_option'] );
 		update_post_meta( $post_id, 'tp_imgborder_width_option', $tp_imgborder_width_option );
 	}
 
-	// Sanitize and save 'tp_imgborder_color_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_imgborder_color_option' ] ) ) {
 		$tp_imgborder_color_option = sanitize_hex_color( $_POST['tp_imgborder_color_option'] );
 		update_post_meta( $post_id, 'tp_imgborder_color_option', $tp_imgborder_color_option );
 	}
 
-	// Sanitize and save 'tp_designation_show_hide' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_designation_show_hide' ] ) ) {
 		$tp_designation_show_hide = sanitize_text_field( $_POST['tp_designation_show_hide'] );
 		update_post_meta( $post_id, 'tp_designation_show_hide', $tp_designation_show_hide );
 	}
 
-	// Sanitize and save 'tp_maintitle_show_hide' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_maintitle_show_hide' ] ) ) {
 		$tp_maintitle_show_hide = sanitize_text_field( $_POST['tp_maintitle_show_hide'] );
 		update_post_meta( $post_id, 'tp_maintitle_show_hide', $tp_maintitle_show_hide );
 	}
 
-	// Sanitize and save 'tp_company_show_hide' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_company_show_hide' ] ) ) {
 		$tp_company_show_hide = sanitize_text_field( $_POST['tp_company_show_hide'] );
 		update_post_meta( $post_id, 'tp_company_show_hide', $tp_company_show_hide );
 	}
 
-	// Sanitize and save 'tp_company_url_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_company_url_color' ] ) ) {
 		$tp_company_url_color = sanitize_hex_color( $_POST['tp_company_url_color'] );
 		update_post_meta( $post_id, 'tp_company_url_color', $tp_company_url_color );
 	}
 
-	// Sanitize and save 'tp_title_color_option' field (hex color or text)
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_title_color_option' ] ) ) {
 		$tp_title_color_option = sanitize_hex_color( $_POST['tp_title_color_option'] );
 		update_post_meta( $post_id, 'tp_title_color_option', $tp_title_color_option );
 	}
 
-	// Sanitize and save 'tp_title_fontsize_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_title_fontsize_option'] ) ) {
 	    $tp_title_fontsize_option = intval( $_POST['tp_title_fontsize_option'] );
 	    update_post_meta( $post_id, 'tp_title_fontsize_option', $tp_title_fontsize_option );
 	}
 
-	// Sanitize and save 'tp_title_font_case' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_title_font_case'] ) ) {
 	    $tp_title_font_case = sanitize_text_field( $_POST['tp_title_font_case'] );
 	    update_post_meta( $post_id, 'tp_title_font_case', $tp_title_font_case );
 	}
 
-	// Sanitize and save 'tp_title_font_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_title_font_style'] ) ) {
 	    $tp_title_font_style = sanitize_text_field( $_POST['tp_title_font_style'] );
 	    update_post_meta( $post_id, 'tp_title_font_style', $tp_title_font_style );
 	}
 
-	// Sanitize and save 'tp_name_fontsize_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_name_fontsize_option'] ) ) {
 	    $tp_name_fontsize_option = intval( $_POST['tp_name_fontsize_option'] );
 	    update_post_meta( $post_id, 'tp_name_fontsize_option', $tp_name_fontsize_option );
 	}
 
-	// Sanitize and save 'tp_name_font_case' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_name_font_case'] ) ) {
 	    $tp_name_font_case = sanitize_text_field( $_POST['tp_name_font_case'] );
 	    update_post_meta( $post_id, 'tp_name_font_case', $tp_name_font_case );
 	}
 
-	// Sanitize and save 'tp_name_font_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_name_font_style'] ) ) {
 	    $tp_name_font_style = sanitize_text_field( $_POST['tp_name_font_style'] );
 	    update_post_meta( $post_id, 'tp_name_font_style', $tp_name_font_style );
 	}
 
-	// Sanitize and save 'tp_designation_case' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_designation_case'] ) ) {
 	    $tp_designation_case = sanitize_text_field( $_POST['tp_designation_case'] );
 	    update_post_meta( $post_id, 'tp_designation_case', $tp_designation_case );
 	}
 
-	// Sanitize and save 'tp_designation_font_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_designation_font_style' ] ) ) {
 	    $tp_designation_font_style = sanitize_text_field( $_POST['tp_designation_font_style'] );
 	    update_post_meta( $post_id, 'tp_designation_font_style', $tp_designation_font_style );
 	}
 
-	// Sanitize and save 'tp_desig_fontsize_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_desig_fontsize_option' ] ) ) {
 	    $tp_desig_fontsize_option = intval( $_POST['tp_desig_fontsize_option'] );
 	    update_post_meta( $post_id, 'tp_desig_fontsize_option', $tp_desig_fontsize_option );
 	}
 
-	// Sanitize and save 'tp_content_fontsize_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_content_fontsize_option' ] ) ) {
 	    $tp_content_fontsize_option = intval( $_POST['tp_content_fontsize_option'] );
 	    update_post_meta( $post_id, 'tp_content_fontsize_option', $tp_content_fontsize_option );
 	}
 
-	// Sanitize and save 'tp_content_bg_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_content_bg_color' ] ) ) {
 	    $tp_content_bg_color = sanitize_hex_color( $_POST['tp_content_bg_color'] );
 	    update_post_meta( $post_id, 'tp_content_bg_color', $tp_content_bg_color );
 	}
 
-    // Sanitize and save 'testimonial_word_limit' field
+    #Checks for input and sanitizes/saves if needed
     if ( isset( $_POST['testimonial_word_limit'] ) ) {
         $testimonial_word_limit = intval( $_POST['testimonial_word_limit'] );
         update_post_meta( $post_id, 'testimonial_word_limit', $testimonial_word_limit );
     }
 	
-	// Sanitize and save 'testimonial_read_more_text' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['testimonial_read_more_text'] ) ) {
 	    $testimonial_read_more_text = sanitize_text_field( $_POST['testimonial_read_more_text'] );
 	    update_post_meta( $post_id, 'testimonial_read_more_text', $testimonial_read_more_text );
 	}
 
-	// Sanitize and save 'testimonial_read_more_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'testimonial_read_more_color' ] ) ) {
 	    $testimonial_read_more_color = sanitize_hex_color( $_POST['testimonial_read_more_color'] );
 	    update_post_meta( $post_id, 'testimonial_read_more_color', $testimonial_read_more_color );
 	}
 
-	// Sanitize and save 'tp_rating_fontsize_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_rating_fontsize_option' ] ) ) {
 	    $tp_rating_fontsize_option = intval( $_POST['tp_rating_fontsize_option'] );
 	    update_post_meta( $post_id, 'tp_rating_fontsize_option', $tp_rating_fontsize_option );
 	}
 
-	// Sanitize and save 'tp_content_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_content_color' ] ) ) {
 	    $tp_content_color = sanitize_hex_color( $_POST['tp_content_color'] );
 	    update_post_meta( $post_id, 'tp_content_color', $tp_content_color );
 	}
 
-	// Sanitize and save 'tp_show_rating_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_show_rating_option' ] ) ) {
 		$tp_show_rating_option = intval( $_POST[ 'tp_show_rating_option' ] );
 		update_post_meta( $post_id, 'tp_show_rating_option', $tp_show_rating_option );
 	}
 
-	// Sanitize and save 'tp_rating_style' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_rating_style' ] ) ) {
 		$tp_rating_style = sanitize_text_field( $_POST['tp_rating_style'] );
 		update_post_meta( $post_id, 'tp_rating_style', $tp_rating_style );
 	}
 
-	// Sanitize and save 'tp_show_item_bg_option' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'tp_show_item_bg_option' ] ) ) {
 		$tp_show_item_bg_option = sanitize_text_field( $_POST['tp_show_item_bg_option'] );
 		update_post_meta( $post_id, 'tp_show_item_bg_option', $tp_show_item_bg_option );
 	}
 
-	// Sanitize and save 'tp_rating_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_rating_color'] ) ) {
 	    $tp_rating_color = sanitize_hex_color( $_POST['tp_rating_color'] );
 	    update_post_meta( $post_id, 'tp_rating_color', $tp_rating_color );
 	}
 
-	// Sanitize and save 'tp_item_bg_color' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_item_bg_color'] ) ) {
 	    $tp_item_bg_color = sanitize_hex_color( $_POST['tp_item_bg_color'] );
 	    update_post_meta( $post_id, 'tp_item_bg_color', $tp_item_bg_color );
 	}
 
-	// Sanitize and save 'tp_item_padding' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['tp_item_padding'] ) ) {
 	    $tp_item_padding = sanitize_text_field( $_POST['tp_item_padding'] );
 	    update_post_meta( $post_id, 'tp_item_padding', $tp_item_padding );
@@ -1551,25 +1551,25 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 
     // Carousal Settings
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['loop'] ) && !empty( $_POST['loop'] ) ) {
 	    $loop = sanitize_text_field( $_POST['loop'] );
 	    update_post_meta( $post_id, 'loop', $loop );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['margin'] ) ) {
 	    $margin = sanitize_text_field( $_POST['margin'] ); // Assuming margin is a text field
 	    update_post_meta( $post_id, 'margin', $margin );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['navigation'] ) && !empty( $_POST['navigation'] ) ) {
 	    $navigation = sanitize_text_field( $_POST['navigation'] );
 	    update_post_meta( $post_id, 'navigation', $navigation );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['navigation_align'] ) && !empty( $_POST['navigation_align'] ) ) {
 	    $navigation_align = sanitize_text_field( $_POST['navigation_align'] );
 	    update_post_meta( $post_id, 'navigation_align', $navigation_align );
@@ -1581,43 +1581,43 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	    update_post_meta( $post_id, 'navigation_style', $navigation_style );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['pagination'] ) && !empty( $_POST['pagination'] ) ) {
 	    $pagination = sanitize_text_field( $_POST['pagination'] );
 	    update_post_meta( $post_id, 'pagination', $pagination );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['pagination_align'] ) && !empty( $_POST['pagination_align'] ) ) {
 	    $pagination_align = sanitize_text_field( $_POST['pagination_align'] );
 	    update_post_meta( $post_id, 'pagination_align', $pagination_align );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['pagination_style'] ) && !empty( $_POST['pagination_style'] ) ) {
 	    $pagination_style = sanitize_text_field( $_POST['pagination_style'] );
 	    update_post_meta( $post_id, 'pagination_style', $pagination_style );
 	}
 
-	// Sanitize and save 'grid_normal_column' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'grid_normal_column' ] ) ) {
 		$grid_normal_column = sanitize_text_field( $_POST['grid_normal_column'] );
 		update_post_meta( $post_id, 'grid_normal_column', $grid_normal_column );
 	}
 
-	// Sanitize and save 'grid_laptop_columns' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'grid_laptop_columns' ] ) ) {
 		$grid_laptop_columns = sanitize_text_field( $_POST['grid_laptop_columns'] );
 		update_post_meta( $post_id, 'grid_laptop_columns', $grid_laptop_columns );
 	}
 
-	// Sanitize and save 'grid_tablet_columns' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'grid_tablet_columns' ] ) ) {
 		$grid_tablet_columns = sanitize_text_field( $_POST['grid_tablet_columns'] );
 		update_post_meta( $post_id, 'grid_tablet_columns', $grid_tablet_columns );
 	}
 
-	// Sanitize and save 'grid_mobile_columns' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'grid_mobile_columns' ] ) ) {
 		$grid_mobile_columns = sanitize_text_field( $_POST['grid_mobile_columns'] );
 		update_post_meta( $post_id, 'grid_mobile_columns', $grid_mobile_columns );
@@ -1689,13 +1689,13 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	    update_post_meta( $post_id, 'pagination_bg_color_active', $pagination_bg_color_active );
 	}
 	    
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['autoplay'] ) && ( $_POST['autoplay'] != '' ) ) {
 	    $autoplay = sanitize_text_field( $_POST['autoplay'] ); // Sanitize autoplay input
 	    update_post_meta( $post_id, 'autoplay', $autoplay );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( ! empty( $_POST['autoplay_speed'] ) ) {
 	    $autoplay_speed = sanitize_text_field( $_POST['autoplay_speed'] ); // Sanitize autoplay speed input
 
@@ -1706,7 +1706,7 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	        if ( $autoplay_speed == '' || is_null( $autoplay_speed ) ) {
 	            // Default value if input is empty or null
 	            update_post_meta( $post_id, 'autoplay_speed', 700 );
-	        } else {
+	        }else {
 	            if ( is_numeric( $autoplay_speed ) && strlen( $autoplay_speed ) <= 4 ) {
 	                // Save sanitized autoplay speed
 	                update_post_meta( $post_id, 'autoplay_speed', intval( $autoplay_speed ) ); // Use intval for numeric value
@@ -1715,31 +1715,31 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	    }
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['stop_hover'] ) && ( $_POST['stop_hover'] != '' ) ) {
 	    $stop_hover = sanitize_text_field( $_POST['stop_hover'] ); // Sanitize stop hover input
 	    update_post_meta( $post_id, 'stop_hover', $stop_hover );
 	}
 
-	// Sanitize and save 'item_no' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'item_no' ] ) ) {
 		$item_no = sanitize_text_field( $_POST['item_no'] );
 		update_post_meta( $post_id, 'item_no', $item_no );
 	}
 
-	// Sanitize and save 'itemsdesktop' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'itemsdesktop' ] ) ) {
 		$itemsdesktop = sanitize_text_field( $_POST['itemsdesktop'] );
 		update_post_meta( $post_id, 'itemsdesktop', $itemsdesktop );
 	}
 
-	// Sanitize and save 'itemsdesktopsmall' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'itemsdesktopsmall' ] ) ) {
 		$itemsdesktopsmall = sanitize_text_field( $_POST['itemsdesktopsmall'] );
 		update_post_meta( $post_id, 'itemsdesktopsmall', $itemsdesktopsmall );
 	}
 
-	// Sanitize and save 'itemsmobile' field
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'itemsmobile' ] ) ) {
 		$itemsmobile = sanitize_text_field( $_POST['itemsmobile'] );
 		update_post_meta( $post_id, 'itemsmobile', $itemsmobile );
@@ -1757,25 +1757,25 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	    update_post_meta( $post_id, 'nav_text_color', $nav_text_color );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['nav_text_color_hover'] ) && ( $_POST['nav_text_color_hover'] != '' ) ) {
 	    $nav_text_color_hover = sanitize_text_field( $_POST['nav_text_color_hover'] ); // Sanitize nav text color hover input
 	    update_post_meta( $post_id, 'nav_text_color_hover', $nav_text_color_hover );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['nav_bg_color'] ) && ( $_POST['nav_bg_color'] != '' ) ) {
 	    $nav_bg_color = sanitize_text_field( $_POST['nav_bg_color'] ); // Sanitize nav background color input
 	    update_post_meta( $post_id, 'nav_bg_color', $nav_bg_color );
 	}
 
-	#Checks for input and sanitizes/saves if needed    
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST['nav_bg_color_hover'] ) && ( $_POST['nav_bg_color_hover'] != '' ) ) {
 	    $nav_bg_color_hover = sanitize_text_field( $_POST['nav_bg_color_hover'] ); // Sanitize nav background color hover input
 	    update_post_meta( $post_id, 'nav_bg_color_hover', $nav_bg_color_hover );
 	}
 
-	#Value check and saves if needed
+	#Checks for input and sanitizes/saves if needed
 	if ( isset( $_POST[ 'nav_value' ] ) ) {
 	    $nav_value = sanitize_text_field( $_POST['nav_value'] ); // Sanitize nav_value input
 	    update_post_meta( $post_id, 'nav_value', $nav_value );
@@ -1800,7 +1800,6 @@ function tp_testimonial_shortcode_section($post) {
     ?>
     <div style="padding: 15px 15px 25px 15px; border: 1px solid #ddd; background: #f9f9f9; margin-top: 15px;">
 	    <div style="display: flex; gap: 20px;">
-
 		    <div style="width: 50%;">
 		        <p>
 		            <strong><?php _e( 'Shortcode','ktsttestimonial' ); ?>:</strong>
@@ -1809,7 +1808,6 @@ function tp_testimonial_shortcode_section($post) {
 		        <p class="option-info"><?php _e('Click to copy the shortcode and paste it into a page or post to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
 		        <input type="text" id="shortcode-text" style="width:100%; cursor:pointer; box-shadow: none; border:none;outline:none;border-radius: 0" value="<?php echo esc_attr($shortcode); ?>" readonly onclick="copyToClipboard(this, 'shortcode-notice')">
 		    </div>
-
 		    <div style="width: 50%;">
 		        <p>
 		            <strong><?php _e( 'PHP Code for Theme Files','ktsttestimonial' ); ?>:</strong>
@@ -1818,7 +1816,6 @@ function tp_testimonial_shortcode_section($post) {
 		        <p class="option-info"><?php _e('Click to copy the PHP code and use it in your theme files to display Testimonial Showcase.','ktsttestimonial' ); ?></p>
 		        <input type="text" id="php-code-text" style="width:100%; cursor:pointer; box-shadow: none; border:none;outline:none;border-radius: 0" value="<?php echo esc_attr($php_code); ?>" readonly onclick="copyToClipboard(this, 'php-notice')">
 		    </div>
-
 	    </div>
     </div>
 
