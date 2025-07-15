@@ -51,7 +51,6 @@
 	    }
 		
 		$output = '';
-		
 		$tstrndsk = rand(1,1000);
 
 		$testimonials_query = new WP_Query( $args );

@@ -98,14 +98,13 @@
 	</style>
 
 	<div class="testimonial-list-area-<?php echo esc_attr( $postid ); ?>">
-		<?php	
+		<?php
 		// Creating a new side loop
 		while ( $query->have_posts() ) : $query->the_post();
 		$client_main_title       = get_post_meta( get_the_ID(), 'main_title', true );
 		$client_name_value       = get_post_meta(get_the_ID(), 'name', true);
 		$link_value              = get_post_meta(get_the_ID(), 'position', true);
 		$company_value           = get_post_meta(get_the_ID(), 'company', true);
-		// $company_url             = get_post_meta(get_the_ID(), 'company_website', true);
 		$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
 		$company_url_target      = get_post_meta(get_the_ID(), 'company_link_target', true);
 		$testimonial_information = get_post_meta(get_the_ID(), 'testimonial_text', true);

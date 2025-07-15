@@ -52,7 +52,6 @@ function tps_super_testimonials_form_generator_type() {
         'publicly_queryable'  => true,
         'capability_type'     => 'page',
     );
-
     register_post_type( 'tp_testimonial_form', $args );
 }
 add_action( 'init', 'tps_super_testimonials_form_generator_type' );
@@ -277,14 +276,12 @@ function tps_render_testimonial_form_metabox($post) {
         $notification_to = $site_admin_email;
     }
 
-
     $notification_from = get_post_meta($post->ID, 'notification_from', true);
     // Default subject if not set
     if (empty($notification_from)) {
         // Use placeholders with dynamic admin email
         $notification_from = '{site_title} ' . $site_admin_email;
     }
-
 
     $notification_subject = get_post_meta($post->ID, 'notification_subject', true);
     // Default subject if not set
@@ -301,7 +298,6 @@ function tps_render_testimonial_form_metabox($post) {
         // Default notification body text with a link
         $notification_body = "New Testimonial!\n\nHi There,\n\nA new testimonial has been submitted to your website. Following is the reviewer's information:\n\nName: {name}\nEmail: {email}\nTestimonial Content: {testimonial_text}\nRating: {rating}\n\nPlease go to the Admin dashboard to review it and publish It:\n\nThank you!";
     }
-
     ?>
 
 	<div class="tupsetings post-grid-metabox">
@@ -1226,7 +1222,6 @@ function tps_save_testimonial_form_metabox($post_id) {
 	}
 }
 add_action('save_post', 'tps_save_testimonial_form_metabox');
-
 
 function tps_sidebar_add_shortcode_metabox() {
     add_meta_box(

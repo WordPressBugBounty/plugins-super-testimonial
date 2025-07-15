@@ -37,7 +37,7 @@
 			'menu_position' 		=> null,
 			'supports' 				=> array('thumbnail', 'page-attributes'),
 			'menu_icon' 			=> 'dashicons-format-chat',
-		);		
+		);
 		register_post_type('ktsprotype',$args);
 		
 		// register taxonomy
@@ -74,7 +74,6 @@
 		 */
 		return apply_filters('ktps_columns', $custom_columns);
 	}
-
 
 	/*----------------------------------------------------------------------
 		testimonial Value Function
@@ -160,7 +159,6 @@
 	----------------------------------------------------------------------*/
 
 	function tps_super_testimonials_inner_custom_box( $post ) {
-
 		$main_title            = get_post_meta($post->ID, 'main_title', true);
 		$post_title            = get_post_meta($post->ID, 'name', true);
 		$position_input        = get_post_meta($post->ID, 'position', true);
@@ -173,52 +171,52 @@
 		?>
 
 		<!-- Name -->
-		<p><label for="main_title"><strong><?php esc_html_e('Title:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="main_title"><strong><?php esc_html_e('Title:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="text" name="main_title" id="main_title" class="regular-text code" value="<?php echo esc_attr( $main_title ); ?>" placeholder="Headline for your testimonial" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Name -->
-		<p><label for="title"><strong><?php esc_html_e('Full Name:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="title"><strong><?php esc_html_e('Full Name:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="text" name="post_title" id="title" class="regular-text code" value="<?php echo esc_attr( $post_title ); ?>" placeholder="What is your full name?" />
 		
 		<hr class="horizontalRuler"/>
 
 		<!-- Position -->
-		<p><label for="position_input"><strong><?php esc_html_e('Position:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="position_input"><strong><?php esc_html_e('Position:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="text" name="position_input" id="position_input" class="regular-text code" value="<?php echo esc_attr( $position_input ); ?>" placeholder="What is your designation?" />
 		
 		<hr class="horizontalRuler"/>
 
 		<!-- E-Mail Address -->
-		<p><label for="email_address"><strong><?php esc_html_e('Email Address:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="email_address"><strong><?php esc_html_e('Email Address:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="email" name="email_address" id="email_address" class="regular-text code" value="<?php echo esc_attr( $email_address ); ?>" placeholder="What is your e-mail address?" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Company Name -->
-		<p><label for="company_input"><strong><?php esc_html_e('Company Name:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_input"><strong><?php esc_html_e('Company Name:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="text" name="company_input" id="company_input" class="regular-text code" value="<?php echo esc_attr( $company_input ); ?>" placeholder="What is your company name?" />
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Company Website -->
-		<p><label for="company_website_input"><strong><?php esc_html_e('Company URL:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_website_input"><strong><?php esc_html_e('Company URL:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<input type="text" name="company_website_input" id="company_website_input" class="regular-text code" value="<?php echo esc_url( $company_website ); ?>" placeholder="What is your company URL?" />
 							
-		<p><span class="description"><?php esc_html_e('Example: (www.example.com)', 'ktsttestimonial');?></span></p>
+		<p><span class="description"><?php esc_html_e('Example: (www.example.com)', 'ktsttestimonial'); ?></span></p>
 		
 		<hr class="horizontalRuler"/>
 		
 		<!-- Rating -->
 		
-		<p><label for="company_rating_target_list"><strong><?php esc_html_e('Rating:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="company_rating_target_list"><strong><?php esc_html_e('Rating:', 'ktsttestimonial'); ?></strong></label></p>
 
 		<div class="tp-star-rating">
 		    <?php for ($i = 5; $i >= 1; $i--): ?>
@@ -234,7 +232,7 @@
 		
 		<!-- Testimonial Text -->
 							
-		<p><label for="testimonial_text_input"><strong><?php esc_html_e('Testimonial Text:', 'ktsttestimonial');?></strong></label></p>
+		<p><label for="testimonial_text_input"><strong><?php esc_html_e('Testimonial Text:', 'ktsttestimonial'); ?></strong></label></p>
 		
 		<textarea type="text" name="testimonial_text_input" id="testimonial_text_input" class="regular-text code" rows="5" cols="100" placeholder="What do you think about us?"><?php echo esc_textarea( $testimonial_text ); ?></textarea>
 
@@ -270,28 +268,28 @@
 		if(isset($_POST['post_title'])) {
 			update_post_meta($post_id, 'name', sanitize_text_field($_POST['post_title']));
 		}
-	
+
 		/*----------------------------------------------------------------------
 			Position
 		----------------------------------------------------------------------*/
 		if(isset($_POST['position_input'])) {
 			update_post_meta($post_id, 'position', sanitize_text_field($_POST['position_input']));
 		}
-	
+
 		/*----------------------------------------------------------------------
 			Email Address
 		----------------------------------------------------------------------*/
 		if(isset($_POST['email_address'])) {
 			update_post_meta($post_id, 'email_address', sanitize_text_field($_POST['email_address']));
 		}
-		
+
 		/*----------------------------------------------------------------------
 			Company
 		----------------------------------------------------------------------*/
 		if(isset($_POST['company_input'])) {
 			update_post_meta($post_id, 'company', sanitize_text_field($_POST['company_input']));
 		}
-		
+
 		/*----------------------------------------------------------------------
 			company website
 		----------------------------------------------------------------------*/
@@ -305,7 +303,7 @@
 		if(isset($_POST['company_rating_target_list'])) {
 			update_post_meta($post_id, 'company_rating_target', sanitize_text_field($_POST['company_rating_target_list']));
 		}
-		
+
 		/*----------------------------------------------------------------------
 			testimonial text
 		----------------------------------------------------------------------*/
@@ -313,7 +311,7 @@
 			update_post_meta($post_id, 'testimonial_text', sanitize_text_field($_POST['testimonial_text_input']));
 		}
 	}
-	
+
 	/*----------------------------------------------------------------------
 		Save testimonial Options Meta Box Action
 	----------------------------------------------------------------------*/
@@ -336,7 +334,6 @@
 		return $messages;
 	}
 	add_filter( 'post_updated_messages', 'tps_super_testimonials_updated_messages' );
-
 
 	// Hook to run when the plugin is activated
 	register_activation_hook(__FILE__, 'tps_super_testimonials_review_notification_plugin_activate');

@@ -42,7 +42,6 @@ function ps_super_testimonials_shortcode_generator_type() {
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page', // Uses the same capabilities as pages
 	);
-
 	// Registering the custom post type for the shortcode generator
 	register_post_type( 'tptscode', $args );
 }
@@ -175,7 +174,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$pagination_align              = get_post_meta( $post->ID, 'pagination_align', true );
 	$pagination_style              = get_post_meta( $post->ID, 'pagination_style', true );
 	$nav_value                     = get_post_meta( $post->ID, 'nav_value', true );
-	
 	$tp_testimonial_theme_style    = ($tp_testimonial_theme_style) ? $tp_testimonial_theme_style : 1;
 	$filter_menu_styles            = ($filter_menu_styles) ? $filter_menu_styles : 1;
 	$filter_menu_alignment         = ($filter_menu_alignment) ? $filter_menu_alignment : 'center';
@@ -191,7 +189,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$navigation_style              = ($navigation_style) ? $navigation_style : '0';
 	$pagination_style              = ($pagination_style) ? $pagination_style : '0';
 	$testimonial_filter_menu_text  = ($testimonial_filter_menu_text) ? $testimonial_filter_menu_text : 'All';
-
 	?>
 
 	<div class="tupsetings post-grid-metabox">
@@ -252,36 +249,36 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_testimonial_themes" id="tp_testimonial_themes" class="timezone_string">
-										<option value="1" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '1' ); ?>><?php _e( 'Theme 1', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '2' ); ?>><?php _e( 'Theme 2', 'ktsttestimonial' );?></option>
-										<option value="3" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '3' ); ?>><?php _e( 'Theme 3', 'ktsttestimonial' );?></option>
-										<option value="4" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '4' ); ?>><?php _e( 'Theme 4', 'ktsttestimonial' );?></option>
-										<option value="5" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '5' ); ?>><?php _e( 'Theme 5', 'ktsttestimonial' );?></option>
-										<option value="20" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '20' ); ?>><?php _e( 'Theme 20(List - Free)', 'ktsttestimonial' );?></option>
-										<option value="6" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '6' ); ?>><?php _e( 'Theme 6 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="7" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '7' ); ?>><?php _e( 'Theme 7 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="8" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '8' ); ?>><?php _e( 'Theme 8 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="9" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '9' ); ?>><?php _e( 'Theme 9 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="10" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '10' ); ?>><?php _e( 'Theme 10 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="11" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '11' ); ?>><?php _e( 'Theme 11 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="12" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '12' ); ?>><?php _e( 'Theme 12 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="13" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '13' ); ?>><?php _e( 'Theme 13 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="14" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '14' ); ?>><?php _e( 'Theme 14 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="15" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '15' ); ?>><?php _e( 'Theme 15 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="16" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '16' ); ?>><?php _e( 'Theme 16 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="17" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '17' ); ?>><?php _e( 'Theme 17 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="18" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '18' ); ?>><?php _e( 'Theme 18 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="19" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '19' ); ?>><?php _e( 'Theme 19 (Pro)', 'ktsttestimonial' );?></option>
-										<option value="21" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '21' ); ?>><?php _e( 'Theme 21(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="22" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '22' ); ?>><?php _e( 'Theme 22(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="23" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '23' ); ?>><?php _e( 'Theme 23(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="24" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '24' ); ?>><?php _e( 'Theme 24(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="25" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '25' ); ?>><?php _e( 'Theme 25(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="26" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '26' ); ?>><?php _e( 'Theme 26(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="27" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '27' ); ?>><?php _e( 'Theme 27(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="28" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '28' ); ?>><?php _e( 'Theme 28(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="29" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '29' ); ?>><?php _e( 'Theme 29(List - Pro)', 'ktsttestimonial' );?></option>
-										<option value="30" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '30' ); ?>><?php _e( 'Theme 30(List - Pro)', 'ktsttestimonial' );?></option>
+										<option value="1" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '1' ); ?>><?php _e( 'Theme 1', 'ktsttestimonial' ); ?></option>
+										<option value="2" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '2' ); ?>><?php _e( 'Theme 2', 'ktsttestimonial' ); ?></option>
+										<option value="3" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '3' ); ?>><?php _e( 'Theme 3', 'ktsttestimonial' ); ?></option>
+										<option value="4" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '4' ); ?>><?php _e( 'Theme 4', 'ktsttestimonial' ); ?></option>
+										<option value="5" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '5' ); ?>><?php _e( 'Theme 5', 'ktsttestimonial' ); ?></option>
+										<option value="20" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '20' ); ?>><?php _e( 'Theme 20(List - Free)', 'ktsttestimonial' ); ?></option>
+										<option value="6" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '6' ); ?>><?php _e( 'Theme 6 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="7" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '7' ); ?>><?php _e( 'Theme 7 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="8" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '8' ); ?>><?php _e( 'Theme 8 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="9" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '9' ); ?>><?php _e( 'Theme 9 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="10" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '10' ); ?>><?php _e( 'Theme 10 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="11" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '11' ); ?>><?php _e( 'Theme 11 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="12" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '12' ); ?>><?php _e( 'Theme 12 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="13" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '13' ); ?>><?php _e( 'Theme 13 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="14" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '14' ); ?>><?php _e( 'Theme 14 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="15" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '15' ); ?>><?php _e( 'Theme 15 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="16" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '16' ); ?>><?php _e( 'Theme 16 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="17" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '17' ); ?>><?php _e( 'Theme 17 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="18" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '18' ); ?>><?php _e( 'Theme 18 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="19" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '19' ); ?>><?php _e( 'Theme 19 (Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="21" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '21' ); ?>><?php _e( 'Theme 21(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="22" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '22' ); ?>><?php _e( 'Theme 22(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="23" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '23' ); ?>><?php _e( 'Theme 23(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="24" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '24' ); ?>><?php _e( 'Theme 24(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="25" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '25' ); ?>><?php _e( 'Theme 25(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="26" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '26' ); ?>><?php _e( 'Theme 26(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="27" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '27' ); ?>><?php _e( 'Theme 27(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="28" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '28' ); ?>><?php _e( 'Theme 28(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="29" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '29' ); ?>><?php _e( 'Theme 29(List - Pro)', 'ktsttestimonial' ); ?></option>
+										<option value="30" <?php if ( isset ( $tp_testimonial_themes ) ) selected( $tp_testimonial_themes, '30' ); ?>><?php _e( 'Theme 30(List - Pro)', 'ktsttestimonial' ); ?></option>
 									</select>
 									<span class="tpstestimonial_manager_hint"> <a href="https://themepoints.com/testimonials" target="_blank"><?php _e( 'Unlock all Themes upgrades with Pro!', 'ktsttestimonial' ); ?></a></span>
 								</td>
@@ -294,9 +291,9 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_testimonial_theme_style" id="tp_testimonial_theme_style" class="timezone_string">
-										<option value="1" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '1' ); ?>><?php _e( 'Slider', 'ktsttestimonial' );?></option>
-										<option value="2" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '2' ); ?>><?php _e( 'Normal Grid ( Pro )', 'ktsttestimonial' );?></option>
-										<option value="3" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '3' ); ?>><?php _e( 'Filter Grid ( Pro )', 'ktsttestimonial' );?></option>
+										<option value="1" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '1' ); ?>><?php _e( 'Slider', 'ktsttestimonial' ); ?></option>
+										<option value="2" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '2' ); ?>><?php _e( 'Normal Grid ( Pro )', 'ktsttestimonial' ); ?></option>
+										<option value="3" <?php if ( isset ( $tp_testimonial_theme_style ) ) selected( $tp_testimonial_theme_style, '3' ); ?>><?php _e( 'Filter Grid ( Pro )', 'ktsttestimonial' ); ?></option>
 									</select>
 									<span class="tpstestimonial_manager_hint"> <a href="https://themepoints.com/testimonials" target="_blank"><?php _e( 'Unlock all Layouts upgrades with Pro!', 'ktsttestimonial' ); ?></a>.</span>
 								</td>
@@ -338,8 +335,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_order_option" id="tp_order_option" class="timezone_string">
-										<option value="DESC" <?php if ( isset ( $tp_order_option ) ) selected( $tp_order_option, 'DESC' ); ?>><?php _e( 'Descending (Z-A)', 'ktsttestimonial' );?></option>
-										<option value="ASC" <?php if ( isset ( $tp_order_option ) ) selected( $tp_order_option, 'ASC' ); ?>><?php _e( 'Ascending (A-Z)', 'ktsttestimonial' );?></option>
+										<option value="DESC" <?php if ( isset ( $tp_order_option ) ) selected( $tp_order_option, 'DESC' ); ?>><?php _e( 'Descending (Z-A)', 'ktsttestimonial' ); ?></option>
+										<option value="ASC" <?php if ( isset ( $tp_order_option ) ) selected( $tp_order_option, 'ASC' ); ?>><?php _e( 'Ascending (A-Z)', 'ktsttestimonial' ); ?></option>
 									</select>
 								</td>
 							</tr><!-- End Order By -->
@@ -351,11 +348,11 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_image_sizes" id="tp_image_sizes" class="tp_image_sizes">
-										<option value="thumbnail" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'thumbnail' ); ?>><?php _e( 'Thumbnail', 'ktsttestimonial' );?></option>
-										<option value="medium" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium' ); ?>><?php _e( 'Medium', 'ktsttestimonial' );?></option>
-										<option value="medium_large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium_large' ); ?>><?php _e( 'Medium large', 'ktsttestimonial' );?></option>
-										<option value="large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'large' ); ?>><?php _e( 'Large', 'ktsttestimonial' );?></option>
-										<option value="full" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'full' ); ?>><?php _e( 'Full', 'ktsttestimonial' );?></option>
+										<option value="thumbnail" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'thumbnail' ); ?>><?php _e( 'Thumbnail', 'ktsttestimonial' ); ?></option>
+										<option value="medium" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium' ); ?>><?php _e( 'Medium', 'ktsttestimonial' ); ?></option>
+										<option value="medium_large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium_large' ); ?>><?php _e( 'Medium large', 'ktsttestimonial' ); ?></option>
+										<option value="large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'large' ); ?>><?php _e( 'Large', 'ktsttestimonial' ); ?></option>
+										<option value="full" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'full' ); ?>><?php _e( 'Full', 'ktsttestimonial' ); ?></option>
 									</select>
 								</td>
 							</tr><!-- End Image Size -->
@@ -405,7 +402,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top" id="imgBorderController" style="<?php if ( $tp_img_show_hide == 2) { echo "display:none;"; }?>">
 								<th scope="row">
-									<label for="tp_imgborder_width_option"><?php _e( 'Image Border Width', 'ktsttestimonial' );?></label>
+									<label for="tp_imgborder_width_option"><?php _e( 'Image Border Width', 'ktsttestimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Set image border Width.', 'ktsttestimonial' ); ?></span>
 								</th>
 								<td>
@@ -415,7 +412,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top" id="imgColor_controller" style="<?php if ( $tp_img_show_hide == 2) { echo "display:none;"; }?>">
 								<th scope="row">
-									<label for="tp_imgborder_color_option"><?php _e( 'Image Border Color', 'ktsttestimonial' );?></label>
+									<label for="tp_imgborder_color_option"><?php _e( 'Image Border Color', 'ktsttestimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Set color for image border.', 'ktsttestimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
@@ -425,19 +422,19 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top" id="imgRadius_controller" style="<?php if ( $tp_img_show_hide == 2 ) {	echo "display:none;"; } ?>">
 								<th scope="row">
-									<label for="tp_testimonial_textalign"><?php _e( 'Image Border Radius', 'ktsttestimonial' );?></label>
+									<label for="tp_testimonial_textalign"><?php _e( 'Image Border Radius', 'ktsttestimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Select an option for border radius of the images.', 'ktsttestimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_img_border_radius" id="tp_img_border_radius" class="timezone_string">
-										<option value="0%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '0%' ); ?>><?php _e( 'Default', 'ktsttestimonial' );?></option>
-										<option value="10%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '10%' ); ?>><?php _e( '10%', 'ktsttestimonial' );?></option>
-										<option value="15%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '15%' ); ?>><?php _e( '15%', 'ktsttestimonial' );?></option>
-										<option value="20%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '20%' ); ?>><?php _e( '20%', 'ktsttestimonial' );?></option>
-										<option value="25%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '25%' ); ?>><?php _e( '25%', 'ktsttestimonial' );?></option>
-										<option value="30%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '30%' ); ?>><?php _e( '30%', 'ktsttestimonial' );?></option>
-										<option value="40%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '40%' ); ?>><?php _e( '40%', 'ktsttestimonial' );?></option>
-										<option value="50%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '50%' ); ?>><?php _e( '50%', 'ktsttestimonial' );?></option>
+										<option value="0%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '0%' ); ?>><?php _e( 'Default', 'ktsttestimonial' ); ?></option>
+										<option value="10%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '10%' ); ?>><?php _e( '10%', 'ktsttestimonial' ); ?></option>
+										<option value="15%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '15%' ); ?>><?php _e( '15%', 'ktsttestimonial' ); ?></option>
+										<option value="20%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '20%' ); ?>><?php _e( '20%', 'ktsttestimonial' ); ?></option>
+										<option value="25%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '25%' ); ?>><?php _e( '25%', 'ktsttestimonial' ); ?></option>
+										<option value="30%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '30%' ); ?>><?php _e( '30%', 'ktsttestimonial' ); ?></option>
+										<option value="40%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '40%' ); ?>><?php _e( '40%', 'ktsttestimonial' ); ?></option>
+										<option value="50%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '50%' ); ?>><?php _e( '50%', 'ktsttestimonial' ); ?></option>
 									</select>
 								</td>
 							</tr><!-- End Border Radius -->
@@ -484,10 +481,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_title_font_case" id="tp_title_font_case" class="timezone_string">
-										<option value="none" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="capitalize" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial');?></option>
-										<option value="lowercase" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial');?></option>
-										<option value="uppercase" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial');?></option>
+										<option value="none" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="capitalize" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial'); ?></option>
+										<option value="lowercase" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial'); ?></option>
+										<option value="uppercase" <?php if ( isset ( $tp_title_font_case ) ) selected( $tp_title_font_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr><!-- End Title text Transform -->
@@ -499,8 +496,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_title_font_style" id="tp_title_font_style" class="timezone_string">
-										<option value="normal" <?php if ( isset ( $tp_title_font_style ) ) selected( $tp_title_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="italic" <?php if ( isset ( $tp_title_font_style ) ) selected( $tp_title_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial');?></option>
+										<option value="normal" <?php if ( isset ( $tp_title_font_style ) ) selected( $tp_title_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="italic" <?php if ( isset ( $tp_title_font_style ) ) selected( $tp_title_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr> <!-- End Title text style -->
@@ -532,10 +529,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_name_font_case" id="tp_name_font_case" class="timezone_string">
-										<option value="none" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="capitalize" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial');?></option>
-										<option value="lowercase" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial');?></option>
-										<option value="uppercase" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial');?></option>
+										<option value="none" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="capitalize" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial'); ?></option>
+										<option value="lowercase" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial'); ?></option>
+										<option value="uppercase" <?php if ( isset ( $tp_name_font_case ) ) selected( $tp_name_font_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr><!-- End name text Transform -->
@@ -547,8 +544,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_name_font_style" id="tp_name_font_style" class="timezone_string">
-										<option value="normal" <?php if ( isset ( $tp_name_font_style ) ) selected( $tp_name_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="italic" <?php if ( isset ( $tp_name_font_style ) ) selected( $tp_name_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial');?></option>
+										<option value="normal" <?php if ( isset ( $tp_name_font_style ) ) selected( $tp_name_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="italic" <?php if ( isset ( $tp_name_font_style ) ) selected( $tp_name_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr> <!-- End name text style -->
@@ -595,10 +592,10 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_designation_case" id="tp_designation_case" class="timezone_string">
-										<option value="none" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="capitalize" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial');?></option>
-										<option value="lowercase" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial');?></option>
-										<option value="uppercase" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial');?></option>
+										<option value="none" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'none' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="capitalize" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'capitalize' ); ?>><?php _e('Capitalize', 'ktsttestimonial'); ?></option>
+										<option value="lowercase" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'lowercase' ); ?>><?php _e('Lowercase', 'ktsttestimonial'); ?></option>
+										<option value="uppercase" <?php if ( isset ( $tp_designation_case ) ) selected( $tp_designation_case, 'uppercase' ); ?>><?php _e('Uppercase', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr><!-- End name text Transform -->
@@ -610,8 +607,8 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="tp_designation_font_style" id="tp_designation_font_style" class="timezone_string">
-										<option value="normal" <?php if ( isset ( $tp_designation_font_style ) ) selected( $tp_designation_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial');?></option>
-										<option value="italic" <?php if ( isset ( $tp_designation_font_style ) ) selected( $tp_designation_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial');?></option>
+										<option value="normal" <?php if ( isset ( $tp_designation_font_style ) ) selected( $tp_designation_font_style, 'normal' ); ?>><?php _e('Default', 'ktsttestimonial'); ?></option>
+										<option value="italic" <?php if ( isset ( $tp_designation_font_style ) ) selected( $tp_designation_font_style, 'italic' ); ?>><?php _e('Italic', 'ktsttestimonial'); ?></option>
 									</select><br>
 								</td>
 							</tr> <!-- End name text style -->
@@ -859,16 +856,16 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="autoplaytimeout" id="autoplaytimeout" class="timezone_string">
-										<option value="3000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '3000' ); ?>><?php _e( '3', 'ktsttestimonial' );?></option>
-										<option value="1000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '1000' ); ?>><?php _e( '1', 'ktsttestimonial' );?></option>
-										<option value="2000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '2000' ); ?>><?php _e( '2', 'ktsttestimonial' );?></option>
-										<option value="4000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '4000' ); ?>><?php _e( '4', 'ktsttestimonial' );?></option>
-										<option value="5000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '5000' ); ?>><?php _e( '5', 'ktsttestimonial' );?></option>
-										<option value="6000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '6000' ); ?>><?php _e( '6', 'ktsttestimonial' );?></option>
-										<option value="7000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '7000' ); ?>><?php _e( '7', 'ktsttestimonial' );?></option>
-										<option value="8000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '8000' ); ?>><?php _e( '8', 'ktsttestimonial' );?></option>
-										<option value="9000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '9000' ); ?>><?php _e( '9', 'ktsttestimonial' );?></option>
-										<option value="10000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '10000' ); ?>><?php _e( '10', 'ktsttestimonial' );?></option>
+										<option value="3000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '3000' ); ?>><?php _e( '3', 'ktsttestimonial' ); ?></option>
+										<option value="1000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '1000' ); ?>><?php _e( '1', 'ktsttestimonial' ); ?></option>
+										<option value="2000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '2000' ); ?>><?php _e( '2', 'ktsttestimonial' ); ?></option>
+										<option value="4000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '4000' ); ?>><?php _e( '4', 'ktsttestimonial' ); ?></option>
+										<option value="5000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '5000' ); ?>><?php _e( '5', 'ktsttestimonial' ); ?></option>
+										<option value="6000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '6000' ); ?>><?php _e( '6', 'ktsttestimonial' ); ?></option>
+										<option value="7000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '7000' ); ?>><?php _e( '7', 'ktsttestimonial' ); ?></option>
+										<option value="8000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '8000' ); ?>><?php _e( '8', 'ktsttestimonial' ); ?></option>
+										<option value="9000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '9000' ); ?>><?php _e( '9', 'ktsttestimonial' ); ?></option>
+										<option value="10000" <?php if ( isset ( $autoplaytimeout ) ) selected( $autoplaytimeout, '10000' ); ?>><?php _e( '10', 'ktsttestimonial' ); ?></option>
 									</select>
 								</td>
 							</tr> <!-- End Autoplay Time Out -->
@@ -962,7 +959,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</td>
 							</tr>
 							<!-- End Navigation -->
-							
+
 							<tr valign="top" id="navi_align_controller" style="<?php if ( $navigation == 'false') {	echo "display:none;"; }?>">
 								<th scope="row">
 									<label for="navigation_align"><?php _e( 'Navigation Align', 'ktsttestimonial' ); ?></label>
@@ -1021,7 +1018,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top" id="navi_color_hover_controller" style="<?php if ( $navigation == 'false') { echo "display:none;"; }?>">
 								<th scope="row">
-									<label for="nav_text_color_hover"><?php _e( 'Navigation Color(Hover)', 'ktsttestimonial' );?></label>
+									<label for="nav_text_color_hover"><?php _e( 'Navigation Color(Hover)', 'ktsttestimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php echo __( 'Pick a color for navigation tool on mouse hover.', 'ktsttestimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">

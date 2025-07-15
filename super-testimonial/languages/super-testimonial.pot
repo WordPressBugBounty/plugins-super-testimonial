@@ -1,0 +1,1718 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Testimonial\n"
+"POT-Creation-Date: 2025-05-12 11:22+0600\n"
+"PO-Revision-Date: 2025-05-12 11:22+0600\n"
+"Last-Translator: \n"
+"Language-Team: Themepoints\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: admin\n"
+
+#: includes/admin/frontend-form-post.php:11
+#: includes/admin/frontend-form-post.php:13
+#: includes/metabox/tp-testimonials-metabox.php:11
+#: includes/metabox/tp-testimonials-metabox.php:13
+msgid "Testimonials"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:12
+#: includes/metabox/tp-testimonials-metabox.php:12
+msgid "Testimonial"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:14
+msgid "Parent Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:15
+#: includes/admin/frontend-form-post.php:33
+#: includes/admin/frontend-form-post.php:38
+msgid "Testimonial Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:16
+msgid "View Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:17
+msgid "Edit Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:18
+msgid "Update Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:19
+msgid "Search Form"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:20
+msgid "Form Not Found"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:21
+msgid "Form Not Found in Trash"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:34
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:39
+msgid "Form news and reviews"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:112
+msgid "Form Title"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:113
+#: includes/metabox/tp-testimonials-metabox.php:57
+#: includes/metabox/tp-testimonials-metabox.php:1805
+msgid "Shortcode"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:114
+#: includes/metabox/tp-testimonials-metabox.php:59
+msgid "Date"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:132
+msgid "Testimonial Form Settings"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:310
+msgid "FORM EDITOR"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:311
+msgid "FORM STYLE"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:312
+msgid "FORM SETTINGS"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:313
+msgid "LABELS & MESSAGES"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:314
+msgid "NOTIFICATIONS"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:327
+msgid "Form Editor"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:327
+#: includes/admin/frontend-form-post.php:384
+#: includes/admin/frontend-form-post.php:637
+#: includes/admin/frontend-form-post.php:740
+#: includes/admin/frontend-form-post.php:838
+#: includes/metabox/tp-testimonials-metabox.php:1122
+msgid "Unlock all upgrades with Pro!"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:341
+msgid "Label"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:349
+msgid "Placeholder"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:354
+msgid "Required"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:358
+msgid "Enable"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:369
+msgid "Submit Testimonial"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:370
+msgid "Set Testimonial Button Text."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:384
+msgid "Form Style"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:389
+msgid "Form Width"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:390
+msgid "Set a custom width for the testimonial form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:393
+msgid "Px"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:399
+msgid "Form Padding"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:400
+msgid "Set padding for the testimonial form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:405
+msgid "Top (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:409
+msgid "Right (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:413
+msgid "Bottom (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:417
+msgid "Left (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:427
+msgid "Form Background"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:428
+msgid "Pick a color for the testimonial form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:438
+msgid "Form Border"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:439
+msgid "Set border for the testimonial form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:444
+#: includes/admin/frontend-form-post.php:487
+msgid "Width (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:448
+#: includes/admin/frontend-form-post.php:491
+msgid "Style"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:450
+#: includes/admin/frontend-form-post.php:493
+msgid "Solid"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:451
+#: includes/admin/frontend-form-post.php:494
+msgid "Dashed"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:452
+#: includes/admin/frontend-form-post.php:495
+msgid "Dotted"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:456
+#: includes/admin/frontend-form-post.php:499
+msgid "Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:460
+#: includes/admin/frontend-form-post.php:507
+msgid "Radius (px)"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:470
+msgid "Input Label Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:471
+msgid "Pick a color for the testimonial form label."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:481
+msgid "Input Field "
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:482
+msgid "Set input field style for the testimonial form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:503
+msgid "BG Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:517
+msgid "Input Placeholder Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:518
+msgid "Set color for the testimonial Input Placeholder."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:528
+msgid "Rating Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:529
+msgid "Pick a color for the testimonial form rating."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:539
+msgid "Rating Hover Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:540
+msgid "Set color for the testimonial form rating hover."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:550
+#: includes/metabox/tp-testimonials-metabox.php:721
+msgid "Rating Style"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:551
+#: includes/metabox/tp-testimonials-metabox.php:722
+msgid "Set testimonial form rating style."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:586
+msgid "Submit Button Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:587
+msgid "Set color for the testimonial submit button."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:597
+msgid "Submit Button Hover Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:598
+msgid "Set color for the testimonial submit button hover color."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:608
+msgid "Submit Button BG Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:609
+msgid "Set color for the testimonial submit button background color."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:619
+msgid "Submit Button Hover Bg Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:620
+msgid "Set color for the testimonial submit button hover bg color."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:637
+#: includes/metabox/tp-testimonials-metabox.php:372
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:642
+msgid "Post Status"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:646
+msgid "Pending"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:647
+msgid "Publish"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:648
+msgid "Draft"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:655
+msgid "reCAPTCHA"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:658
+msgid ""
+"reCAPTCHA is a free aniti-spam service provided by Google designed to "
+"protect websites from spam and abuse."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:664
+#: includes/admin/frontend-form-post.php:669
+msgid "Enable reCAPTCHA"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:676
+msgid "reCAPTCHA Type"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:680
+msgid "None"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:681
+msgid "Google reCAPTCHA"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:688
+msgid "reCAPTCHA Version"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:693
+msgid "v2"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:697
+msgid "v3"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:704
+msgid "Site Key"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:713
+msgid "Secret Key"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:740
+msgid "Labels & Messages"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:745
+msgid "Required Notice"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:747
+msgid "Display required notice at top of the form."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:753
+#: includes/metabox/tp-testimonials-metabox.php:399
+#: includes/metabox/tp-testimonials-metabox.php:453
+#: includes/metabox/tp-testimonials-metabox.php:564
+#: includes/metabox/tp-testimonials-metabox.php:627
+#: includes/metabox/tp-testimonials-metabox.php:712
+#: includes/metabox/tp-testimonials-metabox.php:775
+msgid "Show"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:755
+#: includes/metabox/tp-testimonials-metabox.php:401
+#: includes/metabox/tp-testimonials-metabox.php:455
+#: includes/metabox/tp-testimonials-metabox.php:566
+#: includes/metabox/tp-testimonials-metabox.php:629
+#: includes/metabox/tp-testimonials-metabox.php:714
+#: includes/metabox/tp-testimonials-metabox.php:777
+msgid "Hide"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:762
+msgid "Notice Label"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:764
+msgid "Set a label for the required notice."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:774
+msgid "Asterisk Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:775
+msgid "Set color for the testimonial form asterisk."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:785
+msgid "Successful Message"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:787
+msgid "Set a submission success message."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:797
+msgid "Successful Text Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:798
+msgid "Set color for the testimonial form successful message."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:808
+msgid "Error Message"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:810
+msgid "Set a submission error message."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:820
+msgid "Error Text Color"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:821
+msgid "Set color for the testimonial form error message."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:838
+msgid "Notifications"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:843
+msgid "Admin Notification"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:844
+msgid "Enable/Dsiable testimonial admin notice."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:854
+msgid "To"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:864
+msgid "From"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:874
+msgid "Subject"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:887
+msgid "Message Body"
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:1245
+msgid ""
+"To display the Testimonial Form, copy and paste this shortcode into your "
+"post, page, custom post, block editor, or page builder."
+msgstr ""
+
+#: includes/admin/frontend-form-post.php:1254
+#: includes/metabox/tp-testimonials-metabox.php:1806
+msgid "Shortcode copied!"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:14
+msgid "Parent Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:15
+msgid "Manage Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:16
+msgid "View Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:17
+msgid "Generate Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:18
+msgid "Generate New Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:19
+msgid "Edit Testimonial"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:20
+msgid "Update Testimonial"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:21
+msgid "Search Testimonial"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:22
+msgid "Shortcode Not Found"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:23
+msgid "Shortcode Not found in Trash"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:28
+msgid "Testimonial Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:29
+msgid "Shortcode news and reviews"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:56
+#: includes/metabox/tp-testimonials-metabox.php:323
+#: includes/metabox/tp-testimonials-metabox.php:447
+msgid "Title"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:58
+msgid "Template Shortcode"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:84
+msgid "Testimonial Settings"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:200
+msgid "Testimonial Query "
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:201
+msgid "General Settings "
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:202
+#: includes/metabox/tp-testimonials-metabox.php:811
+msgid "Slider Settings"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:203
+msgid "Grid Settings"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:217
+msgid "Testimonial Query"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:221
+msgid "Select Categories"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:222
+msgid ""
+"The category names will only be visible when testimonials are published "
+"within specific categories."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:244
+msgid "Choose multiple categories for each testimonial."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:250
+msgid "Select Theme"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:251
+msgid "Select a theme which you want to display."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:255
+msgid "Theme 1"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:256
+msgid "Theme 2"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:257
+msgid "Theme 3"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:258
+msgid "Theme 4"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:259
+msgid "Theme 5"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:260
+msgid "Theme 20(List - Free)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:261
+msgid "Theme 6 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:262
+msgid "Theme 7 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:263
+msgid "Theme 8 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:264
+msgid "Theme 9 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:265
+msgid "Theme 10 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:266
+msgid "Theme 11 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:267
+msgid "Theme 12 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:268
+msgid "Theme 13 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:269
+msgid "Theme 14 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:270
+msgid "Theme 15 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:271
+msgid "Theme 16 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:272
+msgid "Theme 17 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:273
+msgid "Theme 18 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:274
+msgid "Theme 19 (Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:275
+msgid "Theme 21(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:276
+msgid "Theme 22(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:277
+msgid "Theme 23(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:278
+msgid "Theme 24(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:279
+msgid "Theme 25(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:280
+msgid "Theme 26(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:281
+msgid "Theme 27(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:282
+msgid "Theme 28(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:283
+msgid "Theme 29(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:284
+msgid "Theme 30(List - Pro)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:286
+msgid "Unlock all Themes upgrades with Pro!"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:292
+msgid "Select Layout"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:293
+msgid "Select a layout to display the testimonials."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:297
+msgid "Slider"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:298
+msgid "Normal Grid ( Pro )"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:299
+msgid "Filter Grid ( Pro )"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:301
+msgid "Unlock all Layouts upgrades with Pro!"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:307
+msgid "Limit Items"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:308
+msgid "Limit number of testimonials to show."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:317
+msgid "Order By"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:318
+msgid "Select an order by option."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:322
+msgid "Publish Date"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:324
+msgid "Modified"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:325
+msgid "ID"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:326
+msgid "Author"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:327
+msgid "Name"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:328
+msgid "Menu Order"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:329
+msgid "Random"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:336
+msgid "Order Type"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:337
+msgid "Select an order option."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:341
+msgid "Descending (Z-A)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:342
+msgid "Ascending (A-Z)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:349
+msgid "Image Sizes"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:350
+msgid "Choose an image size to display perfectly"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:354
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:355
+msgid "Medium"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:356
+msgid "Medium large"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:357
+msgid "Large"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:358
+msgid "Full"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:376
+msgid "Text Align"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:377
+msgid "Set alignment for the testimonial content."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:382
+#: includes/metabox/tp-testimonials-metabox.php:1068
+#: includes/metabox/tp-testimonials-metabox.php:1209
+msgid "Left"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:382
+#: includes/metabox/tp-testimonials-metabox.php:386
+#: includes/metabox/tp-testimonials-metabox.php:401
+#: includes/metabox/tp-testimonials-metabox.php:566
+#: includes/metabox/tp-testimonials-metabox.php:629
+#: includes/metabox/tp-testimonials-metabox.php:714
+#: includes/metabox/tp-testimonials-metabox.php:960
+#: includes/metabox/tp-testimonials-metabox.php:994
+#: includes/metabox/tp-testimonials-metabox.php:1054
+#: includes/metabox/tp-testimonials-metabox.php:1068
+#: includes/metabox/tp-testimonials-metabox.php:1072
+#: includes/metabox/tp-testimonials-metabox.php:1088
+msgid "Pro"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:384
+#: includes/metabox/tp-testimonials-metabox.php:976
+#: includes/metabox/tp-testimonials-metabox.php:1070
+#: includes/metabox/tp-testimonials-metabox.php:1211
+msgid "Center"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:386
+#: includes/metabox/tp-testimonials-metabox.php:1072
+#: includes/metabox/tp-testimonials-metabox.php:1213
+msgid "Right"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:393
+msgid "Image"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:394
+msgid "Show/Hide Testimonial Image."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:408
+msgid "Image Border Width"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:409
+msgid "Set image border Width."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:418
+msgid "Image Border Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:419
+msgid "Set color for image border."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:428
+msgid "Image Border Radius"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:429
+msgid "Select an option for border radius of the images."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:433
+#: includes/metabox/tp-testimonials-metabox.php:487
+#: includes/metabox/tp-testimonials-metabox.php:502
+#: includes/metabox/tp-testimonials-metabox.php:535
+#: includes/metabox/tp-testimonials-metabox.php:550
+#: includes/metabox/tp-testimonials-metabox.php:598
+#: includes/metabox/tp-testimonials-metabox.php:613
+#: includes/metabox/tp-testimonials-metabox.php:992
+#: includes/metabox/tp-testimonials-metabox.php:1086
+msgid "Default"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:434
+msgid "10%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:435
+msgid "15%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:436
+msgid "20%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:437
+msgid "25%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:438
+msgid "30%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:439
+msgid "40%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:440
+msgid "50%"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:448
+msgid "Show/Hide Testimonial Title."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:462
+msgid "Title Font Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:463
+msgid "Set Testimonial Title Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:472
+msgid "Title Font Size"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:473
+msgid "Set Testimonial Title Font Size."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:482
+msgid "Title Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:483
+msgid "Set Testimonial Title Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:488
+#: includes/metabox/tp-testimonials-metabox.php:536
+#: includes/metabox/tp-testimonials-metabox.php:599
+msgid "Capitalize"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:489
+#: includes/metabox/tp-testimonials-metabox.php:537
+#: includes/metabox/tp-testimonials-metabox.php:600
+msgid "Lowercase"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:490
+#: includes/metabox/tp-testimonials-metabox.php:538
+#: includes/metabox/tp-testimonials-metabox.php:601
+msgid "Uppercase"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:497
+msgid "Title Text Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:498
+msgid "Set Testimonial Title Text Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:503
+#: includes/metabox/tp-testimonials-metabox.php:551
+#: includes/metabox/tp-testimonials-metabox.php:614
+msgid "Italic"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:510
+msgid "Name Font Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:511
+msgid "Set color for testimonial givers name."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:520
+msgid "Name Font Size"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:521
+msgid "Choose a font size for testimonial name."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:530
+msgid "Name Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:531
+msgid "Select Name Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:545
+msgid "Name Text Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:546
+msgid "Select Name Text style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:558
+msgid "Designation"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:559
+msgid "Show/Hide Testimonial Designation."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:573
+msgid "Designation Font Size"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:574
+msgid "Set Designation Font Size."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:583
+msgid "Designation Font Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:584
+msgid "Set Designation Font Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:593
+msgid "Designation Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:594
+msgid "Set Designation Text Transform"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:608
+msgid "Designation Text Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:609
+msgid "Set Designation Text style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:621
+msgid "Company URL"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:622
+msgid "Show/Hide Company URL."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:636
+msgid "Company URL Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:637
+msgid "Set color for testimonial givers company name."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:646
+msgid "Content Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:647
+msgid "Set color for testimonial message."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:656
+msgid "Content Font Size"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:657
+msgid "Set font size for testimonial message."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:666
+msgid "Content Background Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:667
+msgid "Set Testimonial Content Background Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:676
+msgid "Word Limit:"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:677
+msgid "Set a word limit for the testimonial message."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:686
+msgid "Read More Text:"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:687
+msgid "Set Read More Text."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:696
+msgid "Read More Text Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:697
+msgid "Set Read More Text Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:706
+msgid "Rating"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:707
+msgid "Show/Hide Testimonial Rating."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:749
+msgid "Rating Icon Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:750
+msgid "Set Rating Icon Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:759
+msgid "Rating Font Size"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:760
+msgid "Set Rating Font Size."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:769
+msgid "Item Background"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:770
+msgid "Show/Hide Testimonial Item Background Color."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:784
+#: includes/metabox/tp-testimonials-metabox.php:1220
+msgid "Background Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:785
+msgid "Set background color for item."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:794
+msgid "Item Padding"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:795
+msgid "Select Padding for items."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:815
+msgid "Autoplay"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:816
+msgid "Choose an option whether you want the slider autoplay or not."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:821
+#: includes/metabox/tp-testimonials-metabox.php:848
+#: includes/metabox/tp-testimonials-metabox.php:931
+#: includes/metabox/tp-testimonials-metabox.php:958
+#: includes/metabox/tp-testimonials-metabox.php:1052
+msgid "Yes"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:823
+#: includes/metabox/tp-testimonials-metabox.php:850
+#: includes/metabox/tp-testimonials-metabox.php:933
+#: includes/metabox/tp-testimonials-metabox.php:960
+#: includes/metabox/tp-testimonials-metabox.php:1054
+msgid "No"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:830
+msgid "Slide Delay"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:831
+msgid "Select a value for sliding speed."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:842
+msgid "Stop Hover"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:843
+msgid "Select an option whether you want to pause sliding on mouse hover."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:857
+msgid "Autoplay Time Out (Sec)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:858
+msgid "Select an option for autoplay time out."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:862
+msgid "3"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:863
+msgid "1"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:864
+msgid "2"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:865
+msgid "4"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:866
+msgid "5"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:867
+msgid "6"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:868
+msgid "7"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:869
+msgid "8"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:870
+msgid "9"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:871
+msgid "10"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:878
+msgid "Testimonial Per Slide"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:879
+msgid "Set testimonial per slide at a time."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:887
+#: includes/metabox/tp-testimonials-metabox.php:1135
+msgid "Desktop"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:896
+#: includes/metabox/tp-testimonials-metabox.php:1144
+msgid "Laptop"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:905
+#: includes/metabox/tp-testimonials-metabox.php:1153
+msgid "Tablet"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:914
+#: includes/metabox/tp-testimonials-metabox.php:1162
+msgid "Mobile"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:925
+msgid "Loop"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:926
+msgid "Choose an option whether you want to loop the sliders."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:941
+msgid "Margin"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:942
+msgid "Select margin for a slider item."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:952
+msgid "Navigation"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:953
+msgid "Choose an option whether you want navigation option or not."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:968
+msgid "Navigation Align"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:969
+msgid "Set the alignment of the navigation tool."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:974
+msgid "Top Left"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:978
+msgid "Top Right"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:986
+msgid "Navigation Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:987
+msgid "Set the style of navigation tool."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:994
+#: includes/metabox/tp-testimonials-metabox.php:1088
+msgid "Round"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1002
+msgid "Navigation Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1003
+msgid "Pick a color for navigation tool."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1013
+msgid "Navigation Background"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1014
+msgid "Pick a color for background of navigation tool."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1024
+msgid "Navigation Color(Hover)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1025
+msgid "Pick a color for navigation tool on mouse hover."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1035
+msgid "Navigation Background(Hover)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1036
+msgid "Pick a color for background of navigation tool on mouse hover."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1046
+msgid "Pagination"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1047
+msgid "Choose an option whether you want pagination option or not."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1062
+msgid "Pagination Align"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1063
+msgid "Set the alignment of pagination."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1080
+msgid "Pagination Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1081
+msgid "Set the style of pagination tool."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1096
+msgid "Pagination Background Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1097
+msgid "Pick a color for pagination content."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1106
+msgid "Pagination Background(Active)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1107
+msgid "Pick a color for active pagination content."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1122
+msgid "Grid Normal Settings"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1126
+msgid "Testimonial Column"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1127
+msgid "Set number of columns in different responsive devices."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1173
+msgid "Filter Menu Style"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1174
+msgid "Choose an option for filter menu style."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1179
+msgid "Normal"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1180
+msgid "Checkbox"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1181
+msgid "Drop Down"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1188
+msgid "Filter Menu Text:"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1189
+msgid "Set the text for the filter menu."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1197
+msgid "Menu Styling"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1203
+msgid "Menu Align"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1204
+msgid "Choose an option for the alignment of filter menu."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1221
+msgid "Pick a color for filter menu background."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1230
+msgid "Font Color"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1231
+msgid "Pick a color for text of filter menu."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1240
+msgid "Background Color(Hover)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1241
+#: includes/metabox/tp-testimonials-metabox.php:1261
+msgid "Pick a color for filter menu background on hover."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1250
+msgid "Font Color(Hover)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1251
+#: includes/metabox/tp-testimonials-metabox.php:1271
+msgid "Pick a color for text of filter menu on hover."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1260
+msgid "Background Color(Active)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1270
+msgid "Font Color(Active)"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1808
+msgid ""
+"Click to copy the shortcode and paste it into a page or post to display "
+"Testimonial Showcase."
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1813
+msgid "PHP Code for Theme Files"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1814
+msgid "PHP code copied!"
+msgstr ""
+
+#: includes/metabox/tp-testimonials-metabox.php:1816
+msgid ""
+"Click to copy the PHP code and use it in your theme files to display "
+"Testimonial Showcase."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:9
+msgid "Super Testimonial V-"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:10
+msgid "Do you have any questions or need assistance? We're here to help!"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:15
+msgid "What's New"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:16
+msgid "Need Help"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:23
+msgid "Latest Updates - 16 April 2025"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:25
+msgid "Performance Improvements."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:26
+msgid "Bug Fixes and UI Enhancements."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:27
+msgid "Fix Metabox value Warning Issue."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:28
+msgid "Fix CSS Issue."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:30
+msgid "Updates - 13 February 2025"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:31
+msgid "Here are the latest features and improvements we have added."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:32
+msgid "Front-End Testimonial Submission Form :"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:34
+msgid ""
+"The Front-End Testimonial Submission Form allows users to submit their "
+"testimonials easily without accessing the WordPress backend. This feature is "
+"available in the free version of the plugin and provides a convenient way "
+"for your visitors to leave feedback."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:37
+msgid "Added Testimonial Rating Style Option"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:38
+msgid "Performance Improvements"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:39
+msgid "Bug Fixes and UI Enhancements"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:40
+msgid "Fix Stored Cross-Site Scripting Issue"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:41
+msgid "Fix CSS Issue"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:42
+msgid "Fix spelling mistakes."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:48
+msgid "Need Help?"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:49
+msgid "Find answers to your questions or contact our support team."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:53
+msgid "Check Documentation"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:54
+msgid ""
+"We developed plugins by maintaining WordPress standards. Our docs will help "
+"you to understand the basic & advanced usage."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:57
+msgid "Documentation"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:62
+msgid "Get Customer Support"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:63
+msgid ""
+"We're delighted to assist you with any questions or issues you may have "
+"regarding our plugin. We eagerly anticipate the opportunity to help you."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:66
+msgid "Get Support"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:78
+msgid "Show Your Love"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:79
+msgid ""
+"We would greatly appreciate it if you could spare a moment to rate and "
+"review our plugin. Your feedback is invaluable to us as it helps us enhance "
+"and deliver the best possible experience for our customers."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:82
+msgid "Rate Us Now"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:87
+msgid "Buy Us A Coffee"
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:88
+msgid ""
+"We hope you're enjoying our plugin! We put a lot of effort into providing "
+"the best experience possible. If you're feeling generous and would like to "
+"show your appreciation, we'd be thrilled if you could consider buying us a "
+"coffee as a way of saying thank you."
+msgstr ""
+
+#: includes/tps_super_testimonial_options.php:91
+msgid "Donate Now"
+msgstr ""
+
+#: tp-testimonials.php:71
+msgid "Upgrade to Pro!"
+msgstr ""
+
+#: tp-testimonials.php:110 tp-testimonials.php:111
+msgid "Help & Usage"
+msgstr ""

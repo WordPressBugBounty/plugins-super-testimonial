@@ -169,13 +169,12 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 		$client_name_value       = get_post_meta(get_the_ID(), 'name', true);
 		$link_value              = get_post_meta(get_the_ID(), 'position', true);
 		$company_value           = get_post_meta(get_the_ID(), 'company', true);
-		// $company_url             = get_post_meta(get_the_ID(), 'company_website', true);
 		$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
 		$company_url_target      = get_post_meta(get_the_ID(), 'company_link_target', true);
 		$testimonial_information = get_post_meta(get_the_ID(), 'testimonial_text', true);
 		$company_ratings_target  = get_post_meta(get_the_ID(), 'company_rating_target', true);
 		$tp_image_sizes          = esc_attr( get_post_meta( $postid, 'tp_image_sizes', true ) );
-
+		
 		?>
 			<div class="testimonial-<?php echo esc_attr( $postid ); ?>">
 				<?php if( has_post_thumbnail() ){ ?>

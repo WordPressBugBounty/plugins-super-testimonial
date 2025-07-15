@@ -7,7 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 
 <?php } else { ?>
-	
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid); ?> {
 			<?php if ( $tp_show_item_bg_option == 1 ) { ?>
@@ -171,7 +170,6 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			$client_name_value       = get_post_meta( get_the_ID(), 'name', true );
 			$link_value              = get_post_meta( get_the_ID(), 'position', true );
 			$company_value           = get_post_meta( get_the_ID(), 'company', true );
-			// $company_url             = get_post_meta( get_the_ID(), 'company_website', true );
 			$company_url             = esc_url( get_post_meta( get_the_ID(), 'company_website', true ) );
 			$company_url_target      = get_post_meta( get_the_ID(), 'company_link_target', true );
 			$testimonial_information = get_post_meta( get_the_ID(), 'testimonial_text', true );

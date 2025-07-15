@@ -14,7 +14,6 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	);
 
 	global $post, $paged, $query;
-
 	$postid = $atts['id'];
 
 	$testimonial_cat_name          = get_post_meta( $postid, 'testimonial_cat_name', true );
@@ -62,7 +61,6 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	$pagination_bg_color           = get_post_meta( $postid, 'pagination_bg_color', true );
 	$pagination_align              = get_post_meta( $postid, 'pagination_align', true );
 	$dpstotoal_items               = get_post_meta( $postid, 'dpstotoal_items', true );
-	
 	$item_no                       = get_post_meta( $postid, 'item_no', true) ?: '3';
 	$itemsdesktop                  = get_post_meta( $postid, 'itemsdesktop', true) ?: '3';
 	$itemsdesktopsmall             = get_post_meta( $postid, 'itemsdesktopsmall', true) ?: '2';
@@ -108,7 +106,6 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 		for ( $j=0; $j<$num; $j++ ) {
 			array_push( $tpprocat, $testimonial_cat_name[$j] );
 		}
-
 		$args = array(
 			'post_type' 		=> 'ktsprotype',
 			'post_status' 		=> 'publish',

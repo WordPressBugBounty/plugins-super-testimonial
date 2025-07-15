@@ -99,7 +99,6 @@
         document.addEventListener("DOMContentLoaded", function() {
             const tabs = document.querySelectorAll(".tps-tab-item");
             const panels = document.querySelectorAll(".tps-tab-panel");
-
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
                     // Remove active class from all tabs

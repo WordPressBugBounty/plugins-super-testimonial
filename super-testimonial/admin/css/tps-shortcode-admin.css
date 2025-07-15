@@ -158,7 +158,6 @@
   transition: all 0.6s ease-in-out 0s;
 }
 
-
 /* Tabs CSS  */
 .tabs-menu {
   display: block;
@@ -196,7 +195,7 @@
   display: none;
 }
 #tab-1 {
- display: block;   
+  display: block;   
 }
 .tabs-menu li a:focus {
   box-shadow: none;
@@ -222,55 +221,12 @@
   overflow: hidden;
 }
 .tpstestimonial_manager_hint.toss {
-    color: #999;
-    font-weight: 400;
+  color: #999;
+  font-weight: 400;
 }
 .tpstestimonial_manager_hint a {
-    color: #0073aa;
+  color: #0073aa;
 }
-
-/* Support & doc page css */
-/*.testimoinal-pro-features {
-    display: block;
-    overflow: hidden;
-}
-.support-items {
-    border: 2px solid #ddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    padding: 15px 10px;
-    text-align: center;
-    width: 300px;
-    height: 135px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-.support-items .support-title {
-    font-size: 17px;
-    font-weight: bold;
-    line-height: 27px;
-}
-.support-items .support-details {
-    color: #6e6e6e;
-    font-weight: 600;
-}
-.support-link a.button-1 {
-    box-shadow: none;
-    color: red;
-    display: inline-block;
-    font-size: 15px;
-    line-height: 23px;
-    outline: medium none;
-    overflow: hidden;
-    padding: 0 8px;
-    text-decoration: none;
-}
-.support-link a {
-    text-decoration: none;
-    outline: none;
-    color: red;
-}*/
 
 /* CSS for toggle switch */
 .switch-field {
@@ -330,7 +286,7 @@ td.position label {
   top: 45px;
 }
 td.position input.timezone_string {
-    width: 60px;
+  width: 60px;
 }
 .auto_play .slider {
   margin-bottom: 8px;
@@ -341,7 +297,6 @@ td.position input.timezone_string {
 input#myRange {
   width: 200px;
 }
-
 .tupsetings.post-grid-metabox ul.box table.form-table ul li {
   display: inline-block;
   overflow: hidden;
@@ -390,24 +345,23 @@ input#myRange {
 .tp-rating-option input:checked + i.fa {
   fill: #0073aa;
 }
-
 .pic-device-columns {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 .tp-device-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .tp-device-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 .tp-device-header .dashicons {
-    font-size: 20px;
-    margin-right: 5px;
-    color: #0073aa;
+  font-size: 20px;
+  margin-right: 5px;
+  color: #0073aa;
 }

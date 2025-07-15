@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function tps_testimonial_form_shortcode($atts) {
-
     $atts = shortcode_atts(
         array('id' => 0), 
         $atts, 'frontend_form'
