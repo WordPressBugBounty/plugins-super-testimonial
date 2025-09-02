@@ -70,7 +70,7 @@ function tps_super_testimonials_shortcode_clmn_display( $tpcp_column, $post_id )
   	<textarea cols="40" rows="2" style="background:#ddd;" onClick="this.select();" ><?php echo '<?php echo do_shortcode( "[tptpro id='; echo "'".$post_id."']"; echo '" ); ?>'; ?></textarea>
   	<?php
  	}
-}	
+}
 add_action( 'manage_tptscode_posts_custom_column' , 'tps_super_testimonials_shortcode_clmn_display', 10, 2 );
 
 // Register meta box for the 'tptscode' custom post type
@@ -1053,7 +1053,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</td>
 							</tr>
 							<!-- End Pagination -->
-							
+
 							<tr valign="top" id="pagi_align_controller" style="<?php if ( $pagination == 'false') {	echo "display:none;"; }?>">
 								<th scope="row">
 									<label for="pagination_align"><?php _e( 'Pagination Align', 'ktsttestimonial' ); ?></label>
