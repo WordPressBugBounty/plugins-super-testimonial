@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 
 <?php } else { ?>
+	
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid); ?> {
 			<?php if ( $tp_show_item_bg_option == 1 ) { ?>

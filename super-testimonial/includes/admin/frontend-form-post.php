@@ -8,17 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function tps_super_testimonials_form_generator_type() {
     // Set UI labels for Custom Post Type
     $labels = array(
-        'name'                => _x( 'Testimonials', 'Post Type General Name', 'ktsttestimonial' ),
-        'singular_name'       => _x( 'Testimonial', 'Post Type Singular Name', 'ktsttestimonial' ),
-        'menu_name'           => __( 'Testimonials', 'ktsttestimonial' ),
-        'parent_item_colon'   => __( 'Parent Form', 'ktsttestimonial' ),
-        'all_items'           => __( 'Testimonial Form', 'ktsttestimonial' ),
-        'view_item'           => __( 'View Form', 'ktsttestimonial' ),
-        'edit_item'           => __( 'Edit Form', 'ktsttestimonial' ),
-        'update_item'         => __( 'Update Form', 'ktsttestimonial' ),
-        'search_items'        => __( 'Search Form', 'ktsttestimonial' ),
-        'not_found'           => __( 'Form Not Found', 'ktsttestimonial' ),
-        'not_found_in_trash'  => __( 'Form Not Found in Trash', 'ktsttestimonial' ),
+        'name'                => _x( 'Testimonials', 'Post Type General Name', 'super-testimonial' ),
+        'singular_name'       => _x( 'Testimonial', 'Post Type Singular Name', 'super-testimonial' ),
+        'menu_name'           => __( 'Testimonials', 'super-testimonial' ),
+        'parent_item_colon'   => __( 'Parent Form', 'super-testimonial' ),
+        'all_items'           => __( 'Testimonial Form', 'super-testimonial' ),
+        'view_item'           => __( 'View Form', 'super-testimonial' ),
+        'edit_item'           => __( 'Edit Form', 'super-testimonial' ),
+        'update_item'         => __( 'Update Form', 'super-testimonial' ),
+        'search_items'        => __( 'Search Form', 'super-testimonial' ),
+        'not_found'           => __( 'Form Not Found', 'super-testimonial' ),
+        'not_found_in_trash'  => __( 'Form Not Found in Trash', 'super-testimonial' ),
     );
 
     // Check if a form already exists
@@ -30,13 +30,13 @@ function tps_super_testimonials_form_generator_type() {
 
     // Hide "Add New" if a form exists
     if (empty($existing_forms)) {
-        $labels['add_new_item'] = __( 'Testimonial Form', 'ktsttestimonial' );
-        $labels['add_new'] = __( 'Add New', 'ktsttestimonial' );
+        $labels['add_new_item'] = __( 'Testimonial Form', 'super-testimonial' );
+        $labels['add_new'] = __( 'Add New', 'super-testimonial' );
     }
 
     $args = array(
-        'label'               => __( 'Testimonial Form', 'ktsttestimonial' ),
-        'description'         => __( 'Form news and reviews', 'ktsttestimonial' ),
+        'label'               => __( 'Testimonial Form', 'super-testimonial' ),
+        'description'         => __( 'Form news and reviews', 'super-testimonial' ),
         'labels'              => $labels,
         'supports'            => array( 'title' ), // Only title is needed
         'hierarchical'        => false,
@@ -108,9 +108,9 @@ add_action( 'admin_init', 'tps_super_testimonials_redirect_add_new' );
 function tps_super_testimonials_shortcode_form( $columns ) {
     return array(
         'cb'            => '<input type="checkbox" />',
-        'title'         => __( 'Form Title', 'ktsttestimonial' ),
-        'formshortcode' => __( 'Shortcode', 'ktsttestimonial' ),
-        'date'          => __( 'Date', 'ktsttestimonial' ),
+        'title'         => __( 'Form Title', 'super-testimonial' ),
+        'formshortcode' => __( 'Shortcode', 'super-testimonial' ),
+        'date'          => __( 'Date', 'super-testimonial' ),
     );
 }
 add_filter( 'manage_tp_testimonial_form_posts_columns', 'tps_super_testimonials_shortcode_form' );
@@ -128,7 +128,7 @@ add_action( 'manage_tp_testimonial_form_posts_custom_column' , 'tps_super_testim
 function tps_register_testimonial_form_metabox() {
     add_meta_box(
         'tps_testimonial_form_settings',
-        __('Testimonial Form Settings', 'ktsttestimonial'),
+        __('Testimonial Form Settings', 'super-testimonial'),
         'tps_render_testimonial_form_metabox',
         'tp_testimonial_form',
         'normal',
@@ -259,7 +259,9 @@ function tps_render_testimonial_form_metabox($post) {
 	$site_key                   = get_post_meta($post->ID, 'custom_recaptcha_site_key', true) ?: '';
 	$secret_key                 = get_post_meta($post->ID, 'custom_recaptcha_secret_key', true) ?: '';
 	$nav_value                  = get_post_meta($post->ID, 'nav_value', true );
-
+    if ( empty( $nav_value ) ) {
+        $nav_value = 1;
+    }
     $fields = tp_testimonial_form_settings();
     $settings = get_post_meta($post->ID, 'tp_testimonial_form_settings', true);
 
@@ -303,11 +305,11 @@ function tps_render_testimonial_form_metabox($post) {
 	<div class="tupsetings post-grid-metabox">
 		<!-- <div class="wrap"> -->
 		<ul class="tab-nav">
-			<li nav="1" class="nav1 <?php if ( $nav_value == 1 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM EDITOR','ktsttestimonial' ); ?></li>
-			<li nav="2" class="nav2 <?php if ( $nav_value == 2 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM STYLE','ktsttestimonial' ); ?></li>
-			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM SETTINGS','ktsttestimonial' ); ?></li>
-			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php esc_html_e( 'LABELS & MESSAGES','ktsttestimonial' ); ?></li>
-			<li nav="5" class="nav5 <?php if ( $nav_value == 5 ) { echo "active"; } ?>"><?php esc_html_e( 'NOTIFICATIONS','ktsttestimonial' ); ?></li>
+			<li nav="1" class="nav1 <?php if ( $nav_value == 1 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM EDITOR','super-testimonial' ); ?></li>
+			<li nav="2" class="nav2 <?php if ( $nav_value == 2 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM STYLE','super-testimonial' ); ?></li>
+			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php esc_html_e( 'FORM SETTINGS','super-testimonial' ); ?></li>
+			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php esc_html_e( 'LABELS & MESSAGES','super-testimonial' ); ?></li>
+			<li nav="5" class="nav5 <?php if ( $nav_value == 5 ) { echo "active"; } ?>"><?php esc_html_e( 'NOTIFICATIONS','super-testimonial' ); ?></li>
 		</ul> <!-- tab-nav end -->
 
 		<?php 
@@ -320,7 +322,7 @@ function tps_render_testimonial_form_metabox($post) {
 			<!-- Tab 1 -->
 			<li style="<?php if ( $nav_value == 1 ) { echo "display: block;"; } else { echo "display: none;"; } ?>" class="box1 tab-box <?php if ( $nav_value == 1 ) { echo "active"; } ?>">
 				<div class="option-box">
-					<p class="option-title"><?php esc_html_e( 'Form Editor','ktsttestimonial' ); ?><a href="https://themepoints.com/testimonials" target="_blank"> - <?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
+					<p class="option-title"><?php esc_html_e( 'Form Editor','super-testimonial' ); ?><a href="https://themepoints.com/testimonials" target="_blank"> - <?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
  
 					<ul id="testimonial-form-fields">
 		                <?php
@@ -334,7 +336,7 @@ function tps_render_testimonial_form_metabox($post) {
 						        <li class="testimonial-field">
 						            <div class="field-header"><span class="dashicons dashicons-fullscreen-alt"></span><?php echo esc_html($label); ?></div>
 					            	<div class="field-lables">
-					                	<?php esc_html_e('Label', 'ktsttestimonial'); ?>: <input type="text" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][label]" value="<?php echo esc_attr($label); ?>">
+					                	<?php esc_html_e('Label', 'super-testimonial'); ?>: <input type="text" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][label]" value="<?php echo esc_attr($label); ?>">
 					            	</div>
 
 							        <?php
@@ -342,16 +344,16 @@ function tps_render_testimonial_form_metabox($post) {
 							        if (!in_array($type, ['file', 'rating', 'recaptcha'])) {
 							        ?>
 							            <div class="field-header-fields">
-							                <?php esc_html_e('Placeholder', 'ktsttestimonial'); ?>: <input type="text" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][placeholder]" value="<?php echo esc_attr($placeholder); ?>">
+							                <?php esc_html_e('Placeholder', 'super-testimonial'); ?>: <input type="text" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][placeholder]" value="<?php echo esc_attr($placeholder); ?>">
 							            </div>
 							        <?php } ?>
 
 						            <div class="field-header-required">
-						            	<input type="checkbox" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][required]" value="1" <?php checked($required, true); ?>> <?php esc_html_e('Required', 'ktsttestimonial'); ?>
+						            	<input type="checkbox" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][required]" value="1" <?php checked($required, true); ?>> <?php esc_html_e('Required', 'super-testimonial'); ?>
 						            </div>
 
 						            <div class="field-header-enable">
-						            	<input type="checkbox" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][enabled]" value="1" <?php checked($enabled, true); ?>> <?php esc_html_e('Enable', 'ktsttestimonial'); ?>
+						            	<input type="checkbox" name="tp_testimonial_settings[<?php echo esc_attr($key); ?>][enabled]" value="1" <?php checked($enabled, true); ?>> <?php esc_html_e('Enable', 'super-testimonial'); ?>
 						            </div>
 
 						        </li>
@@ -362,8 +364,8 @@ function tps_render_testimonial_form_metabox($post) {
 				    <table class="form-table">
 						<tr valign="top">
 							<th scope="row">
-								<label for="tp_form_submitbtn"><?php esc_html_e( 'Submit Testimonial', 'ktsttestimonial' ); ?></label>
-								<span class="tpstestimonial_manager_hint toss"><?php esc_html_e('Set Testimonial Button Text.', 'ktsttestimonial'); ?></span>
+								<label for="tp_form_submitbtn"><?php esc_html_e( 'Submit Testimonial', 'super-testimonial' ); ?></label>
+								<span class="tpstestimonial_manager_hint toss"><?php esc_html_e('Set Testimonial Button Text.', 'super-testimonial'); ?></span>
 							</th>
 							<td style="vertical-align: middle;">
 								<input type="text" name="tp_form_submitbtn" id="tp_form_submitbtn" value="<?php echo esc_attr(!empty($tp_form_submitbtn) ? $tp_form_submitbtn : 'Submit Testimonial'); ?>">
@@ -377,40 +379,40 @@ function tps_render_testimonial_form_metabox($post) {
 			<li style="<?php if($nav_value == 2){echo "display: block;";} else{ echo "display: none;"; }?>" class="box2 tab-box <?php if($nav_value == 2){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
-						<p class="option-title"><?php esc_html_e( 'Form Style','ktsttestimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
+						<p class="option-title"><?php esc_html_e( 'Form Style','super-testimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
 						<table class="form-table">
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_width"><?php esc_html_e( 'Form Width', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e('Set a custom width for the testimonial form.', 'ktsttestimonial'); ?></span>
+									<label for="tp_form_width"><?php esc_html_e( 'Form Width', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e('Set a custom width for the testimonial form.', 'super-testimonial'); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
-									<input type="number" name="tp_form_width" id="tp_form_width" class="timezone_string" required value="<?php  if($tp_form_width !=''){echo $tp_form_width; }else{ echo '650';} ?>"><?php esc_html_e( 'Px', 'ktsttestimonial' ); ?><br />
+									<input type="number" name="tp_form_width" id="tp_form_width" class="timezone_string" required value="<?php  if($tp_form_width !=''){echo esc_attr($tp_form_width); }else{ echo '650';} ?>"><?php esc_html_e( 'Px', 'super-testimonial' ); ?><br />
 								</td>
 							</tr><!-- End tp_form_width -->
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_fptop_width"><?php esc_html_e( 'Form Padding', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set padding for the testimonial form.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_fptop_width"><?php esc_html_e( 'Form Padding', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set padding for the testimonial form.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 								    <div style="display: flex; gap: 20px; align-items: center;">
 								        <div style="display: grid;">
-								            <label for="tp_fptop_width"><?php esc_html_e('Top (px)', 'ktsttestimonial'); ?></label>
+								            <label for="tp_fptop_width"><?php esc_html_e('Top (px)', 'super-testimonial'); ?></label>
 								            <input type="number" id="tp_fptop_width" name="tp_fptop_width" value="<?php echo esc_attr($tp_fptop_width); ?>" style="width: 60px;">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_fpright_width"><?php esc_html_e('Right (px)', 'ktsttestimonial'); ?></label>
+								            <label for="tp_fpright_width"><?php esc_html_e('Right (px)', 'super-testimonial'); ?></label>
 								            <input type="number" id="tp_fpright_width" name="tp_fpright_width" value="<?php echo esc_attr($tp_fpright_width); ?>" style="width: 60px;">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_fpbottom_width"><?php esc_html_e('Bottom (px)', 'ktsttestimonial'); ?></label>
+								            <label for="tp_fpbottom_width"><?php esc_html_e('Bottom (px)', 'super-testimonial'); ?></label>
 								            <input type="number" id="tp_fpbottom_width" name="tp_fpbottom_width" value="<?php echo esc_attr($tp_fpbottom_width); ?>" style="width: 60px;">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_fpleft_width"><?php esc_html_e('Left (px)', 'ktsttestimonial'); ?></label>
+								            <label for="tp_fpleft_width"><?php esc_html_e('Left (px)', 'super-testimonial'); ?></label>
 								            <input type="number" id="tp_fpleft_width" name="tp_fpleft_width" value="<?php echo esc_attr($tp_fpleft_width); ?>" style="width: 60px;">
 								        </div>
 								    </div>
@@ -420,8 +422,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_bgcolor"><?php esc_html_e( 'Form Background', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_bgcolor"><?php esc_html_e( 'Form Background', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_bgcolor" name="tp_form_bgcolor" value="<?php echo esc_attr($tp_form_bgcolor); ?>">
@@ -431,30 +433,30 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_border_width"><?php esc_html_e( 'Form Border', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set border for the testimonial form.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_border_width"><?php esc_html_e( 'Form Border', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set border for the testimonial form.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 								    <div style="display: flex; gap: 20px; align-items: center;">
 								        <div style="display: grid;">
-								            <label for="tp_border_width"><?php esc_html_e('Width (px)', 'ktsttestimonial'); ?></label>
-								            <input type="number" name="tp_border_width" id="tp_border_width" style="width: 60px;" value="<?php  if ( $tp_border_width !='' ) { echo $tp_border_width; } else { echo '1'; } ?>">
+								            <label for="tp_border_width"><?php esc_html_e('Width (px)', 'super-testimonial'); ?></label>
+								            <input type="number" name="tp_border_width" id="tp_border_width" style="width: 60px;" value="<?php  if ( $tp_border_width !='' ) { echo esc_attr($tp_border_width); } else { echo '1'; } ?>">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_border_style"><?php esc_html_e('Style', 'ktsttestimonial'); ?></label>
+								            <label for="tp_border_style"><?php esc_html_e('Style', 'super-testimonial'); ?></label>
 								            <select id="tp_border_style" name="tp_border_style">
-								                <option value="solid" <?php selected($tp_border_style, 'solid'); ?>><?php esc_html_e( 'Solid', 'ktsttestimonial' ); ?></option>
-								                <option value="dashed" <?php selected($tp_border_style, 'dashed'); ?>><?php esc_html_e( 'Dashed', 'ktsttestimonial' ); ?></option>
-								                <option value="dotted" <?php selected($tp_border_style, 'dotted'); ?>><?php esc_html_e( 'Dotted', 'ktsttestimonial' ); ?></option>
+								                <option value="solid" <?php selected($tp_border_style, 'solid'); ?>><?php esc_html_e( 'Solid', 'super-testimonial' ); ?></option>
+								                <option value="dashed" <?php selected($tp_border_style, 'dashed'); ?>><?php esc_html_e( 'Dashed', 'super-testimonial' ); ?></option>
+								                <option value="dotted" <?php selected($tp_border_style, 'dotted'); ?>><?php esc_html_e( 'Dotted', 'super-testimonial' ); ?></option>
 								            </select>
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_border_color"><?php esc_html_e('Color', 'ktsttestimonial'); ?></label>
+								            <label for="tp_border_color"><?php esc_html_e('Color', 'super-testimonial'); ?></label>
 								            <input type="color" id="tp_border_color" name="tp_border_color" value="<?php echo esc_attr($tp_border_color); ?>">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_border_radius"><?php esc_html_e('Radius (px)', 'ktsttestimonial'); ?></label>
-								            <input type="number" name="tp_border_radius" id="tp_border_radius" style="width: 60px;" value="<?php  if ( $tp_border_radius !='' ) { echo $tp_border_radius; } else { echo '6'; } ?>">
+								            <label for="tp_border_radius"><?php esc_html_e('Radius (px)', 'super-testimonial'); ?></label>
+								            <input type="number" name="tp_border_radius" id="tp_border_radius" style="width: 60px;" value="<?php  if ( $tp_border_radius !='' ) { echo esc_attr($tp_border_radius); } else { echo '6'; } ?>">
 								        </div>
 								    </div>
 								</td>
@@ -463,8 +465,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_label_color"><?php esc_html_e( 'Input Label Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form label.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_label_color"><?php esc_html_e( 'Input Label Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form label.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_label_color" name="tp_form_label_color" value="<?php echo esc_attr($tp_form_label_color); ?>">
@@ -474,34 +476,34 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_label_width"><?php esc_html_e( 'Input Field ', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set input field style for the testimonial form.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_label_width"><?php esc_html_e( 'Input Field ', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set input field style for the testimonial form.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 								    <div style="display: flex; gap: 20px; align-items: center;">
 								        <div style="display: grid;">
-								            <label for="tp_label_width"><?php esc_html_e('Width (px)', 'ktsttestimonial'); ?></label>
+								            <label for="tp_label_width"><?php esc_html_e('Width (px)', 'super-testimonial'); ?></label>
 								            <input type="number" id="tp_label_width" name="tp_label_width" value="<?php echo esc_attr($tp_label_width); ?>" style="width: 60px;"> 
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_label_style"><?php esc_html_e('Style', 'ktsttestimonial'); ?></label>
+								            <label for="tp_label_style"><?php esc_html_e('Style', 'super-testimonial'); ?></label>
 								            <select id="tp_label_style" name="tp_label_style">
-								                <option value="solid" <?php selected($tp_label_style, 'solid'); ?>><?php esc_html_e( 'Solid', 'ktsttestimonial' ); ?></option>
-								                <option value="dashed" <?php selected($tp_label_style, 'dashed'); ?>><?php esc_html_e( 'Dashed', 'ktsttestimonial' ); ?></option>
-								                <option value="dotted" <?php selected($tp_label_style, 'dotted'); ?>><?php esc_html_e( 'Dotted', 'ktsttestimonial' ); ?></option>
+								                <option value="solid" <?php selected($tp_label_style, 'solid'); ?>><?php esc_html_e( 'Solid', 'super-testimonial' ); ?></option>
+								                <option value="dashed" <?php selected($tp_label_style, 'dashed'); ?>><?php esc_html_e( 'Dashed', 'super-testimonial' ); ?></option>
+								                <option value="dotted" <?php selected($tp_label_style, 'dotted'); ?>><?php esc_html_e( 'Dotted', 'super-testimonial' ); ?></option>
 								            </select>
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_lable_border_color"><?php esc_html_e('Color', 'ktsttestimonial'); ?></label>
+								            <label for="tp_lable_border_color"><?php esc_html_e('Color', 'super-testimonial'); ?></label>
 								            <input type="color" id="tp_lable_border_color" name="tp_lable_border_color" value="<?php echo esc_attr($tp_lable_border_color); ?>">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_lable_bg_color"><?php esc_html_e('BG Color', 'ktsttestimonial'); ?></label>
+								            <label for="tp_lable_bg_color"><?php esc_html_e('BG Color', 'super-testimonial'); ?></label>
 								            <input type="color" id="tp_lable_bg_color" name="tp_lable_bg_color" value="<?php echo esc_attr($tp_lable_bg_color); ?>">
 								        </div>
 								        <div style="display: grid;">
-								            <label for="tp_label_border_radius"><?php esc_html_e('Radius (px)', 'ktsttestimonial'); ?></label>
-								            <input type="number" name="tp_label_border_radius" id="tp_label_border_radius" style="width: 60px;" value="<?php  if ( $tp_label_border_radius !='' ) { echo $tp_label_border_radius; } else { echo '6'; } ?>">
+								            <label for="tp_label_border_radius"><?php esc_html_e('Radius (px)', 'super-testimonial'); ?></label>
+								            <input type="number" name="tp_label_border_radius" id="tp_label_border_radius" style="width: 60px;" value="<?php  if ( $tp_label_border_radius !='' ) { echo esc_attr($tp_label_border_radius); } else { echo '6'; } ?>">
 								        </div>
 								    </div>
 								</td>
@@ -510,8 +512,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_placeholder_color"><?php esc_html_e( 'Input Placeholder Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial Input Placeholder.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_placeholder_color"><?php esc_html_e( 'Input Placeholder Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial Input Placeholder.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_placeholder_color" name="tp_form_placeholder_color" value="<?php echo esc_attr($tp_form_placeholder_color); ?>">
@@ -521,8 +523,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_rating_color"><?php esc_html_e( 'Rating Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form rating.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_rating_color"><?php esc_html_e( 'Rating Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Pick a color for the testimonial form rating.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_rating_color" name="tp_form_rating_color" value="<?php echo esc_attr($tp_form_rating_color); ?>">
@@ -532,8 +534,8 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="tp_form_rating_hover_color"><?php _e( 'Rating Hover Color', 'ktsttestimonial' ); ?></label>
-                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form rating hover.', 'ktsttestimonial' ); ?></span>
+                                    <label for="tp_form_rating_hover_color"><?php esc_html_e( 'Rating Hover Color', 'super-testimonial' ); ?></label>
+                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form rating hover.', 'super-testimonial' ); ?></span>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <input type="text" id="tp_form_rating_hover_color" name="tp_form_rating_hover_color" value="<?php echo esc_attr($tp_form_rating_hover_color); ?>">
@@ -543,8 +545,8 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="tp_rating_style"><?php _e( 'Rating Style', 'ktsttestimonial' ); ?></label>
-                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set testimonial form rating style.', 'ktsttestimonial' ); ?></span>
+                                    <label for="tp_rating_style"><?php esc_html_e( 'Rating Style', 'super-testimonial' ); ?></label>
+                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set testimonial form rating style.', 'super-testimonial' ); ?></span>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <div class="tp-rating-options">
@@ -579,8 +581,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_btn_color"><?php esc_html_e( 'Submit Button Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_btn_color"><?php esc_html_e( 'Submit Button Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_btn_color" name="tp_form_btn_color" value="<?php echo esc_attr($tp_form_btn_color); ?>">
@@ -590,8 +592,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_btn_hover_color"><?php esc_html_e( 'Submit Button Hover Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button hover color.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_btn_hover_color"><?php esc_html_e( 'Submit Button Hover Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button hover color.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_btn_hover_color" name="tp_form_btn_hover_color" value="<?php echo esc_attr($tp_form_btn_hover_color); ?>">
@@ -601,8 +603,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_btn_bg_color"><?php esc_html_e( 'Submit Button BG Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button background color.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_btn_bg_color"><?php esc_html_e( 'Submit Button BG Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button background color.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_btn_bg_color" name="tp_form_btn_bg_color" value="<?php echo esc_attr($tp_form_btn_bg_color); ?>">
@@ -612,8 +614,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_btn_bg_hover_color"><?php esc_html_e( 'Submit Button Hover Bg Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button hover bg color.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_btn_bg_hover_color"><?php esc_html_e( 'Submit Button Hover Bg Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial submit button hover bg color.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_btn_bg_hover_color" name="tp_form_btn_bg_hover_color" value="<?php echo esc_attr($tp_form_btn_bg_hover_color); ?>">
@@ -630,74 +632,74 @@ function tps_render_testimonial_form_metabox($post) {
 			<li style="<?php if($nav_value == 3){echo "display: block;";} else{ echo "display: none;"; }?>" class="box3 tab-box <?php if($nav_value == 3){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
-						<p class="option-title"><?php esc_html_e( 'General Settings','ktsttestimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
+						<p class="option-title"><?php esc_html_e( 'General Settings','super-testimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
 						<table class="form-table">
 
 					        <tr>
 					            <th>
-					                <label for="custom_post_status"><?php esc_html_e('Post Status', 'ktsttestimonial'); ?></label>
+					                <label for="custom_post_status"><?php esc_html_e('Post Status', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 					                <select name="custom_post_status" id="custom_post_status">
-					                    <option value="pending" <?php selected($post_status, 'pending'); ?>><?php esc_html_e('Pending', 'ktsttestimonial'); ?></option>
-					                    <option value="publish" <?php selected($post_status, 'publish'); ?>><?php esc_html_e('Publish', 'ktsttestimonial'); ?></option>
-					                    <option value="draft" <?php selected($post_status, 'draft'); ?>><?php esc_html_e('Draft', 'ktsttestimonial'); ?></option>
+					                    <option value="pending" <?php selected($post_status, 'pending'); ?>><?php esc_html_e('Pending', 'super-testimonial'); ?></option>
+					                    <option value="publish" <?php selected($post_status, 'publish'); ?>><?php esc_html_e('Publish', 'super-testimonial'); ?></option>
+					                    <option value="draft" <?php selected($post_status, 'draft'); ?>><?php esc_html_e('Draft', 'super-testimonial'); ?></option>
 					                </select>
 					            </td>
 					        </tr>
 
 					        <tr>
 					            <th>
-					                <label for="custom_header_status"><?php esc_html_e('reCAPTCHA', 'ktsttestimonial'); ?></label>
+					                <label for="custom_header_status"><?php esc_html_e('reCAPTCHA', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
-					               <p><?php esc_html_e('reCAPTCHA is a free aniti-spam service provided by Google designed to protect websites from spam and abuse.', 'ktsttestimonial'); ?></p>
+					               <p><?php esc_html_e('reCAPTCHA is a free aniti-spam service provided by Google designed to protect websites from spam and abuse.', 'super-testimonial'); ?></p>
 					            </td>
 					        </tr>
 
 					        <tr>
 					            <th>
-					                <label for="enable_recaptcha"><?php esc_html_e('Enable reCAPTCHA', 'ktsttestimonial'); ?></label>
+					                <label for="enable_recaptcha"><?php esc_html_e('Enable reCAPTCHA', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 							        <label for="enable_recaptcha">
 							            <input type="checkbox" name="enable_recaptcha" id="enable_recaptcha" value="1" <?php checked($enable_recaptcha, '1'); ?>>
-							            <?php esc_html_e('Enable reCAPTCHA', 'ktsttestimonial'); ?>
+							            <?php esc_html_e('Enable reCAPTCHA', 'super-testimonial'); ?>
 							        </label>
 					            </td>
 					        </tr>
 
 					        <tr>
 					            <th>
-					                <label for="custom_recaptcha_type"><?php esc_html_e('reCAPTCHA Type', 'ktsttestimonial'); ?></label>
+					                <label for="custom_recaptcha_type"><?php esc_html_e('reCAPTCHA Type', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 					                <select name="custom_recaptcha_type" id="custom_recaptcha_type">
-					                    <option value="none" <?php selected($recaptcha_type, 'none'); ?>><?php esc_html_e('None', 'ktsttestimonial'); ?></option>
-					                    <option value="google" <?php selected($recaptcha_type, 'google'); ?>><?php esc_html_e('Google reCAPTCHA', 'ktsttestimonial'); ?></option>
+					                    <option value="none" <?php selected($recaptcha_type, 'none'); ?>><?php esc_html_e('None', 'super-testimonial'); ?></option>
+					                    <option value="google" <?php selected($recaptcha_type, 'google'); ?>><?php esc_html_e('Google reCAPTCHA', 'super-testimonial'); ?></option>
 					                </select>
 					            </td>
 					        </tr>
 
 					        <tr class="recaptcha-settings" style="display: <?php echo ($recaptcha_type === 'google') ? 'table-row' : 'none'; ?>;">
 					            <th>
-					                <label><?php esc_html_e('reCAPTCHA Version', 'ktsttestimonial'); ?></label>
+					                <label><?php esc_html_e('reCAPTCHA Version', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 					                <label>
 					                    <input type="radio" name="custom_recaptcha_version" value="v2" <?php checked($recaptcha_version, 'v2'); ?>>
-					                    <?php esc_html_e('v2', 'ktsttestimonial'); ?>
+					                    <?php esc_html_e('v2', 'super-testimonial'); ?>
 					                </label>
 					                <label>
 					                    <input type="radio" name="custom_recaptcha_version" value="v3" <?php checked($recaptcha_version, 'v3'); ?>>
-					                    <?php esc_html_e('v3', 'ktsttestimonial'); ?>
+					                    <?php esc_html_e('v3', 'super-testimonial'); ?>
 					                </label>
 					            </td>
 					        </tr>
 
 					        <tr class="recaptcha-settings" style="display: <?php echo ($recaptcha_type === 'google') ? 'table-row' : 'none'; ?>;">
 					            <th>
-					                <label for="custom_recaptcha_site_key"><?php esc_html_e('Site Key', 'ktsttestimonial'); ?></label>
+					                <label for="custom_recaptcha_site_key"><?php esc_html_e('Site Key', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 					                <input type="text" name="custom_recaptcha_site_key" id="custom_recaptcha_site_key" value="<?php echo esc_attr($site_key); ?>" class="regular-text">
@@ -706,7 +708,7 @@ function tps_render_testimonial_form_metabox($post) {
 
 					        <tr class="recaptcha-settings" style="display: <?php echo ($recaptcha_type === 'google') ? 'table-row' : 'none'; ?>;">
 					            <th>
-					                <label for="custom_recaptcha_secret_key"><?php esc_html_e('Secret Key', 'ktsttestimonial'); ?></label>
+					                <label for="custom_recaptcha_secret_key"><?php esc_html_e('Secret Key', 'super-testimonial'); ?></label>
 					            </th>
 					            <td>
 					                <input type="text" name="custom_recaptcha_secret_key" id="custom_recaptcha_secret_key" value="<?php echo esc_attr($secret_key); ?>" class="regular-text">
@@ -733,31 +735,31 @@ function tps_render_testimonial_form_metabox($post) {
 			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
-						<p class="option-title"><?php esc_html_e( 'Labels & Messages','ktsttestimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
+						<p class="option-title"><?php esc_html_e( 'Labels & Messages','super-testimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
 						<table class="form-table">
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_required_show_hide"><?php esc_html_e( 'Required Notice', 'ktsttestimonial' ); ?></label>
+									<label for="tp_required_show_hide"><?php esc_html_e( 'Required Notice', 'super-testimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss">
-										<?php esc_html_e( 'Display required notice at top of the form.', 'ktsttestimonial' ); ?>
+										<?php esc_html_e( 'Display required notice at top of the form.', 'super-testimonial' ); ?>
 									</span>
 								</th>
 								<td style="vertical-align: middle;">
 									<div class="switch-field">
 										<input type="radio" id="tp_required_show" name="tp_required_show_hide" value="1" <?php if ( $tp_required_show_hide == 1 || $tp_required_show_hide == '' ) echo 'checked'; ?>/>
-										<label for="tp_required_show"><?php esc_html_e( 'Show', 'ktsttestimonial' ); ?></label>
+										<label for="tp_required_show"><?php esc_html_e( 'Show', 'super-testimonial' ); ?></label>
 										<input type="radio" id="tp_required_hide" name="tp_required_show_hide" value="2" <?php if ( $tp_required_show_hide == 2 ) echo 'checked'; ?>/>
-										<label for="tp_required_hide"><?php esc_html_e( 'Hide', 'ktsttestimonial' ); ?></label>
+										<label for="tp_required_hide"><?php esc_html_e( 'Hide', 'super-testimonial' ); ?></label>
 									</div>
 								</td>
 							</tr><!-- End Required Notice Show/Hide -->
 
 							<tr valign="top">
 							    <th scope="row">
-							        <label for="tp_required_notice_text"><?php esc_html_e('Notice Label', 'ktsttestimonial'); ?></label>
+							        <label for="tp_required_notice_text"><?php esc_html_e('Notice Label', 'super-testimonial'); ?></label>
 							        <span class="tpstestimonial_manager_hint toss">
-							            <?php esc_html_e('Set a label for the required notice.', 'ktsttestimonial'); ?>
+							            <?php esc_html_e('Set a label for the required notice.', 'super-testimonial'); ?>
 							        </span>
 							    </th>
 							    <td style="vertical-align: middle;">
@@ -767,8 +769,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_asterisk_color"><?php esc_html_e( 'Asterisk Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form asterisk.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_asterisk_color"><?php esc_html_e( 'Asterisk Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form asterisk.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_asterisk_color" name="tp_form_asterisk_color" value="<?php echo esc_attr($tp_form_asterisk_color); ?>">
@@ -778,9 +780,9 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 							    <th scope="row">
-							        <label for="tp_success_message"><?php esc_html_e('Successful Message', 'ktsttestimonial'); ?></label>
+							        <label for="tp_success_message"><?php esc_html_e('Successful Message', 'super-testimonial'); ?></label>
 							        <span class="tpstestimonial_manager_hint toss">
-							            <?php esc_html_e('Set a submission success message.', 'ktsttestimonial'); ?>
+							            <?php esc_html_e('Set a submission success message.', 'super-testimonial'); ?>
 							        </span>
 							    </th>
 							    <td style="vertical-align: middle;">
@@ -790,8 +792,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_success_color"><?php esc_html_e( 'Successful Text Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form successful message.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_success_color"><?php esc_html_e( 'Successful Text Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form successful message.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_success_color" name="tp_form_success_color" value="<?php echo esc_attr($tp_form_success_color); ?>">
@@ -801,9 +803,9 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 							    <th scope="row">
-							        <label for="tp_error_message"><?php esc_html_e('Error Message', 'ktsttestimonial'); ?></label>
+							        <label for="tp_error_message"><?php esc_html_e('Error Message', 'super-testimonial'); ?></label>
 							        <span class="tpstestimonial_manager_hint toss">
-							            <?php esc_html_e('Set a submission error message.', 'ktsttestimonial'); ?>
+							            <?php esc_html_e('Set a submission error message.', 'super-testimonial'); ?>
 							        </span>
 							    </th>
 							    <td style="vertical-align: middle;">
@@ -813,8 +815,8 @@ function tps_render_testimonial_form_metabox($post) {
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_form_error_color"><?php esc_html_e( 'Error Text Color', 'ktsttestimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form error message.', 'ktsttestimonial' ); ?></span>
+									<label for="tp_form_error_color"><?php esc_html_e( 'Error Text Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for the testimonial form error message.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<input type="text" id="tp_form_error_color" name="tp_form_error_color" value="<?php echo esc_attr($tp_form_error_color); ?>">
@@ -831,13 +833,13 @@ function tps_render_testimonial_form_metabox($post) {
             <li style="<?php if($nav_value == 5){echo "display: block;";} else{ echo "display: none;"; }?>" class="box5 tab-box <?php if($nav_value == 5){echo "active";}?>">
                 <div class="wrap">
                     <div class="option-box">
-                        <p class="option-title"><?php esc_html_e( 'Notifications','ktsttestimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php _e( 'Unlock all upgrades with Pro!', 'ktsttestimonial' ); ?></a></p>
+                        <p class="option-title"><?php esc_html_e( 'Notifications','super-testimonial' ); ?> <a href="https://themepoints.com/testimonials" target="_blank"> - <?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
                         <table class="form-table">
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="notification_enabled"><?php esc_html_e( 'Admin Notification', 'ktsttestimonial' ); ?></label>
-                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Enable/Dsiable testimonial admin notice.', 'ktsttestimonial' ); ?></span>
+                                    <label for="notification_enabled"><?php esc_html_e( 'Admin Notification', 'super-testimonial' ); ?></label>
+                                    <span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Enable/Dsiable testimonial admin notice.', 'super-testimonial' ); ?></span>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <input type="checkbox" name="notification_enabled" value="1" <?php checked($notification_enabled, '1'); ?>>Enable Notification
@@ -847,7 +849,7 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="notification_to"><?php esc_html_e( 'To', 'ktsttestimonial' ); ?></label>
+                                    <label for="notification_to"><?php esc_html_e( 'To', 'super-testimonial' ); ?></label>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <input type="email" id="notification_to" disabled name="notification_to" value="<?php echo esc_attr($notification_to); ?>" class="regular-text">
@@ -857,7 +859,7 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="notification_from"><?php esc_html_e( 'From', 'ktsttestimonial' ); ?></label>
+                                    <label for="notification_from"><?php esc_html_e( 'From', 'super-testimonial' ); ?></label>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <input type="text" id="notification_from" disabled name="notification_from" value="<?php echo esc_attr($notification_from); ?>" class="regular-text">
@@ -867,7 +869,7 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="notification_subject"><?php esc_html_e( 'Subject', 'ktsttestimonial' ); ?></label>
+                                    <label for="notification_subject"><?php esc_html_e( 'Subject', 'super-testimonial' ); ?></label>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <input type="text" id="notification_subject" disabled name="notification_subject" value="<?php echo esc_attr($notification_subject); ?>" placeholder="Enter subject line" class="regular-text">
@@ -880,7 +882,7 @@ function tps_render_testimonial_form_metabox($post) {
 
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="notification_body"><?php esc_html_e( 'Message Body', 'ktsttestimonial' ); ?></label>
+                                    <label for="notification_body"><?php esc_html_e( 'Message Body', 'super-testimonial' ); ?></label>
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <?php
@@ -1237,7 +1239,7 @@ add_action('add_meta_boxes', 'tps_sidebar_add_shortcode_metabox');
 
 function tps_sidebar_render_shortcode_metabox($post) {
     ?>
-    <p><?php esc_html_e('To display the Testimonial Form, copy and paste this shortcode into your post, page, custom post, block editor, or page builder.', 'ktsttestimonial'); ?></p>
+    <p><?php esc_html_e('To display the Testimonial Form, copy and paste this shortcode into your post, page, custom post, block editor, or page builder.', 'super-testimonial'); ?></p>
     <input type="text" id="shortcode_<?php echo esc_attr($post->ID); ?>" 
            onclick="copyShortcode('<?php echo esc_attr($post->ID); ?>')" 
            readonly 
@@ -1246,7 +1248,7 @@ function tps_sidebar_render_shortcode_metabox($post) {
 
     <p id="copy-message-<?php echo esc_attr($post->ID); ?>" 
        style="color: green; font-size: 14px; display: none; margin-top: 5px;margin-bottom: 0px">
-       <?php esc_html_e('Shortcode copied!', 'ktsttestimonial'); ?>
+       <?php esc_html_e('Shortcode copied!', 'super-testimonial'); ?>
     </p>
 
     <script>

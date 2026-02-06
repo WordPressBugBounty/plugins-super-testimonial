@@ -1,10 +1,10 @@
 === Super Testimonial – Testimonial & Customer Review Slider Plugin for WordPress ===
 Contributors: themepoints
 Donate link: https://themepoints.com/testimonials/
-Tags: testimonial, testimonial slider, customer review, reviews, WordPress testimonials, feedback, client testimonial, testimonial plugin
+Tags: testimonial, testimonial slider, customer review, WordPress testimonials, client testimonial
 Requires at least: 4.0
-Tested up to: 6.8.2
-Stable tag: 4.0.9
+Tested up to: 6.9
+Stable tag: 5.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,6 +215,10 @@ You can upgrade anytime by visiting the [official website](https://themepoints.c
 
 
 == Changelog ==
+
+= 5.0.0 =
+*Release Date - 21 December 2025*
+ * Fix Security Issue.
 
 = 4.0.9 =
 *Release Date - 02 September 2025*

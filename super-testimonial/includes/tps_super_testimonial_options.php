@@ -6,64 +6,69 @@
 
 <div class="wraper doc-suport">
     <div class="doc-support-header">
-        <h1><?php echo esc_html__( 'Super Testimonial V-', 'ktsttestimonial' ) . TPS_TESTIMONIAL_VERSION; ?></h1>
-        <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'ktsttestimonial' ); ?> </p>
+        <h1><?php echo esc_html__( 'Super Testimonial V-', 'super-testimonial' ) . TPS_TESTIMONIAL_VERSION; ?></h1>
+        <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'super-testimonial' ); ?> </p>
     </div>
 
     <div class="tps-tabs">
         <ul class="tps-tab-menu">
-            <li class="tps-tab-item active" data-tab="whats-new"><?php esc_html_e('What\'s New', 'ktsttestimonial'); ?></li>
-            <li class="tps-tab-item" data-tab="need-help"><?php esc_html_e('Need Help', 'ktsttestimonial'); ?></li>
+            <li class="tps-tab-item active" data-tab="whats-new"><?php esc_html_e('What\'s New', 'super-testimonial'); ?></li>
+            <li class="tps-tab-item" data-tab="need-help"><?php esc_html_e('Need Help', 'super-testimonial'); ?></li>
         </ul>
     </div>
 
     <div class="tps-tab-content">
         <!-- What's New Section -->
         <div class="tps-tab-panel active" id="whats-new">
-            <h2><?php esc_html_e('Latest Updates - 16 April 2025', 'ktsttestimonial'); ?></h2>
+            <h2><?php esc_html_e('Latest Updates - 26 October 2025', 'super-testimonial'); ?></h2>
             <ul>
-                <li># <?php esc_html_e('Performance Improvements.', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Bug Fixes and UI Enhancements.', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Fix Metabox value Warning Issue.', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Fix CSS Issue.', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Fix Security Issue.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue.', 'super-testimonial'); ?></li>
             </ul>
-            <h2><?php esc_html_e('Updates - 13 February 2025', 'ktsttestimonial'); ?></h2>
-            <p><?php esc_html_e('Here are the latest features and improvements we have added.', 'ktsttestimonial'); ?></p>
-            <h2><?php esc_html_e('Front-End Testimonial Submission Form :', 'ktsttestimonial'); ?></h2>
+            <h2><?php esc_html_e('Latest Updates - 16 April 2025', 'super-testimonial'); ?></h2>
             <ul>
-                <li># <?php esc_html_e('The Front-End Testimonial Submission Form allows users to submit their testimonials easily without accessing the WordPress backend. This feature is available in the free version of the plugin and provides a convenient way for your visitors to leave feedback.', 'ktsttestimonial'); ?>
+                <li># <?php esc_html_e('Performance Improvements.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Bug Fixes and UI Enhancements.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix Metabox value Warning Issue.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue.', 'super-testimonial'); ?></li>
+            </ul>
+            <h2><?php esc_html_e('Updates - 13 February 2025', 'super-testimonial'); ?></h2>
+            <p><?php esc_html_e('Here are the latest features and improvements we have added.', 'super-testimonial'); ?></p>
+            <h2><?php esc_html_e('Front-End Testimonial Submission Form :', 'super-testimonial'); ?></h2>
+            <ul>
+                <li># <?php esc_html_e('The Front-End Testimonial Submission Form allows users to submit their testimonials easily without accessing the WordPress backend. This feature is available in the free version of the plugin and provides a convenient way for your visitors to leave feedback.', 'super-testimonial'); ?>
                 </li>
                 <li><img src="<?php echo plugin_dir_url( __FILE__ ) . 'admin/img/front-end-submission-form.png'; ?>" alt="Front-End Testimonial Submission Form" /></li>
-                <li># <?php esc_html_e('Added Testimonial Rating Style Option', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Performance Improvements', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Bug Fixes and UI Enhancements', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Fix Stored Cross-Site Scripting Issue', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Fix CSS Issue', 'ktsttestimonial'); ?></li>
-                <li># <?php esc_html_e('Fix spelling mistakes.', 'ktsttestimonial'); ?></li>
+                <li># <?php esc_html_e('Added Testimonial Rating Style Option', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Performance Improvements', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Bug Fixes and UI Enhancements', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix Stored Cross-Site Scripting Issue', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix spelling mistakes.', 'super-testimonial'); ?></li>
             </ul>
         </div>
 
         <!-- Need Help Section -->
         <div class="tps-tab-panel" id="need-help">
-            <h2><?php esc_html_e('Need Help?', 'ktsttestimonial'); ?></h2>
-            <p><?php esc_html_e('Find answers to your questions or contact our support team.', 'ktsttestimonial'); ?></p>
+            <h2><?php esc_html_e('Need Help?', 'super-testimonial'); ?></h2>
+            <p><?php esc_html_e('Find answers to your questions or contact our support team.', 'super-testimonial'); ?></p>
             <div class="doc-support-content">
                 <ul class="items-area">
                     <li class="list-item-help">
-                        <h3><?php esc_html_e( 'Check Documentation', 'ktsttestimonial' ); ?></h3>
-                        <p><?php esc_html_e( 'We developed plugins by maintaining WordPress standards. Our docs will help you to understand the basic & advanced usage.', 'ktsttestimonial' ); ?></p>
+                        <h3><?php esc_html_e( 'Check Documentation', 'super-testimonial' ); ?></h3>
+                        <p><?php esc_html_e( 'We developed plugins by maintaining WordPress standards. Our docs will help you to understand the basic & advanced usage.', 'super-testimonial' ); ?></p>
                         <div class="tps-btn">
                             <a target="_blank" href="<?php echo esc_url( 'https://themepoints.com/testimonials/docs/super-testimonial/overview/' ); ?>">
-                                <?php esc_html_e( 'Documentation', 'ktsttestimonial' ); ?>
+                                <?php esc_html_e( 'Documentation', 'super-testimonial' ); ?>
                             </a>
                         </div>
                     </li>
                     <li class="list-item-help">
-                        <h3><?php esc_html_e( 'Get Customer Support', 'ktsttestimonial' ); ?></h3>
-                        <p><?php esc_html_e( 'We\'re delighted to assist you with any questions or issues you may have regarding our plugin. We eagerly anticipate the opportunity to help you.', 'ktsttestimonial' ); ?></p>
+                        <h3><?php esc_html_e( 'Get Customer Support', 'super-testimonial' ); ?></h3>
+                        <p><?php esc_html_e( 'We\'re delighted to assist you with any questions or issues you may have regarding our plugin. We eagerly anticipate the opportunity to help you.', 'super-testimonial' ); ?></p>
                         <div class="tps-btn">
                             <a target="_blank" href="<?php echo esc_url( 'https://www.themepoints.com/questions-answer/' ); ?>">
-                                <?php esc_html_e( 'Get Support', 'ktsttestimonial' ); ?>
+                                <?php esc_html_e( 'Get Support', 'super-testimonial' ); ?>
                             </a>
                         </div>
                     </li>
@@ -75,20 +80,20 @@
     <div class="doc-support-content">
         <ul class="items-area">
             <li class="list-item">
-                <h3><?php esc_html_e( 'Show Your Love', 'ktsttestimonial' ); ?></h3>
-                <p><?php esc_html_e( 'We would greatly appreciate it if you could spare a moment to rate and review our plugin. Your feedback is invaluable to us as it helps us enhance and deliver the best possible experience for our customers.', 'ktsttestimonial' ); ?></p>
+                <h3><?php esc_html_e( 'Show Your Love', 'super-testimonial' ); ?></h3>
+                <p><?php esc_html_e( 'We would greatly appreciate it if you could spare a moment to rate and review our plugin. Your feedback is invaluable to us as it helps us enhance and deliver the best possible experience for our customers.', 'super-testimonial' ); ?></p>
                 <div class="tps-btn">
                     <a target="_blank" href="<?php echo esc_url( 'https://wordpress.org/support/plugin/super-testimonial/reviews/' ); ?>">
-                        <?php esc_html_e( 'Rate Us Now', 'ktsttestimonial' ); ?>
+                        <?php esc_html_e( 'Rate Us Now', 'super-testimonial' ); ?>
                     </a>
                 </div>
             </li>
             <li class="list-item">
-                <h3><?php esc_html_e( 'Buy Us A Coffee', 'ktsttestimonial' ); ?></h3>
-                <p><?php esc_html_e( 'We hope you\'re enjoying our plugin! We put a lot of effort into providing the best experience possible. If you\'re feeling generous and would like to show your appreciation, we\'d be thrilled if you could consider buying us a coffee as a way of saying thank you.', 'ktsttestimonial' ); ?></p>
+                <h3><?php esc_html_e( 'Buy Us A Coffee', 'super-testimonial' ); ?></h3>
+                <p><?php esc_html_e( 'We hope you\'re enjoying our plugin! We put a lot of effort into providing the best experience possible. If you\'re feeling generous and would like to show your appreciation, we\'d be thrilled if you could consider buying us a coffee as a way of saying thank you.', 'super-testimonial' ); ?></p>
                 <div class="tps-btn">
                     <a target="_blank" href="<?php echo esc_url( 'https://themepoints.com/testimonials/' ); ?>">
-                        <?php esc_html_e( 'Donate Now', 'ktsttestimonial' ); ?>
+                        <?php esc_html_e( 'Donate Now', 'super-testimonial' ); ?>
                     </a>
                 </div>
             </li>
