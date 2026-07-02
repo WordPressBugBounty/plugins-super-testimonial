@@ -170,7 +170,6 @@ function tps_testimonial_form_shortcode($atts) {
         <?php endif; ?>
 
         <form method="POST" enctype="multipart/form-data" class="tps-testimonial-form" id="tps-testimonial-form">
-
             <?php wp_nonce_field('submit_testimonial_form', 'testimonial_form_nonce'); ?>
 
             <?php

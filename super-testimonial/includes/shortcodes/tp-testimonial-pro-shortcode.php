@@ -14,6 +14,7 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	);
 
 	global $post, $paged, $query;
+	
 	$postid = $atts['id'];
 
 	$testimonial_cat_name          = get_post_meta( $postid, 'testimonial_cat_name', true );
@@ -51,6 +52,7 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 	$testimonial_word_limit        = get_post_meta( $postid, 'testimonial_word_limit', true );
 	$testimonial_read_more_text    = get_post_meta( $postid, 'testimonial_read_more_text', true );
 	$testimonial_read_more_color   = get_post_meta( $postid, 'testimonial_read_more_color', true );
+	$testimonial_read_more_hover   = get_post_meta( $postid, 'testimonial_read_more_hover', true );
 	$tp_show_rating_option         = get_post_meta( $postid, 'tp_show_rating_option', true );
 	$tp_rating_color               = get_post_meta( $postid, 'tp_rating_color', true );
 	$tp_rating_fontsize_option     = get_post_meta( $postid, 'tp_rating_fontsize_option', true );
@@ -161,133 +163,13 @@ function tp_testimonial_pro_post_query( $atts, $content = null ) {
 				include __DIR__ . '/template/theme-5.php';
 
 	        break;
-
-	  //   case '6':
-
-			// include __DIR__ . '/template/theme-6.php';
-
-	  //       break; 
-	  //   case '7':
-
-			// include __DIR__ . '/template/theme-7.php';
-
-	  //       break; 
-	  //   case '8':
-
-			// include __DIR__ . '/template/theme-8.php';
-
-	  //       break; 
-	  //   case '9':
-
-			// include __DIR__ . '/template/theme-9.php';
-
-	  //       break; 
-	  //   case '10':
-
-			// include __DIR__ . '/template/theme-10.php';
-
-	  //       break;  
-	  //   case '11':
-
-			// include __DIR__ . '/template/theme-11.php';
-
-	  //       break;  
-	  //   case '12':
-
-			// include __DIR__ . '/template/theme-12.php';
-
-	  //       break;  
-	  //   case '13':
-
-			// include __DIR__ . '/template/theme-13.php';
-
-	  //       break;  
-	  //   case '14':
-
-			// include __DIR__ . '/template/theme-14.php';
-
-	  //       break;
-	  //   case '15':
-
-			// include __DIR__ . '/template/theme-15.php';
-
-	  //       break; 
-	  //   case '16':
-
-			// include __DIR__ . '/template/theme-16.php';
-
-	  //       break; 
-	  //   case '17':
-
-			// include __DIR__ . '/template/theme-17.php';
-
-	  //       break; 
-	  //   case '18':
-
-			// include __DIR__ . '/template/theme-18.php';
-
-	  //       break; 
-	  //   case '19':
-
-			// include __DIR__ . '/template/theme-19.php';
-
-	  //       break; 
 	    case '20':
 
 				include __DIR__ . '/template/theme-20.php';
 
-	        break; 
-	  //   case '21':
-
-			// include __DIR__ . '/template/theme-21.php';
-
-	  //       break; 
-	  //   case '22':
-
-			// include __DIR__ . '/template/theme-22.php';
-
-	  //       break; 
-	  //   case '23':
-
-			// include __DIR__ . '/template/theme-23.php';
-
-	  //       break; 
-	  //   case '24':
-
-			// include __DIR__ . '/template/theme-24.php';
-
-	  //       break; 
-	  //   case '25':
-
-			// include __DIR__ . '/template/theme-25.php';
-
-	  //       break; 
-	  //   case '26':
-			// include __DIR__ . '/template/theme-26.php';
-
-	  //       break; 
-	  //   case '27':
-
-			// include __DIR__ . '/template/theme-27.php';
-
-	  //       break; 
-	  //   case '28':
-
-			// include __DIR__ . '/template/theme-28.php';
-
-	  //       break; 
-	  //   case '29':
-
-			// include __DIR__ . '/template/theme-29.php';
-
-	  //       break; 
-	  //   case '30':
-
-			// include __DIR__ . '/template/theme-30.php';
-
-	  //       break;
+	        break;
 	}
-	
+
 	return ob_get_clean();
 }
 add_shortcode( 'tptpro', 'tp_testimonial_pro_post_query' );

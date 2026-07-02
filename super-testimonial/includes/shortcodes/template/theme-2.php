@@ -1,13 +1,9 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
-
-if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
-
-<?php } else { ?>
-	
+	if ( ! defined( 'ABSPATH' ) ) {
+	    exit;
+	}
+?>
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid); ?> {
 			<?php if ( $tp_show_item_bg_option == 1 ) { ?>
@@ -225,5 +221,3 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			</div>
 		<?php endwhile; wp_reset_postdata(); ?>
 	</div>
-	<?php
-}

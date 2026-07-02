@@ -3,8 +3,8 @@ Contributors: themepoints
 Donate link: https://themepoints.com/testimonials/
 Tags: testimonial, testimonial slider, customer review, WordPress testimonials, client testimonial
 Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: 5.0.0
+Tested up to: 7.0
+Stable tag: 5.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,12 +14,7 @@ Testimonials are easy to use the plugin that allows users to add Testimonials to
 
 Testimonials are easy to use the plugin that allows users to add Testimonials to the sidebar, as a widget, or to embed testimonials into a Page or Post using the shortcode. Testimonials also allow you to insert a list of all Testimonials or output a Random Testimonial. The testimonial is 100% responsive for all devices.
 
-
-<ul>
-	<li><a href="https://themepoints.com/testimonials">Upgrade to Pro</a></li>
-	<li><a href="https://themepoints.com/testimonials">Live Preview</a></li>
-	<li><a href="https://themepoints.com/testimonials/docs/super-testimonial/overview/">Documentation</a></li>
-</ul>
+[🚀 Live Preview ](https://themepoints.com/testimonials) | [🔥 Upgrade to Pro](https://themepoints.com/testimonials) | [📘 Documentation](https://themepoints.com/testimonials/docs/super-testimonial/overview/)
 
 
 🎯 **Why Use Super Testimonial?**
@@ -215,6 +210,14 @@ You can upgrade anytime by visiting the [official website](https://themepoints.c
 
 
 == Changelog ==
+
+= 5.0.1 =
+*Release Date - 12 May 2026*
+ * Update Admin Interface.
+ * Performance Improvements.
+ * Bug Fixes and UI Enhancements.
+ * Add New Options.
+ * Fix CSS Issue.
 
 = 5.0.0 =
 *Release Date - 21 December 2025*

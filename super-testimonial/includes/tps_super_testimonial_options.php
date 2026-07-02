@@ -5,9 +5,24 @@
 ?>
 
 <div class="wraper doc-suport">
-    <div class="doc-support-header">
-        <h1><?php echo esc_html__( 'Super Testimonial V-', 'super-testimonial' ) . TPS_TESTIMONIAL_VERSION; ?></h1>
-        <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'super-testimonial' ); ?> </p>
+
+    <div class="tps-meta-header">
+        <div class="tps-meta-header-content">
+            <div class="tps-meta-header-left-doc">
+                <h2><?php echo esc_html__( 'Super Testimonial V-', 'super-testimonial' ) . TPS_TESTIMONIAL_VERSION; ?></h2>
+                <p><?php esc_html_e( 'Do you have any questions or need assistance? We\'re here to help!', 'super-testimonial' ); ?> </p>
+            </div>
+
+            <div class="tps-meta-header-right">
+                <a 
+                    href="https://themepoints.com/testimonials"
+                    target="_blank"
+                    class="tps-upgrade-btn"
+                >
+                    🚀 Upgrade Pro
+                </a>
+            </div>
+        </div>
     </div>
 
     <div class="tps-tabs">
@@ -20,6 +35,13 @@
     <div class="tps-tab-content">
         <!-- What's New Section -->
         <div class="tps-tab-panel active" id="whats-new">
+            <h2><?php esc_html_e('Latest Updates - 12 May 2026', 'super-testimonial'); ?></h2>
+            <ul>
+                <li># <?php esc_html_e('Fix Security Issue.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Add New Options.', 'super-testimonial'); ?></li>
+                <li># <?php esc_html_e('Fix CSS Issue.', 'super-testimonial'); ?></li>
+            </ul>
+
             <h2><?php esc_html_e('Latest Updates - 26 October 2025', 'super-testimonial'); ?></h2>
             <ul>
                 <li># <?php esc_html_e('Fix Security Issue.', 'super-testimonial'); ?></li>

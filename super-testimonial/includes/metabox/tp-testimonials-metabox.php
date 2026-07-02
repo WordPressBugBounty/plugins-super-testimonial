@@ -124,6 +124,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	$testimonial_word_limit        = get_post_meta( $post->ID, 'testimonial_word_limit', true );
 	$testimonial_read_more_text    = get_post_meta( $post->ID, 'testimonial_read_more_text', true );
 	$testimonial_read_more_color   = get_post_meta( $post->ID, 'testimonial_read_more_color', true );
+	$testimonial_read_more_hover   = get_post_meta( $post->ID, 'testimonial_read_more_hover', true );
 	$tp_company_show_hide          = get_post_meta( $post->ID, 'tp_company_show_hide', true );
 	$tp_company_url_color          = get_post_meta( $post->ID, 'tp_company_url_color', true );
 	$tp_show_rating_option         = get_post_meta( $post->ID, 'tp_show_rating_option', true );
@@ -203,8 +204,9 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 		<ul class="tab-nav">
 			<li nav="1" class="nav1 <?php if ( $nav_value == 1 ) { echo "active"; } ?>"><?php esc_html_e( 'Testimonial Query ','super-testimonial' ); ?></li>
 			<li nav="2" class="nav2 <?php if ( $nav_value == 2 ) { echo "active"; } ?>"><?php esc_html_e( 'General Settings ','super-testimonial' ); ?></li>
-			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php esc_html_e( 'Slider Settings','super-testimonial' ); ?></li>
-			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php esc_html_e( 'Grid Settings','super-testimonial' ); ?></li>
+			<li nav="3" class="nav3 <?php if ( $nav_value == 3 ) { echo "active"; } ?>"><?php esc_html_e( 'Image Settings','super-testimonial' ); ?></li>
+			<li nav="4" class="nav4 <?php if ( $nav_value == 4 ) { echo "active"; } ?>"><?php esc_html_e( 'Slider Settings','super-testimonial' ); ?></li>
+			<li nav="5" class="nav5 <?php if ( $nav_value == 5 ) { echo "active"; } ?>"><?php esc_html_e( 'Grid Settings','super-testimonial' ); ?></li>
 		</ul> <!-- tab-nav end -->
 
 		<?php 
@@ -247,7 +249,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 											        <label for="' . esc_attr( $cat_id ) . '">' . esc_html( $category->cat_name ) . '</label>
 											    </li>';
 											endforeach;
-
 										?>
 									</ul>
 									<span class="tpstestimonial_manager_hint"><?php esc_html_e('Choose multiple categories for each testimonial.', 'super-testimonial' ); ?></span>
@@ -353,22 +354,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</td>
 							</tr><!-- End Order By -->
 
-							<tr>
-								<th>
-									<label for="tp_image_sizes"><?php esc_html_e( 'Image Sizes', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Choose an image size to display perfectly', 'super-testimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="tp_image_sizes" id="tp_image_sizes" class="tp_image_sizes">
-										<option value="thumbnail" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'thumbnail' ); ?>><?php esc_html_e( 'Thumbnail', 'super-testimonial' ); ?></option>
-										<option value="medium" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium' ); ?>><?php esc_html_e( 'Medium', 'super-testimonial' ); ?></option>
-										<option value="medium_large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium_large' ); ?>><?php esc_html_e( 'Medium large', 'super-testimonial' ); ?></option>
-										<option value="large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'large' ); ?>><?php esc_html_e( 'Large', 'super-testimonial' ); ?></option>
-										<option value="full" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'full' ); ?>><?php esc_html_e( 'Full', 'super-testimonial' ); ?></option>
-									</select>
-								</td>
-							</tr><!-- End Image Size -->
-
 						</table>
 					</div>
 				</div>
@@ -380,6 +365,42 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 					<div class="option-box">
 						<p class="option-title"><?php esc_html_e( 'General Settings','super-testimonial' ); ?></p>
 						<table class="form-table">
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="tp_show_item_bg_option"><?php esc_html_e( 'Item Background', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Show/Hide Testimonial Item Background Color.', 'super-testimonial' ); ?></span>
+								</th>
+								<td style="vertical-align: middle;">
+									<div class="switch-field">
+										<input type="radio" id="tp_show_item_bg_option" name="tp_show_item_bg_option" value="1" <?php if ( $tp_show_item_bg_option == 1 ) echo 'checked'; ?>/>
+										<label for="tp_show_item_bg_option"><?php esc_html_e( 'Show', 'super-testimonial' ); ?></label>
+										<input type="radio" id="tp_hide_item_bg_option" name="tp_show_item_bg_option" value="2" <?php if ( $tp_show_item_bg_option == 2 || $tp_show_item_bg_option == '' ) echo 'checked'; ?>/>
+										<label for="tp_hide_item_bg_option"><?php esc_html_e( 'Hide', 'super-testimonial' ); ?></label>
+									</div>
+								</td>
+							</tr><!-- End Item Background Color -->
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="tp_item_bg_color"><?php esc_html_e( 'Background Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set background color for item.', 'super-testimonial' ); ?></span>
+								</th>
+								<td style="vertical-align: middle;">
+									<input type="text" id="tp_item_bg_color" name="tp_item_bg_color" value="<?php if ( $tp_item_bg_color !='' ) {echo esc_attr($tp_item_bg_color); } else{ echo "transparent"; } ?>" class="timezone_string">
+								</td>
+							</tr><!-- End Item Background Color -->
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="tp_item_padding"><?php esc_html_e( 'Item Padding', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Select Padding for items.', 'super-testimonial' ); ?></span>
+								</th>
+								<td style="vertical-align: middle;">
+									<input size="5" type="number" name="tp_item_padding" id="tp_item_padding" maxlength="3" class="timezone_string" value="<?php if ( $tp_item_padding != '' ) { echo esc_attr($tp_item_padding); } else { echo '20'; } ?>">
+								</td>
+							</tr> <!-- End Item Padding -->
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_testimonial_textalign"><?php esc_html_e( 'Text Align', 'super-testimonial' ); ?></label>
@@ -388,68 +409,14 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								<td style="vertical-align: middle;">
 									<div class="switch-field">
 										<input type="radio" id="radio-three" name="tp_testimonial_textalign" value="left" <?php if ( $tp_testimonial_textalign == 'left' ) echo 'checked'; ?>/>
-										<label for="radio-three"><?php esc_html_e( 'Left', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
+										<label for="radio-three"><span class="dashicons dashicons-editor-alignleft"></span><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
 										<input type="radio" id="radio-four" name="tp_testimonial_textalign" value="center" <?php if ( $tp_testimonial_textalign == 'center' || $tp_testimonial_textalign == '' ) echo 'checked'; ?>/>
-										<label for="radio-four"><?php esc_html_e( 'Center', 'super-testimonial' ); ?></label>
+										<label for="radio-four"><span class="dashicons dashicons-editor-aligncenter"></span></label>
 										<input type="radio" id="radio-five" name="tp_testimonial_textalign" value="right" <?php if ( $tp_testimonial_textalign == 'right' ) echo 'checked'; ?>/>
-										<label for="radio-five"><?php esc_html_e( 'Right', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
+										<label for="radio-five"><span class="dashicons dashicons-editor-alignright"></span><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
 									</div>
 								</td>
 							</tr><!-- End Text Align -->
-
-							<tr valign="top">
-								<th scope="row">
-									<label for="tp_img_show_hide"><?php esc_html_e( 'Image', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Show/Hide Testimonial Image.', 'super-testimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<div class="switch-field">
-										<input type="radio" id="tp_img_show" name="tp_img_show_hide" value="1" <?php if ( $tp_img_show_hide == 1 || $tp_img_show_hide == '' ) echo 'checked'; ?>/>
-										<label for="tp_img_show"><?php esc_html_e( 'Show', 'super-testimonial' ); ?></label>
-										<input type="radio" id="tp_img_hide" name="tp_img_show_hide" value="2" <?php if ( $tp_img_show_hide == 2 ) echo 'checked'; ?>/>
-										<label for="tp_img_hide"><?php esc_html_e( 'Hide', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
-									</div>
-								</td>
-							</tr><!-- End Image -->
-
-							<tr valign="top" id="imgBorderController" style="<?php if ( $tp_img_show_hide == 2) { echo "display:none;"; }?>">
-								<th scope="row">
-									<label for="tp_imgborder_width_option"><?php esc_html_e( 'Image Border Width', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set image border Width.', 'super-testimonial' ); ?></span>
-								</th>
-								<td>
-									<input type="number" name="tp_imgborder_width_option" min="0" max="10" value="<?php if ( $tp_imgborder_width_option !='' ) {echo esc_attr($tp_imgborder_width_option); }else{echo 0; } ?>">
-								</td>
-							</tr> <!-- End of image border width -->
-
-							<tr valign="top" id="imgColor_controller" style="<?php if ( $tp_img_show_hide == 2) { echo "display:none;"; }?>">
-								<th scope="row">
-									<label for="tp_imgborder_color_option"><?php esc_html_e( 'Image Border Color', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for image border.', 'super-testimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<input type="text" id="tp_imgborder_color_option" name="tp_imgborder_color_option" value="<?php if ( $tp_imgborder_color_option !='' ) {echo esc_attr($tp_imgborder_color_option); }else{echo "#f5f5f5"; } ?>" class="timezone_string">
-								</td>
-							</tr><!-- End Name Color -->
-
-							<tr valign="top" id="imgRadius_controller" style="<?php if ( $tp_img_show_hide == 2 ) {	echo "display:none;"; } ?>">
-								<th scope="row">
-									<label for="tp_testimonial_textalign"><?php esc_html_e( 'Image Border Radius', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Select an option for border radius of the images.', 'super-testimonial' ); ?></span>
-								</th>
-								<td style="vertical-align: middle;">
-									<select name="tp_img_border_radius" id="tp_img_border_radius" class="timezone_string">
-										<option value="0%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '0%' ); ?>><?php esc_html_e( 'Default', 'super-testimonial' ); ?></option>
-										<option value="10%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '10%' ); ?>><?php esc_html_e( '10%', 'super-testimonial' ); ?></option>
-										<option value="15%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '15%' ); ?>><?php esc_html_e( '15%', 'super-testimonial' ); ?></option>
-										<option value="20%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '20%' ); ?>><?php esc_html_e( '20%', 'super-testimonial' ); ?></option>
-										<option value="25%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '25%' ); ?>><?php esc_html_e( '25%', 'super-testimonial' ); ?></option>
-										<option value="30%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '30%' ); ?>><?php esc_html_e( '30%', 'super-testimonial' ); ?></option>
-										<option value="40%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '40%' ); ?>><?php esc_html_e( '40%', 'super-testimonial' ); ?></option>
-										<option value="50%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '50%' ); ?>><?php esc_html_e( '50%', 'super-testimonial' ); ?></option>
-									</select>
-								</td>
-							</tr><!-- End Border Radius -->
 
 							<tr valign="top">
 								<th scope="row">
@@ -513,7 +480,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									</select><br>
 								</td>
 							</tr> <!-- End Title text style -->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_name_color_option"><?php esc_html_e( 'Name Font Color', 'super-testimonial' ); ?></label>
@@ -576,7 +543,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									</div>
 								</td>
 							</tr><!-- End Designation Show/Hide -->
-							
+
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_desig_fontsize_option"><?php esc_html_e( 'Designation Font Size', 'super-testimonial' ); ?></label>
@@ -712,6 +679,16 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 							<tr valign="top">
 								<th scope="row">
+									<label for="testimonial_read_more_hover"><?php esc_html_e( 'Read More Hover Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set Read More Text Color.', 'super-testimonial' ); ?></span>
+								</th>
+								<td style="vertical-align: middle;">
+									<input type="text" id="testimonial_read_more_hover" name="testimonial_read_more_hover" value="<?php if ( $testimonial_read_more_hover !='' ) {echo esc_attr($testimonial_read_more_hover); } else{ echo "#1e73be"; } ?>" class="timezone_string">
+								</td>
+							</tr><!-- End Read More Text Color -->
+
+							<tr valign="top">
+								<th scope="row">
 									<label for="tp_show_rating_option"><?php esc_html_e( 'Rating', 'super-testimonial' ); ?></label>
 									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Show/Hide Testimonial Rating.', 'super-testimonial' ); ?></span>
 								</th>
@@ -773,48 +750,95 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</td>
 							</tr><!-- End Content Font Size-->
 
+						</table>
+					</div>
+				</div>
+			</li>
+
+			<!-- Tab 3 -->
+			<li style="<?php if($nav_value == 3){echo "display: block;";} else{ echo "display: none;"; }?>" class="box3 tab-box <?php if($nav_value == 3){echo "active";}?>">
+				<div class="wrap">
+					<div class="option-box">
+						<p class="option-title"><?php esc_html_e( 'Image Settings','super-testimonial' ); ?></p>
+						<table class="form-table">
+
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_show_item_bg_option"><?php esc_html_e( 'Item Background', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Show/Hide Testimonial Item Background Color.', 'super-testimonial' ); ?></span>
+									<label for="tp_img_show_hide"><?php esc_html_e( 'Image', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Show/Hide Testimonial Image.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<div class="switch-field">
-										<input type="radio" id="tp_show_item_bg_option" name="tp_show_item_bg_option" value="1" <?php if ( $tp_show_item_bg_option == 1 ) echo 'checked'; ?>/>
-										<label for="tp_show_item_bg_option"><?php esc_html_e( 'Show', 'super-testimonial' ); ?></label>
-										<input type="radio" id="tp_hide_item_bg_option" name="tp_show_item_bg_option" value="2" <?php if ( $tp_show_item_bg_option == 2 || $tp_show_item_bg_option == '' ) echo 'checked'; ?>/>
-										<label for="tp_hide_item_bg_option"><?php esc_html_e( 'Hide', 'super-testimonial' ); ?></label>
+										<input type="radio" id="tp_img_show" name="tp_img_show_hide" value="1" <?php if ( $tp_img_show_hide == 1 || $tp_img_show_hide == '' ) echo 'checked'; ?>/>
+										<label for="tp_img_show"><?php esc_html_e( 'Show', 'super-testimonial' ); ?></label>
+										<input type="radio" id="tp_img_hide" name="tp_img_show_hide" value="2" <?php if ( $tp_img_show_hide == 2 ) echo 'checked'; ?>/>
+										<label for="tp_img_hide"><?php esc_html_e( 'Hide', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
 									</div>
 								</td>
-							</tr><!-- End Item Background Color -->
+							</tr><!-- End Image -->
+
+							<tr>
+								<th>
+									<label for="tp_image_sizes"><?php esc_html_e( 'Image Sizes', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Choose an image size to display perfectly', 'super-testimonial' ); ?></span>
+								</th>
+								<td style="vertical-align: middle;">
+									<select name="tp_image_sizes" id="tp_image_sizes" class="tp_image_sizes">
+										<option value="thumbnail" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'thumbnail' ); ?>><?php esc_html_e( 'Thumbnail', 'super-testimonial' ); ?></option>
+										<option value="medium" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium' ); ?>><?php esc_html_e( 'Medium', 'super-testimonial' ); ?></option>
+										<option value="medium_large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'medium_large' ); ?>><?php esc_html_e( 'Medium large', 'super-testimonial' ); ?></option>
+										<option value="large" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'large' ); ?>><?php esc_html_e( 'Large', 'super-testimonial' ); ?></option>
+										<option value="full" <?php if ( isset ( $tp_image_sizes ) ) selected( $tp_image_sizes, 'full' ); ?>><?php esc_html_e( 'Full', 'super-testimonial' ); ?></option>
+									</select>
+								</td>
+							</tr><!-- End Image Size -->
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_item_bg_color"><?php esc_html_e( 'Background Color', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set background color for item.', 'super-testimonial' ); ?></span>
+									<label for="tp_imgborder_color_option"><?php esc_html_e( 'Image Border Color', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set color for image border.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
-									<input type="text" id="tp_item_bg_color" name="tp_item_bg_color" value="<?php if ( $tp_item_bg_color !='' ) {echo esc_attr($tp_item_bg_color); } else{ echo "transparent"; } ?>" class="timezone_string">
+									<input type="text" id="tp_imgborder_color_option" name="tp_imgborder_color_option" value="<?php if ( $tp_imgborder_color_option !='' ) {echo esc_attr($tp_imgborder_color_option); }else{echo "#f5f5f5"; } ?>" class="timezone_string">
 								</td>
-							</tr><!-- End Item Background Color -->
+							</tr><!-- End Name Color -->
 
 							<tr valign="top">
 								<th scope="row">
-									<label for="tp_item_padding"><?php esc_html_e( 'Item Padding', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Select Padding for items.', 'super-testimonial' ); ?></span>
+									<label for="tp_imgborder_width_option"><?php esc_html_e( 'Image Border Size', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set image border size.', 'super-testimonial' ); ?></span>
+								</th>
+								<td>
+									<input type="number" name="tp_imgborder_width_option" min="0" max="10" value="<?php if ( $tp_imgborder_width_option !='' ) {echo esc_attr($tp_imgborder_width_option); }else{echo 0; } ?>">
+								</td>
+							</tr> <!-- End of image border width -->
+
+
+							<tr valign="top">
+								<th scope="row">
+									<label for="tp_testimonial_textalign"><?php esc_html_e( 'Image Border Radius', 'super-testimonial' ); ?></label>
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Set border radius for the images.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
-									<input size="5" type="number" name="tp_item_padding" id="tp_item_padding" maxlength="3" class="timezone_string" value="<?php if ( $tp_item_padding != '' ) { echo esc_attr($tp_item_padding); } else { echo '20'; } ?>">
+									<select name="tp_img_border_radius" id="tp_img_border_radius" class="timezone_string">
+										<option value="0%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '0%' ); ?>><?php esc_html_e( 'Default', 'super-testimonial' ); ?></option>
+										<option value="10%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '10%' ); ?>><?php esc_html_e( '10%', 'super-testimonial' ); ?></option>
+										<option value="15%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '15%' ); ?>><?php esc_html_e( '15%', 'super-testimonial' ); ?></option>
+										<option value="20%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '20%' ); ?>><?php esc_html_e( '20%', 'super-testimonial' ); ?></option>
+										<option value="25%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '25%' ); ?>><?php esc_html_e( '25%', 'super-testimonial' ); ?></option>
+										<option value="30%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '30%' ); ?>><?php esc_html_e( '30%', 'super-testimonial' ); ?></option>
+										<option value="40%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '40%' ); ?>><?php esc_html_e( '40%', 'super-testimonial' ); ?></option>
+										<option value="50%" <?php if ( isset ( $tp_img_border_radius ) ) selected( $tp_img_border_radius, '50%' ); ?>><?php esc_html_e( '50%', 'super-testimonial' ); ?></option>
+									</select>
 								</td>
-							</tr> <!-- End Item Padding -->
+							</tr><!-- End Border Radius -->
 
 						</table>
 					</div>
 				</div>
 			</li>
-			
-			<!-- Tab 3 -->
-			<li style="<?php if($nav_value == 3){echo "display: block;";} else{ echo "display: none;"; }?>" class="box3 tab-box <?php if($nav_value == 3){echo "active";}?>">
+			<!-- Tab 4 -->
+			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php esc_html_e( 'Slider Settings','super-testimonial' ); ?></p>
@@ -864,7 +888,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 							<tr valign="top">
 								<th scope="row">
 									<label for="autoplaytimeout"><?php esc_html_e( 'Autoplay Time Out (Sec)', 'super-testimonial' ); ?></label>
-									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Select an option for autoplay time out.', 'super-testimonial' ); ?></span>	
+									<span class="tpstestimonial_manager_hint toss"><?php esc_html_e( 'Select an option for autoplay time out.', 'super-testimonial' ); ?></span>
 								</th>
 								<td style="vertical-align: middle;">
 									<select name="autoplaytimeout" id="autoplaytimeout" class="timezone_string">
@@ -1074,11 +1098,11 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								<td style="vertical-align: middle;">
 									<div class="switch-field">
 										<input type="radio" id="pagination_align_left" name="pagination_align" value="left" <?php if ( $pagination_align == 'left' ) echo 'checked'; ?>/>
-										<label for="pagination_align_left"><?php esc_html_e( 'Left', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
+										<label for="pagination_align_left"><span class="dashicons dashicons-editor-alignleft"></span><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
 										<input type="radio" id="pagination_align_center" name="pagination_align" value="center" <?php if ( $pagination_align == 'center' || $pagination_align == '' ) echo 'checked'; ?>/>
-										<label for="pagination_align_center"><?php esc_html_e( 'Center', 'super-testimonial' ); ?></label>
+										<label for="pagination_align_center"><span class="dashicons dashicons-editor-aligncenter"></span></label>
 										<input type="radio" id="pagination_align_right" name="pagination_align" value="right" <?php if ( $pagination_align == 'right' ) echo 'checked'; ?>/>
-										<label for="pagination_align_right"><?php esc_html_e( 'Right', 'super-testimonial' ); ?><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
+										<label for="pagination_align_right"><span class="dashicons dashicons-editor-alignright"></span><span class="mark"><?php esc_html_e( 'Pro', 'super-testimonial' ); ?></span></label>
 									</div>
 								</td>
 							</tr>
@@ -1124,8 +1148,9 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 					</div>
 				</div>
 			</li>
-			<!-- Tab 4 -->
-			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
+
+			<!-- Tab 5 -->
+			<li style="<?php if($nav_value == 5){echo "display: block;";} else{ echo "display: none;"; }?>" class="box5 tab-box <?php if($nav_value == 5){echo "active";}?>">
 				<div class="wrap">
 					<div class="option-box">
 						<p class="option-title"><?php esc_html_e( 'Grid Normal Settings','super-testimonial' ); ?>  - <a href="https://themepoints.com/testimonials" target="_blank"><?php esc_html_e( 'Unlock all upgrades with Pro!', 'super-testimonial' ); ?></a></p>
@@ -1215,11 +1240,11 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								<td style="vertical-align: middle;">
 									<div class="switch-field">
 										<input type="radio" id="filter_menu_alignment1" name="filter_menu_alignment" value="left" <?php if ( $filter_menu_alignment == 'left' ) echo 'checked'; ?>/>
-										<label for="filter_menu_alignment1"><?php esc_html_e( 'Left', 'super-testimonial' ); ?></label>
+										<label for="filter_menu_alignment1"><span class="dashicons dashicons-editor-alignleft"></span></label>
 										<input type="radio" id="filter_menu_alignment2" name="filter_menu_alignment" value="center" <?php if ( $filter_menu_alignment == 'center' || $filter_menu_alignment == '' ) echo 'checked'; ?>/>
-										<label for="filter_menu_alignment2"><?php esc_html_e( 'Center', 'super-testimonial' ); ?></label>
+										<label for="filter_menu_alignment2"><span class="dashicons dashicons-editor-aligncenter"></span></label>
 										<input type="radio" id="filter_menu_alignment3" name="filter_menu_alignment" value="right" <?php if ( $filter_menu_alignment == 'right' ) echo 'checked'; ?>/>
-										<label for="filter_menu_alignment3"><?php esc_html_e( 'Right', 'super-testimonial' ); ?></label>
+										<label for="filter_menu_alignment3"><span class="dashicons dashicons-editor-alignright"></span></label>
 									</div>
 								</td>
 							</tr><!-- End Menu Align -->
@@ -1292,7 +1317,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	</div>
 	<script type="text/javascript">
 		jQuery( document ).ready( function( jQuery ) {
-			jQuery( '#tp_item_bg_color, #tp_rating_color, #tp_content_bg_color, #tp_content_color, #tp_company_url_color, #tp_designation_color_option, #tp_title_color_option, #tp_name_color_option, #tp_imgborder_color_option, #nav_text_color, #nav_bg_color, #nav_text_color_hover, #nav_bg_color_hover, #pagination_bg_color, #pagination_bg_color_active, #filter_menu_bg_color, #filter_menu_font_color, #filter_menu_font_color_active, #filter_menu_bg_color_active, #filter_menu_font_color_hover, #filter_menu_bg_color_hover, #testimonial_read_more_color' ).wpColorPicker();
+			jQuery( '#tp_item_bg_color, #tp_rating_color, #tp_content_bg_color, #tp_content_color, #tp_company_url_color, #tp_designation_color_option, #tp_title_color_option, #tp_name_color_option, #tp_imgborder_color_option, #nav_text_color, #nav_bg_color, #nav_text_color_hover, #nav_bg_color_hover, #pagination_bg_color, #pagination_bg_color_active, #filter_menu_bg_color, #filter_menu_font_color, #filter_menu_font_color_active, #filter_menu_bg_color_active, #filter_menu_font_color_hover, #filter_menu_bg_color_hover, #testimonial_read_more_color, #testimonial_read_more_hover' ).wpColorPicker();
 		} );
 	</script>
 	<?php }
@@ -1514,6 +1539,12 @@ function tp_testimonial_meta_box_save_func( $post_id ) {
 	if ( isset( $_POST[ 'testimonial_read_more_color' ] ) ) {
 	    $testimonial_read_more_color = sanitize_hex_color( $_POST['testimonial_read_more_color'] );
 	    update_post_meta( $post_id, 'testimonial_read_more_color', $testimonial_read_more_color );
+	}
+
+	#Checks for input and sanitizes/saves if needed
+	if ( isset( $_POST[ 'testimonial_read_more_hover' ] ) ) {
+	    $testimonial_read_more_hover = sanitize_hex_color( $_POST['testimonial_read_more_hover'] );
+	    update_post_meta( $post_id, 'testimonial_read_more_hover', $testimonial_read_more_hover );
 	}
 
 	#Checks for input and sanitizes/saves if needed

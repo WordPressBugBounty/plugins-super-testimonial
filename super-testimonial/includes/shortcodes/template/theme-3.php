@@ -3,11 +3,8 @@
 if( !defined( 'ABSPATH' ) ){
     exit;
 }
+?>
 
-if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
-
-<?php }else { ?>
-	
 	<style type="text/css">
 		.testimonial-<?php echo esc_attr( $postid ); ?>{
 			padding:0px 3px;
@@ -240,5 +237,3 @@ if ( $tp_testimonial_theme_style == 2 || $tp_testimonial_theme_style == 3 ) { ?>
 			</div>
 		<?php endwhile; wp_reset_postdata(); ?>
 	</div>
-	<?php
-}

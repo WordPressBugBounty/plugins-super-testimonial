@@ -49,7 +49,7 @@
 	            ),
 	        );
 	    }
-		
+
 		$output = '';
 		$tstrndsk = rand(1,1000);
 
@@ -337,7 +337,7 @@
 					font-size: 14px;
 				}
 				.testimonial-theme3-'.esc_attr( $themes ).' .testimonial-theme3-description-'.esc_attr( $themes ).':after{
-						left: 14%;
+					left: 14%;
 				}
 			}
 			@media only screen and (max-width: 479px){
