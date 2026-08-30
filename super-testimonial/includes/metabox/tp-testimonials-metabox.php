@@ -178,7 +178,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 	if ( empty( $nav_value ) ) {
 	    $nav_value = 1;
 	}
-	
+
 	$tp_testimonial_theme_style    = ($tp_testimonial_theme_style) ? $tp_testimonial_theme_style : 1;
 	$filter_menu_styles            = ($filter_menu_styles) ? $filter_menu_styles : 1;
 	$filter_menu_alignment         = ($filter_menu_alignment) ? $filter_menu_alignment : 'center';
@@ -197,6 +197,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 
 	// Add nonce field for security
 	wp_nonce_field( 'tp_testimonials_meta_save', 'tp_testimonials_meta_nonce' );
+	
 	?>
 
 	<div class="tupsetings post-grid-metabox">
@@ -310,7 +311,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									</select>
 									<span class="tpstestimonial_manager_hint"> <a href="https://themepoints.com/testimonials" target="_blank"><?php esc_html_e( 'Unlock all Layouts upgrades with Pro!', 'super-testimonial' ); ?></a>.</span>
 								</td>
-							</tr>
+							</tr><!-- End Select Layout -->
 
 							<tr valign="top">
 								<th scope="row">
@@ -813,7 +814,6 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 								</td>
 							</tr> <!-- End of image border width -->
 
-
 							<tr valign="top">
 								<th scope="row">
 									<label for="tp_testimonial_textalign"><?php esc_html_e( 'Image Border Radius', 'super-testimonial' ); ?></label>
@@ -837,6 +837,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 					</div>
 				</div>
 			</li>
+
 			<!-- Tab 4 -->
 			<li style="<?php if($nav_value == 4){echo "display: block;";} else{ echo "display: none;"; }?>" class="box4 tab-box <?php if($nav_value == 4){echo "active";}?>">
 				<div class="wrap">
@@ -1216,6 +1217,7 @@ function tp_testimonials_display_post_type_func( $post, $args ) {
 									</select>
 								</td>
 							</tr>
+							<!-- End Filter Menu Style -->
 
 							<tr valign="top">
 							    <th scope="row">

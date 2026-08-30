@@ -161,185 +161,185 @@
 	}
 	add_action('add_meta_boxes', 'tps_super_testimonials_meta_box');
 
-/*---------------------------------------------------------------------- 
-    Content Of Testimonials Options Meta Box 
-----------------------------------------------------------------------*/
+	/*---------------------------------------------------------------------- 
+	    Content Of Testimonials Options Meta Box 
+	----------------------------------------------------------------------*/
 
-function tps_super_testimonials_inner_custom_box( $post ) {
+	function tps_super_testimonials_inner_custom_box( $post ) {
 
-    $main_title            = get_post_meta($post->ID, 'main_title', true);
-    $post_title            = get_post_meta($post->ID, 'name', true);
-    $position_input        = get_post_meta($post->ID, 'position', true);
-    $email_address         = get_post_meta($post->ID, 'email_address', true);
-    $company_input         = get_post_meta($post->ID, 'company', true);
-    $company_website       = get_post_meta($post->ID, 'company_website', true);
-    $company_rating_target = get_post_meta($post->ID, 'company_rating_target', true);
-    $testimonial_text      = get_post_meta($post->ID, 'testimonial_text', true);
+	    $main_title            = get_post_meta($post->ID, 'main_title', true);
+	    $post_title            = get_post_meta($post->ID, 'name', true);
+	    $position_input        = get_post_meta($post->ID, 'position', true);
+	    $email_address         = get_post_meta($post->ID, 'email_address', true);
+	    $company_input         = get_post_meta($post->ID, 'company', true);
+	    $company_website       = get_post_meta($post->ID, 'company_website', true);
+	    $company_rating_target = get_post_meta($post->ID, 'company_rating_target', true);
+	    $testimonial_text      = get_post_meta($post->ID, 'testimonial_text', true);
 
-    // Security nonce
-    wp_nonce_field( 'tps_super_testimonials_meta_save', 'tps_super_testimonials_meta_nonce' );
-	?>
+	    // Security nonce
+	    wp_nonce_field( 'tps_super_testimonials_meta_save', 'tps_super_testimonials_meta_nonce' );
+		?>
 
-	<div class="tps-meta-wrap">
+		<div class="tps-meta-wrap">
 
-		<div class="tps-meta-header">
-		    <div class="tps-meta-header-content">
-		        <div class="tps-meta-header-left">
-				    <span class="tps-header-icon dashicons dashicons-format-quote"></span>
-				    <h2><?php esc_html_e('Reviewer Information', 'super-testimonial'); ?></h2>
-		        </div>
+			<div class="tps-meta-header">
+			    <div class="tps-meta-header-content">
+			        <div class="tps-meta-header-left">
+					    <span class="tps-header-icon dashicons dashicons-format-quote"></span>
+					    <h2><?php esc_html_e('Reviewer Information', 'super-testimonial'); ?></h2>
+			        </div>
 
-		        <div class="tps-meta-header-right">
-		            <a 
-		                href="https://themepoints.com/testimonials"
-		                target="_blank"
-		                class="tps-upgrade-btn"
-		            >
-		                🚀 Upgrade Pro
-		            </a>
-		        </div>
-		    </div>
-		</div>
-
-	    <div class="tps-meta-grid">
-
-	        <!-- Title -->
-	        <div class="tps-field full-width">
-	            <label for="main_title">
-	                <?php esc_html_e('Title', 'super-testimonial'); ?>
-	            </label>
-
-	            <input 
-	                type="text"
-	                name="main_title"
-	                id="main_title"
-	                value="<?php echo esc_attr( $main_title ); ?>"
-	                placeholder="Headline for your testimonial"
-	            />
-	        </div>
-
-	        <!-- Full Name -->
-	        <div class="tps-field">
-	            <label for="title">
-	                <?php esc_html_e('Full Name', 'super-testimonial'); ?>
-	            </label>
-
-	            <input 
-	                type="text"
-	                name="post_title"
-	                id="title"
-	                value="<?php echo esc_attr( $post_title ); ?>"
-	                placeholder="What is your full name?"
-	            />
-	        </div>
-
-	        <!-- Position -->
-	        <div class="tps-field">
-	            <label for="position_input">
-	                <?php esc_html_e('Position', 'super-testimonial'); ?>
-	            </label>
-
-	            <input 
-	                type="text"
-	                name="position_input"
-	                id="position_input"
-	                value="<?php echo esc_attr( $position_input ); ?>"
-	                placeholder="What is your designation?"
-	            />
-	        </div>
-
-	        <!-- Email -->
-	        <div class="tps-field">
-	            <label for="email_address">
-	                <?php esc_html_e('Email Address', 'super-testimonial'); ?>
-	            </label>
-
-	            <input 
-	                type="email"
-	                name="email_address"
-	                id="email_address"
-	                value="<?php echo esc_attr( $email_address ); ?>"
-	                placeholder="What is your e-mail address?"
-	            />
-	        </div>
-
-			<div class="tps-company-row">
-			    <!-- Company Name -->
-			    <div class="tps-field">
-			        <label for="company_input">
-			            <?php esc_html_e('Company Name', 'super-testimonial'); ?>
-			        </label>
-
-			        <input 
-			            type="text"
-			            name="company_input"
-			            id="company_input"
-			            value="<?php echo esc_attr( $company_input ); ?>"
-			            placeholder="What is your company name?"
-			        />
-			    </div>
-
-			    <!-- Company URL -->
-			    <div class="tps-field">
-			        <label for="company_website_input">
-			            <?php esc_html_e('Company URL', 'super-testimonial'); ?>
-			        </label>
-
-			        <input 
-			            type="text"
-			            name="company_website_input"
-			            id="company_website_input"
-			            value="<?php echo esc_url( $company_website ); ?>"
-			            placeholder="https://www.example.com"
-			        />
+			        <div class="tps-meta-header-right">
+			            <a 
+			                href="https://themepoints.com/testimonials"
+			                target="_blank"
+			                class="tps-upgrade-btn"
+			            >
+			                🚀 Upgrade Pro
+			            </a>
+			        </div>
 			    </div>
 			</div>
 
-	        <!-- Rating -->
-	        <div class="tps-field full-width">
-	            <label>
-	                <?php esc_html_e('Rating', 'super-testimonial'); ?>
-	            </label>
+		    <div class="tps-meta-grid">
 
-	            <div class="tp-star-rating">
-	                <?php for ($i = 5; $i >= 1; $i--) : ?>
-	                    <input 
-	                        type="radio"
-	                        id="rating-<?php echo esc_attr($i); ?>"
-	                        name="company_rating_target_list"
-	                        value="<?php echo esc_attr($i); ?>"
-	                        <?php checked($company_rating_target, $i); ?>
-	                    >
+		        <!-- Title -->
+		        <div class="tps-field full-width">
+		            <label for="main_title">
+		                <?php esc_html_e('Title', 'super-testimonial'); ?>
+		            </label>
 
-	                    <label 
-	                        for="rating-<?php echo esc_attr($i); ?>"
-	                        title="<?php echo esc_attr($i . ' Star'); ?>"
-	                    >
-	                        ★
-	                    </label>
-	                <?php endfor; ?>
-	            </div>
-	        </div>
+		            <input 
+		                type="text"
+		                name="main_title"
+		                id="main_title"
+		                value="<?php echo esc_attr( $main_title ); ?>"
+		                placeholder="Headline for your testimonial"
+		            />
+		        </div>
 
-	        <!-- Testimonial -->
-	        <div class="tps-field full-width">
-	            <label for="testimonial_text_input">
-	                <?php esc_html_e('Testimonial Text', 'super-testimonial'); ?>
-	            </label>
+		        <!-- Full Name -->
+		        <div class="tps-field">
+		            <label for="title">
+		                <?php esc_html_e('Full Name', 'super-testimonial'); ?>
+		            </label>
 
-	            <textarea
-	                name="testimonial_text_input"
-	                id="testimonial_text_input"
-	                placeholder="What do you think about us?"
-	            ><?php echo esc_textarea( $testimonial_text ); ?></textarea>
-	        </div>
+		            <input 
+		                type="text"
+		                name="post_title"
+		                id="title"
+		                value="<?php echo esc_attr( $post_title ); ?>"
+		                placeholder="What is your full name?"
+		            />
+		        </div>
 
-	    </div>
+		        <!-- Position -->
+		        <div class="tps-field">
+		            <label for="position_input">
+		                <?php esc_html_e('Position', 'super-testimonial'); ?>
+		            </label>
 
-	</div>
+		            <input 
+		                type="text"
+		                name="position_input"
+		                id="position_input"
+		                value="<?php echo esc_attr( $position_input ); ?>"
+		                placeholder="What is your designation?"
+		            />
+		        </div>
 
-	<?php
-}
+		        <!-- Email -->
+		        <div class="tps-field">
+		            <label for="email_address">
+		                <?php esc_html_e('Email Address', 'super-testimonial'); ?>
+		            </label>
+
+		            <input 
+		                type="email"
+		                name="email_address"
+		                id="email_address"
+		                value="<?php echo esc_attr( $email_address ); ?>"
+		                placeholder="What is your e-mail address?"
+		            />
+		        </div>
+
+				<div class="tps-company-row">
+				    <!-- Company Name -->
+				    <div class="tps-field">
+				        <label for="company_input">
+				            <?php esc_html_e('Company Name', 'super-testimonial'); ?>
+				        </label>
+
+				        <input 
+				            type="text"
+				            name="company_input"
+				            id="company_input"
+				            value="<?php echo esc_attr( $company_input ); ?>"
+				            placeholder="What is your company name?"
+				        />
+				    </div>
+
+				    <!-- Company URL -->
+				    <div class="tps-field">
+				        <label for="company_website_input">
+				            <?php esc_html_e('Company URL', 'super-testimonial'); ?>
+				        </label>
+
+				        <input 
+				            type="text"
+				            name="company_website_input"
+				            id="company_website_input"
+				            value="<?php echo esc_url( $company_website ); ?>"
+				            placeholder="https://www.example.com"
+				        />
+				    </div>
+				</div>
+
+		        <!-- Rating -->
+		        <div class="tps-field full-width">
+		            <label>
+		                <?php esc_html_e('Rating', 'super-testimonial'); ?>
+		            </label>
+
+		            <div class="tp-star-rating">
+		                <?php for ($i = 5; $i >= 1; $i--) : ?>
+		                    <input 
+		                        type="radio"
+		                        id="rating-<?php echo esc_attr($i); ?>"
+		                        name="company_rating_target_list"
+		                        value="<?php echo esc_attr($i); ?>"
+		                        <?php checked($company_rating_target, $i); ?>
+		                    >
+
+		                    <label 
+		                        for="rating-<?php echo esc_attr($i); ?>"
+		                        title="<?php echo esc_attr($i . ' Star'); ?>"
+		                    >
+		                        ★
+		                    </label>
+		                <?php endfor; ?>
+		            </div>
+		        </div>
+
+		        <!-- Testimonial -->
+		        <div class="tps-field full-width">
+		            <label for="testimonial_text_input">
+		                <?php esc_html_e('Testimonial Text', 'super-testimonial'); ?>
+		            </label>
+
+		            <textarea
+		                name="testimonial_text_input"
+		                id="testimonial_text_input"
+		                placeholder="What do you think about us?"
+		            ><?php echo esc_textarea( $testimonial_text ); ?></textarea>
+		        </div>
+
+		    </div>
+
+		</div>
+
+		<?php
+	}
 	
 	/*===============================================
 		Save testimonial Options Meta Box Function

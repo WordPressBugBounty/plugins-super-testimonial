@@ -66,9 +66,6 @@ tr.type-ktsprotype.status-draft {
 .tp-star-rating input:checked + label ~ label {
   color: #f5c518; /* Gold color when selected */
 }
-
-
-
 .tps-meta-wrap{
     --tps-primary:#7c3aed;
     --tps-secondary:#06b6d4;
@@ -410,7 +407,6 @@ tr.type-ktsprotype.status-draft {
 ======================================== */
 
 @media(max-width:768px){
-
     .tps-meta-header{
         padding:25px;
     }
@@ -422,24 +418,23 @@ tr.type-ktsprotype.status-draft {
     }
 }
 
-
 #custom_meta_box .postbox-header{
-display:none;
+  display:none;
 }
 
 #custom_meta_box .inside{
-margin:0;
-padding:0;
+  margin:0;
+  padding:0;
 }
 
 .tps-meta-header-content .tps-meta-header-left-doc {
-display: block;
+  display: block;
 }
 
 .tps-meta-header-content .tps-meta-header-left-doc p {
-color: #fff;
+  color: #fff;
 }
 
 .tps-tab-panel ul li img {
-max-width: 100%;
+  max-width: 100%;
 }

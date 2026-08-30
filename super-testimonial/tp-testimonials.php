@@ -3,7 +3,7 @@
 	Plugin Name: Super Testimonial
 	Plugin URI: https://themepoints.com/testimonials/
 	Description: Super Testimonials is a responsive plugin designed for both mobile and desktop devices. It allows users to easily add testimonials as widgets, in the sidebar, or directly within pages and posts using shortcodes.
-	Version: 5.0.1
+	Version: 5.0.2
 	Author: Themepoints
 	Author URI: https://themepoints.com
 	Text Domain: super-testimonial
@@ -20,7 +20,7 @@
 	 */
 
 	if ( !defined( 'TPS_TESTIMONIAL_VERSION' ) ) {
-	    define( 'TPS_TESTIMONIAL_VERSION', '5.0.1' );
+	    define( 'TPS_TESTIMONIAL_VERSION', '5.0.2' );
 	}
 
 	if ( !defined( 'TPS_TESTIMONIAL_PLUGIN_DIR' ) ) {

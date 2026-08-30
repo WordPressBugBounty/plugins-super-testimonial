@@ -4,7 +4,7 @@ Donate link: https://themepoints.com/testimonials/
 Tags: testimonial, testimonial slider, customer review, WordPress testimonials, client testimonial
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 5.0.1
+Stable tag: 5.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -211,6 +211,11 @@ You can upgrade anytime by visiting the [official website](https://themepoints.c
 
 == Changelog ==
 
+= 5.0.2 =
+*Release Date - 30 August 2026*
+ * Update Admin Interface.
+ * Performance Improvements.
+ 
 = 5.0.1 =
 *Release Date - 12 May 2026*
  * Update Admin Interface.

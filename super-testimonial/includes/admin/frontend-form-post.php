@@ -300,6 +300,7 @@ function tps_render_testimonial_form_metabox($post) {
         // Default notification body text with a link
         $notification_body = "New Testimonial!\n\nHi There,\n\nA new testimonial has been submitted to your website. Following is the reviewer's information:\n\nName: {name}\nEmail: {email}\nTestimonial Content: {testimonial_text}\nRating: {rating}\n\nPlease go to the Admin dashboard to review it and publish It:\n\nThank you!";
     }
+
     ?>
 
 	<div class="tupsetings post-grid-metabox">
@@ -886,18 +887,18 @@ function tps_render_testimonial_form_metabox($post) {
                                 </th>
                                 <td style="vertical-align: middle;">
                                     <?php
-                                    // TinyMCE Editor for Notification Body
-                                    wp_editor(
-                                        $notification_body, // Default content
-                                        'notification_body', // Editor ID
-                                        array(
-                                            'textarea_name' => 'notification_body',
-                                            'textarea_rows' => 18,
-                                            'media_buttons' => false,
-                                            'teeny' => true,
-                                            'quicktags' => true,
-                                        )
-                                    );
+                                        // TinyMCE Editor for Notification Body
+                                        wp_editor(
+                                            $notification_body, // Default content
+                                            'notification_body', // Editor ID
+                                            array(
+                                                'textarea_name' => 'notification_body',
+                                                'textarea_rows' => 18,
+                                                'media_buttons' => false,
+                                                'teeny' => true,
+                                                'quicktags' => true,
+                                            )
+                                        );
                                     ?>
                                     <p class="description">
                                         Use placeholders like <code>{name}</code>, <code>{email}</code>, <code>{testimonial_text}</code>, and <code>{rating}</code> to include dynamic content in the email.
